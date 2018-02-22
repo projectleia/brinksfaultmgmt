@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_brla_fm_fault_alert</collection>
+        <condition>current.processing_status == 'In process' &amp;&amp; current.fault.threshold &gt; 1</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Process check threshold</name>
+        <onclick/>
+        <order>530</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	var ignore = true;
+	var threshold = current.fault.threshold;
+	var alert_count = 1;
+	//need to check how many faults with this code against this device, that HAVENT been cleared
+	var fault_alert = new GlideRecord('x_brla_fm_fault_alert');
+	fault_alert.addQuery('device', current.device);
+	fault_alert.addQuery('fault', current.fault);
+	fault_alert.addQuery('sys_id', '!=', current.sys_id);
+	fault_alert.addQuery("host_timestampONLast 2 hours@javascript:gs.beginningOfLast2Hours()@javascript:gs.endOfLast2Hours()");
+	fault_alert.orderByDesc('host_timestamp');
+	fault_alert.query();
+	var keep_searching = true;
+	while(fault_alert.next() && keep_searching) {
+		if(fault_alert.processing_status == 'Ignored') alert_count++;
+		else keep_searching = false;
+	}
+	if(alert_count >= threshold) ignore = false;
+	if(ignore) {
+		current.processing_status = 'Ignored';
+		current.processing_message = 'Threshold not met: '+alert_count+' of '+current.fault.threshold;
+	}
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-09-29 11:13:54</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>790e9ebcdbed4300ac79540adc961928</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Process check threshold</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_790e9ebcdbed4300ac79540adc961928</sys_update_name>
+        <sys_updated_by>manish.admin</sys_updated_by>
+        <sys_updated_on>2017-12-05 13:56:47</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+</record_update>

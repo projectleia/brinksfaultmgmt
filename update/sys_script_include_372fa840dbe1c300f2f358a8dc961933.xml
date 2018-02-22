@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_brla_fm.AWSMessage</api_name>
+        <client_callable>false</client_callable>
+        <description>//ReceiveMessage&#13;
+var req = new AWSMessage();&#13;
+req.debug = true;&#13;
+req.canonical_query_string.VisibilityTimeout = "120"; //2 minutes to delete records&#13;
+req.canonical_query_string.MaxNumberOfMessages = "5";&#13;
+req.signRequest();&#13;
+req.execute();&#13;
+&#13;
+//DeleteMessage&#13;
+var req = new AWSMessage();&#13;
+req.encode_slash = true; //needed for receipt handle payload encoding&#13;
+req.canonical_query_string = {"Action":"DeleteMessage", "ReceiptHandle":current.u_receipt_handle+''};&#13;
+req.signRequest();&#13;
+req.execute();</description>
+        <name>AWSMessage</name>
+        <script><![CDATA[var AWSMessage = Class.create();
+AWSMessage.prototype = {
+	initialize: function() {
+		var c = new x_brla_fm.Crypto();
+		this.CryptoJS = c.CryptoJS;
+		this.debug = false;
+		this.end = false;
+
+		//timestamp
+		var d = new Date();
+		d = new Date(d.getTime() + 5*60000); //minutes
+		d = d.toISOString().split('.')[0]+"Z"; //split out milliseconds
+		this.sig_timestamp = d.replace(/[^a-zA-Z0-9]/g, "");
+		this.sig_date = this.sig_timestamp.split("T")[0];
+
+		this.encrypt_method = gs.getProperty('x_brla_fm.aws.encrypt_method');
+		this.access_key_id = gs.getProperty('x_brla_fm.aws.access_key_id');
+		this.access_key_secret = gs.getProperty('x_brla_fm.aws.access_key_secret');
+		this.canonical_uri = gs.getProperty('x_brla_fm.aws.canonical_uri');
+		this.aws_region = 'us-east-1';
+		this.aws_service = 'sqs';
+		this.host = 'sqs.us-east-1.amazonaws.com';
+		this.canonical_query_string = {"Action":"ReceiveMessage", "AttributeName":"All;", "MaxNumberOfMessages": "10"};
+		this.http_verb = 'GET';
+		this.signed_headers = 'host;x-amz-content-sha256;x-amz-date';
+		this.payload = "";
+		this.encode_slash = false;
+	},
+	signRequest: function() {
+		this.credential = this.getCred();
+		this.signature = this.getSignature();
+		this.authorization = this.encrypt_method+" Credential="+this.credential+",SignedHeaders="+this.signed_headers+',Signature='+this.signature;
+	},
+	getSignature: function() {
+		/*
+        DateKey              = HMAC-SHA256("AWS4"+"<SecretAccessKey>", "<YYYYMMDD>")
+        DateRegionKey        = HMAC-SHA256(<DateKey>, "<aws-region>")
+        DateRegionServiceKey = HMAC-SHA256(<DateRegionKey>, "<aws-service>")
+        SigningKey           = HMAC-SHA256(<DateRegionServiceKey>, "aws4_request")
+        */
+		var date_key = this.CryptoJS.HmacSHA256(this.sig_date, "AWS4"+this.access_key_secret);
+		var date_region_key = this.CryptoJS.HmacSHA256(this.aws_region, date_key);
+		var date_region_service_key = this.CryptoJS.HmacSHA256(this.aws_service, date_region_key);
+		this.signing_key = this.CryptoJS.HmacSHA256('aws4_request', date_region_service_key);
+
+		//gs.info("\n\nSIGNING KEY: "+signing_key);
+		return this.CryptoJS.HmacSHA256(this.getStringToSign(), this.signing_key).toString(this.CryptoJS.enc.Hex);
+	},
+	getCred: function() {
+		return this.access_key_id+'/'+this.sig_date+'/'+this.aws_region+'/'+this.aws_service+'/aws4_request';
+	},
+	getStringToSign: function() {
+		/*
+        AWS4-HMAC-SHA256" + "\n" +
+        timeStampISO8601Format + "\n" +
+        <Scope> + "\n" +
+        Hex(SHA256Hash(<CanonicalRequest>))
+        */
+		this.string_to_sign = this.encrypt_method + "\n" +
+			this.sig_timestamp + "\n" +
+			this.sig_date+"/"+this.aws_region+"/"+this.aws_service+"/aws4_request" + "\n" +
+			this.CryptoJS.SHA256(this.createCanonicalRequest()).toString(this.CryptoJS.enc.Hex);
+
+		return this.string_to_sign;
+	},
+	createCanonicalRequest: function() {
+		/*
+        <HTTPMethod>\n
+        <CanonicalURI>\n
+        <CanonicalQueryString>\n
+        <CanonicalHeaders>\n
+        <SignedHeaders>\n
+        <HashedPayload>
+        */
+		this.canonical_request = this.http_verb+"\n"+
+			this.canonical_uri+"\n"+
+			this.buildQueryString(this.canonical_query_string)+"\n"+
+			"host:"+this.host+"\n"+
+			"x-amz-content-sha256:"+this.getPayload()+"\n"+
+			"x-amz-date:"+this.sig_timestamp+"\n\n"+
+			this.signed_headers+"\n"+
+			this.getPayload();
+		//gs.info("\n\nCononical Request:\n"+cr)
+
+		return this.canonical_request;
+	},
+	uriEncode: function(input) {
+		var ret = '';
+		for (var i = 0; i < input.length; i++) {
+			var ch = input.charAt(i);
+			if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') ||
+				(ch >= '0' && ch <= '9') || ch == '_' || ch == '-' || ch == '~' || ch == '.') {
+				ret+=ch;
+			} else if (ch == "/") {
+				ret+= this.encode_slash ? "%2F" : ch;
+			} else {
+				ret += "%"+ch.charCodeAt(0).toString(16).toUpperCase();
+			}
+		}
+		return ret;
+	},
+	buildQueryString: function(obj) {
+		var ret = [];
+		for (var i in obj) {
+			ret.push(this.uriEncode(i) + "=" + this.uriEncode(obj[i]));
+		}
+		return ret.join("&");
+	},
+	getPayload: function() {
+		return this.CryptoJS.SHA256(this.payload).toString(this.CryptoJS.enc.Hex);
+	},
+	execute: function() {
+		if (this.debug) {
+			gs.info("\nsigning key: \n"+this.signing_key+"\n");
+			gs.info("\nsignature: \n"+this.signature+"\n");
+			gs.info("\ncanonical request: \n"+this.canonical_request+"\n");
+			gs.info("\nstring to sign: \n"+this.string_to_sign+"\n");
+		}
+		var req = new sn_ws.RESTMessageV2();
+		req.setHttpMethod(this.http_verb);
+		req.setEndpoint("https://"+this.host+this.canonical_uri+"?"+this.buildQueryString(this.canonical_query_string));
+		req.setRequestHeader("Authorization",this.authorization);
+		req.setRequestHeader("x-amz-content-sha256",this.getPayload());
+		req.setRequestHeader("x-amz-date",this.sig_timestamp);
+		var response = req.execute();
+		var responseBody = response.getBody();
+		this.error_code = response.getErrorCode();
+		this.error_message = response.getErrorMessage();
+		this.response_body = responseBody;
+
+		if (this.debug) {
+			gs.info("endpoint: "+req.getEndpoint());
+			gs.info("error_code: "+this.error_code);
+			gs.info("error_message: "+this.error_message);
+			gs.info("response: "+responseBody);
+		}
+
+		if (this.canonical_query_string && this.canonical_query_string.Action != "DeleteMessage") {
+			var xmlhelper = new global.XMLHelper(responseBody);
+			var resp_obj = xmlhelper.toObject();
+
+			if (resp_obj.hasOwnProperty('ReceiveMessageResult') && resp_obj.ReceiveMessageResult != null &&
+				resp_obj.ReceiveMessageResult.hasOwnProperty('Message') && resp_obj.ReceiveMessageResult != null) {
+				resp_obj = resp_obj.ReceiveMessageResult.Message;
+				if (resp_obj.length != undefined) {
+					for (var i = 0; i < resp_obj.length; i++ ) {
+						this.createPayloadRecord(responseBody, resp_obj[i].Body, resp_obj[i].ReceiptHandle);
+					}
+				} else {
+					this.createPayloadRecord(responseBody, resp_obj.Body, resp_obj.ReceiptHandle);
+				}
+			} else {
+				this.end = true;
+				this.createPayloadRecord(responseBody, 'end', '');
+			}
+		}
+
+	},
+	createPayloadRecord: function(responseBody, responseBodyJson, receiptHandle) {
+		var sqs = new GlideRecord('x_brla_fm_aws_sqs_event');
+		sqs.initialize();
+		sqs.canonical_request = this.canonical_request;
+		sqs.error_code = this.error_code;
+		sqs.error_messages = this.error_message;
+		sqs.json_message = responseBodyJson;
+		sqs.payload = responseBody;
+		sqs.receipt_handle = receiptHandle;
+		sqs.string_to_sign = this.string_to_sign;
+		sqs.insert();
+	},
+	type: 'AWSMessage'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>blake.duckworth@techport13.com</sys_created_by>
+        <sys_created_on>2017-09-26 19:14:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>372fa840dbe1c300f2f358a8dc961933</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>AWSMessage</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_include_372fa840dbe1c300f2f358a8dc961933</sys_update_name>
+        <sys_updated_by>blake.duckworth@techport13.com</sys_updated_by>
+        <sys_updated_on>2017-11-16 23:16:43</sys_updated_on>
+    </sys_script_include>
+</record_update>

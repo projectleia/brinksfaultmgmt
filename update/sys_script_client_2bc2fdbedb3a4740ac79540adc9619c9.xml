@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>address</field>
+        <global>true</global>
+        <messages/>
+        <name>TP Hide Related Lists</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+   //Type appropriate comment here, and begin script below
+	if(!g_user.hasRole('manifests')){
+		g_form.hideRelatedList('u_competitor_delivery_manifests.u_branch_id');
+	}
+	if(!g_user.hasRole('x_brla_fm.user') && !g_user.hasRole('x_brla_fm.admin') && !g_user.hasRole('x_brla_ncc_fleet.user')){
+		g_form.hideRelatedList('x_brla_fm_branch_team_member.branch');
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>jordan.admin</sys_created_by>
+        <sys_created_on>2017-12-06 16:33:36</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2bc2fdbedb3a4740ac79540adc9619c9</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>TP Hide Related Lists</sys_name>
+        <sys_overrides display_value="">global</sys_overrides>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_client_2bc2fdbedb3a4740ac79540adc9619c9</sys_update_name>
+        <sys_updated_by>jordan.admin</sys_updated_by>
+        <sys_updated_on>2017-12-06 16:48:15</sys_updated_on>
+        <table>x_brla_fm_branch</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

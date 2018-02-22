@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="BFM Safe Profile Import" max_length="40" name="x_brla_fm_bfm_safe_profile_import" type="collection">
+        <element attributes="import_attribute_name=Address,edge_encryption_enabled=true" label="Address" max_length="77" name="u_address" type="string"/>
+        <element attributes="import_attribute_name=Add-on Module 1,edge_encryption_enabled=true" label="Add-on Module 1" max_length="40" name="u_add_on_module_1" type="string"/>
+        <element attributes="import_attribute_name=Add-on Module 2,edge_encryption_enabled=true" label="Add-on Module 2" max_length="40" name="u_add_on_module_2" type="string"/>
+        <element attributes="import_attribute_name=Add-on Module 3,edge_encryption_enabled=true" label="Add-on Module 3" max_length="40" name="u_add_on_module_3" type="string"/>
+        <element attributes="import_attribute_name=Alpha ID,edge_encryption_enabled=true" label="Alpha ID" max_length="40" name="u_alpha_id" type="string"/>
+        <element attributes="import_attribute_name=Bank,edge_encryption_enabled=true" label="Bank" max_length="40" name="u_bank" type="string"/>
+        <element attributes="import_attribute_name=Branch ID,edge_encryption_enabled=true" label="Branch ID" max_length="40" name="u_branch_id" type="string"/>
+        <element attributes="import_attribute_name=Branch MP,edge_encryption_enabled=true" label="Branch MP" max_length="40" name="u_branch_mp" type="string"/>
+        <element attributes="import_attribute_name=Cellular - Phone #,edge_encryption_enabled=true" label="Cellular - Phone #" max_length="40" name="u_cellular___phone__" type="string"/>
+        <element attributes="import_attribute_name=City,edge_encryption_enabled=true" label="City" max_length="40" name="u_city" type="string"/>
+        <element attributes="import_attribute_name=CompuSafe Model,edge_encryption_enabled=true" label="CompuSafe Model" max_length="40" name="u_compusafe_model" type="string"/>
+        <element attributes="import_attribute_name=Connectivity,edge_encryption_enabled=true" label="Connectivity" max_length="40" name="u_connectivity" type="string"/>
+        <element attributes="import_attribute_name=Contract ID" label="Contract ID" max_length="40" name="u_contract_id" type="integer"/>
+        <element attributes="import_attribute_name=Daily Credit,edge_encryption_enabled=true" label="Daily Credit" max_length="40" name="u_daily_credit" type="string"/>
+        <element attributes="import_attribute_name=FLM - IS,edge_encryption_enabled=true" label="FLM - IS" max_length="40" name="u_flm___is" type="string"/>
+        <element attributes="import_attribute_name=FLM - OOS,edge_encryption_enabled=true" label="FLM - OOS" max_length="40" name="u_flm___oos" type="string"/>
+        <element attributes="import_attribute_name=Installation Location,edge_encryption_enabled=true" label="Installation Location" max_length="40" name="u_installation_location" type="string"/>
+        <element attributes="import_attribute_name=Install Date,edge_encryption_enabled=true" label="Install Date" max_length="40" name="u_install_date" type="string"/>
+        <element attributes="import_attribute_name=Location Status,edge_encryption_enabled=true" label="Location Status" max_length="40" name="u_location_status" type="string"/>
+        <element attributes="import_attribute_name=Location Table Key,edge_encryption_enabled=true" label="Location Table Key" max_length="43" name="u_location_table_key" type="string"/>
+        <element attributes="import_attribute_name=Manufacturer,edge_encryption_enabled=true" label="Manufacturer" max_length="40" name="u_manufacturer" type="string"/>
+        <element attributes="import_attribute_name=Safe Serial #,edge_encryption_enabled=true" label="Safe Serial #" max_length="40" name="u_safe_serial__" type="string"/>
+        <element attributes="import_attribute_name=Service Days,edge_encryption_enabled=true" label="Service Days" max_length="40" name="u_service_days" type="string"/>
+        <element attributes="import_attribute_name=Site Phone #,edge_encryption_enabled=true" label="Site Phone #" max_length="48" name="u_site_phone__" type="string"/>
+        <element attributes="import_attribute_name=State,edge_encryption_enabled=true" label="State" max_length="40" name="u_state" type="string"/>
+        <element attributes="import_attribute_name=Time Zone,edge_encryption_enabled=true" label="Time Zone" max_length="40" name="u_time_zone" type="string"/>
+        <element attributes="import_attribute_name=Weekly Frequency,edge_encryption_enabled=true" label="Weekly Frequency" max_length="40" name="u_weekly_frequency" type="string"/>
+        <element attributes="import_attribute_name=ZIP,edge_encryption_enabled=true" label="ZIP" max_length="40" name="u_zip" type="string"/>
+        <element attributes="import_attribute_name=Zone,edge_encryption_enabled=true" label="Zone" max_length="40" name="u_zone" type="string"/>
+    </element>
+</database>

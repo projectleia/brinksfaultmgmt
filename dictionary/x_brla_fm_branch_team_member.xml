@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Branch Team Member" max_length="40" name="x_brla_fm_branch_team_member" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Branch" max_length="32" name="branch" reference="x_brla_fm_branch" type="reference"/>
+        <element label="Carrier" max_length="32" name="carrier" reference="x_brla_fm_carrier" type="reference"/>
+        <element label="Member" max_length="32" name="member" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Mobile number" max_length="40" name="mobile_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Team" max_length="40" name="team" type="string">
+            <choice>
+                <element label="ALL" sequence="0" value="ALL"/>
+                <element label="COMPSAFE AND CSafe" sequence="1" value="COMPSAFE AND CSafe"/>
+                <element label="COMPSAFE AND FLM" sequence="2" value="COMPSAFE AND FLM"/>
+                <element label="CompuSafe" sequence="3" value="CompuSafe"/>
+                <element label="COMPUSAFE and ECash" sequence="4" value="COMPUSAFE and ECash"/>
+                <element label="COMPUSAFE,CSAFE and ECASH" sequence="5" value="COMPUSAFE,CSAFE and ECASH"/>
+                <element label="COMPUSAFE,CSAFE and FLM" sequence="6" value="COMPUSAFE,CSAFE and FLM"/>
+                <element label="COMPUSAFE,ECASH and ECASH" sequence="7" value="COMPUSAFE,ECASH and ECASH"/>
+                <element label="CSafe" sequence="8" value="CSafe"/>
+                <element label="Csafe and Ecash" sequence="9" value="Csafe and Ecash"/>
+                <element label="CSAFE and FLM" sequence="10" value="CSAFE and FLM"/>
+                <element label="CSAFE,ECASH and FLM" sequence="11" value="CSAFE,ECASH and FLM"/>
+                <element label="ECash" sequence="12" value="ECash"/>
+                <element label="ECASH &amp; FLM" sequence="13" value="ECASH &amp; FLM"/>
+                <element label="FLM" sequence="14" value="FLM"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Teams" max_length="100" name="teams" type="string"/>
+        <element label="Verified" max_length="40" name="verified" read_only="true" type="boolean"/>
+        <element label="Verified date" max_length="40" name="verified_date" read_only="true" type="glide_date_time"/>
+        <index name="index">
+            <element name="carrier"/>
+        </index>
+        <index name="index2">
+            <element name="member"/>
+        </index>
+        <index name="index3">
+            <element name="branch"/>
+        </index>
+    </element>
+</database>

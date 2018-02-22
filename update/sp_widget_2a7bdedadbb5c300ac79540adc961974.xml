@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, spUtil, $rootScope) {
+	var c = this;
+
+	c.init = function() {
+		if (!c.data.show) {
+			return;
+		}
+		c.safe = c.data.safe;
+		c.ticket = c.data.ticket;
+
+		console.log(c.data);
+	};
+
+	$scope.$on('record.updated', function(name, data) {
+		c.server.update().then(function(response) {
+			c.init();	
+		});
+	});
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.header-section {&#13;
+  line-height: 1;&#13;
+  color: #2d2a26;&#13;
+  margin-bottom: 15px;&#13;
+&#13;
+  .title {&#13;
+    margin-bottom: 5px;&#13;
+    font-size: 28px;&#13;
+  }&#13;
+&#13;
+  .number {&#13;
+    font-size: 14px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.field-area {&#13;
+  font-size: 14px;&#13;
+  letter-spacing: -.025em;&#13;
+  color: #2d2a26;&#13;
+  border-top: 4px solid #dadad2;&#13;
+  border-bottom: 4px solid #dadad2;&#13;
+&#13;
+  .field-row {&#13;
+    min-height: 50px;&#13;
+    border-top: 1px solid #dadad2;&#13;
+    display: flex;&#13;
+    padding: 10px 0px;&#13;
+&#13;
+    label {&#13;
+      flex: 0 0 200px;&#13;
+      text-align: right;&#13;
+      margin-bottom: 0px;&#13;
+      padding-right: 15px;&#13;
+      display: flex;&#13;
+      justify-content: center;&#13;
+      flex-direction: column;&#13;
+    }&#13;
+&#13;
+    .field-value {&#13;
+      font-size: 18px;&#13;
+      font-weight: bold;&#13;
+      display: flex;&#13;
+      justify-content: center;&#13;
+      flex-direction: column;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  .field-row:first-of-type {&#13;
+    border-top: none; &#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Fault case detail</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.show = false;
+	var gr = $sp.getRecord();
+	data.canRead = gr.canRead();
+	if (!data.canRead) {
+		return;
+	}
+
+	data.table = gr.getTableName();
+
+	if (data.table != 'x_brla_fm_fault_case') {
+		return;
+	}
+
+	data.sys_id = gr.getUniqueValue();
+	data.tableLabel = gr.getLabel();
+
+	var ticket = {};
+	$sp.getRecordDisplayValues(ticket, gr, 'sys_id,number,short_description,description,contact,category,priority,assignment_group,assigned_to,opened_at,state');
+	ticket.opened_at_value = gr.opened_at + '';
+	ticket.device_value = gr.device + '';
+	ticket.state_value = gr.state + '';
+	data.ticket = ticket;
+
+	data.show_safe_details = false;
+
+	var safe = {};
+	if (ticket.device_value != '') {
+		data.show_safe_details = true;
+		var safeGR = new GlideRecord('x_brla_fm_safe');
+		if (safeGR.get(ticket.device_value)) {
+			safe.sys_id = safeGR.sys_id + '';
+			safe.manufacturer = safeGR.manufacturer.getDisplayValue();
+			safe.model_number = safeGR.model_number.getDisplayValue();
+			safe.armored_branch = safeGR.armored_branch.getDisplayValue();
+			safe.servicing_branch = safeGR.servicing_branch.getDisplayValue();
+			safe.primary_flm = safeGR.primary_flm.getDisplayValue();
+			safe.unit_phone = safeGR.unit_phone.getDisplayValue();
+			safe.time_zone = safeGR.time_zone.getDisplayValue();
+			safe.address = safeGR.address.getDisplayValue();
+			safe.city = safeGR.city.getDisplayValue();
+			safe.state = safeGR.state.getDisplayValue();
+		}
+	}
+	data.safe = safe;
+
+	data.ticket_variables = $sp.getVariablesArray();
+
+	data.show = true;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:09:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2a7bdedadbb5c300ac79540adc961974</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Safe - Fault case detail</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_2a7bdedadbb5c300ac79540adc961974</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-16 20:15:04</sys_updated_on>
+        <template><![CDATA[<div ng-if="c.data.show">
+  <div>
+    <a href="?id=safe_issues" class="btn btn-primary btn-lg m-r">
+      <span class="fa fa-fw fa-long-arrow-left" /> Reported Issues
+    </a>
+
+    <a href="?id=safe_create_incident" class="btn btn-danger btn-lg m-r">
+      <span class="fa fa-fw fa-flag" /> Report a New Issue
+    </a>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="inner">
+        <h4>Case Details</h4>
+
+        <div class="header-section">
+          <h2 class="title">{{c.data.ticket.short_description}}</h2>
+          <span class="number text-muted"># {{c.data.ticket.number}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="inner">
+        <h4>Safe Details</h4>
+
+        <ul>
+          <li>Manufacturer: {{c.safe.manufacturer}}</li>
+          <li>Model number: {{c.safe.model_number}}</li>
+          <li>Armored branch: {{c.safe.armored_branch}}</li>
+          <li>Servicing branch: {{c.safe.servicing_branch}}</li>
+          <li>Primary FLM: {{c.safe.primary_flm}}</li>
+          <li>Time Zone: {{c.safe.time_zone}}</li>
+        </ul>
+
+        <address>
+          {{c.safe.address}}<br>
+          {{c.safe.city}}, {{c.safe.state}} {{c.safe.zip}}<br>
+          <abbr title="Phone">P:</abbr> <a ng-href="tel:{{c.safe.unit_phone}}">{{c.safe.unit_phone}}</a>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-section">
+    <h2 class="title">{{c.data.ticket.short_description}}</h2>
+    <span class="number text-muted"># {{c.data.ticket.number}}</span>
+  </div>
+
+  <div class="m-b">
+    <div class="field-area">
+      <div class="field-row">
+        <label>Opened by</label>
+        <span class="field-value">
+          {{data.ticket.opened_by}}
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label>Safe name</label>
+        <span class="field-value">
+          {{c.data.ticket.safe_name}}
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label>Model</label>
+        <span class="field-value">
+          {{c.data.ticket.safe_model}}
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label>Serial #</label>
+        <span class="field-value">
+          {{c.data.ticket.safe_sn}}
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label>Site ID</label>
+        <span class="field-value">
+          {{c.data.ticket.site_id}}
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label>Location</label>
+        <span class="field-value">
+          {{c.data.ticket.location}}
+        </span>
+      </div>
+      <!--
+<div class="field-row" ng-repeat="ticket_variable in c.data.ticket_variables">
+<label>{{ticket_variable.label}}</label>
+<span class="field-value">
+{{ticket_variable.display_value}}
+</span>
+</div>
+</div>
+-->
+    </div>
+  </div>]]></template>
+    </sp_widget>
+</record_update>

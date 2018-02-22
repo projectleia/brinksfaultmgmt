@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="AWS SQS Event" max_length="40" name="x_brla_fm_aws_sqs_event" sizeclass="5750" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Canonical request" max_length="4000" name="canonical_request" type="string"/>
+        <element label="Deleted" max_length="40" name="deleted" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Delete error code" max_length="40" name="delete_error_code" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Delete error messages" max_length="4000" name="delete_error_messages" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Delete response" max_length="4000" name="delete_response" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Error code" max_length="40" name="error_code" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Error messages" max_length="4000" name="error_messages" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="JSON message" max_length="4000" name="json_message" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Payload" max_length="1048576" name="payload" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Receipt handle" max_length="4000" name="receipt_handle" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="String to sign" max_length="1000" name="string_to_sign" type="string"/>
+    </element>
+</database>

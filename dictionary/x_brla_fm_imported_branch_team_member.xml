@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="Imported Branch Team Member" max_length="40" name="x_brla_fm_imported_branch_team_member" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="BranchID" max_length="40" name="u_branchid" type="string"/>
+        <element attributes="import_attribute_name=BranchName,edge_encryption_enabled=true" label="BranchName" max_length="40" name="u_branchname" type="string"/>
+        <element attributes="import_attribute_name=DeviceNumber,edge_encryption_enabled=true" label="DeviceNumber" max_length="40" name="u_devicenumber" type="string"/>
+        <element attributes="import_attribute_name=FirstName,edge_encryption_enabled=true" label="FirstName" max_length="40" name="u_firstname" type="string"/>
+        <element attributes="import_attribute_name=FK_ServiceProvider,edge_encryption_enabled=true" label="FK_ServiceProvider" max_length="40" name="u_fk_serviceprovider" type="string"/>
+        <element attributes="import_attribute_name=LastName,edge_encryption_enabled=true" label="LastName" max_length="40" name="u_lastname" type="string"/>
+        <element attributes="import_attribute_name=ServiceProviderName,edge_encryption_enabled=true" label="ServiceProviderName" max_length="40" name="u_serviceprovidername" type="string"/>
+        <element attributes="import_attribute_name=TeamName,edge_encryption_enabled=true" label="TeamName" max_length="40" name="u_teamname" type="string"/>
+        <element attributes="import_attribute_name=TeamTypeName,edge_encryption_enabled=true" label="TeamTypeName" max_length="40" name="u_teamtypename" type="string"/>
+    </element>
+</database>

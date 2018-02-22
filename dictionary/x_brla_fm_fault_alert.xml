@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Fault Alert" max_length="40" name="x_brla_fm_fault_alert" sizeclass="5646" type="collection">
+        <element label="Active Case" max_length="40" name="active_case" type="boolean"/>
+        <element label="Case Record" max_length="32" name="case_record" reference="x_brla_fm_fault_case" type="reference"/>
+        <element label="Device" max_length="32" name="device" reference="x_brla_fm_vault" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Device ID" max_length="40" name="device_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Device serial number" max_length="40" name="device_serial_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Ext user reference" max_length="40" name="ext_user_reference" type="string"/>
+        <element label="Fault" max_length="32" name="fault" reference="x_brla_fm_fault_code" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Fault code" max_length="40" name="fault_code" type="string"/>
+        <element label="Host timestamp" max_length="40" name="host_timestamp" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Message text" max_length="1000" name="message_text" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Processing Message" max_length="100" name="processing_message" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Processing Status" max_length="40" name="processing_status" type="string">
+            <choice>
+                <element label="Case Created" sequence="0" value="Case Created"/>
+                <element label="Case Updated" sequence="1" value="Case Updated"/>
+                <element label="Case Cleared" sequence="2" value="Case Cleared"/>
+                <element label="Case Deleted" sequence="3" value="Case Deleted"/>
+                <element label="Ignored" sequence="4" value="Ignored"/>
+                <element label="Error" sequence="5" value="Error"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="case_record"/>
+        </index>
+        <index name="index2">
+            <element name="device"/>
+        </index>
+        <index name="index3">
+            <element name="fault"/>
+        </index>
+    </element>
+</database>

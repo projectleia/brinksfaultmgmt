@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="state" table="x_brla_fm_fault_case" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service case has been opened by customer</hint>
+            <inactive>false</inactive>
+            <label>New</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f97be664db294300ac79540adc961963</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:34:08</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Work in Progress</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>1</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>397be664db294300ac79540adc961966</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:34:08</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service case requires more info from customer</hint>
+            <inactive>false</inactive>
+            <label>Awaiting Info</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>2</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>717be664db294300ac79540adc961969</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:36:01</sys_updated_on>
+            <value>18</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Awaiting Conversion</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>3</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-02-05 17:19:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d8e688aadb001380ac79540adc9619de</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-05 17:20:55</sys_updated_on>
+            <value>20</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service case requires more info from customer</hint>
+            <inactive>false</inactive>
+            <label>Dispatched Branch</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>4</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:35:10</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>85bba664db294300ac79540adc9619e3</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-05 17:20:55</sys_updated_on>
+            <value>16</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service case requires more info from customer</hint>
+            <inactive>false</inactive>
+            <label>Dispatched FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>5</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:35:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7abbaa64db294300ac79540adc9619cb</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-05 17:20:55</sys_updated_on>
+            <value>17</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service case has been updated by agent with solution</hint>
+            <inactive>false</inactive>
+            <label>Resolved</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>6</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b97be664db294300ac79540adc96196b</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-05 17:19:51</sys_updated_on>
+            <value>6</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service Case closed</hint>
+            <inactive>false</inactive>
+            <label>Closed</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>7</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>717bee64db294300ac79540adc96194d</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-05 17:19:52</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Case has been cancelled</hint>
+            <inactive>false</inactive>
+            <label>Cancelled</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>8</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b97bee64db294300ac79540adc96194f</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-05 17:19:52</sys_updated_on>
+            <value>7</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <name>x_brla_fm_fault_case</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:34:08</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>efa1b0664f045300f8c9afdd0210c75a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>state</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_fault_case_state</sys_update_name>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:34:08</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

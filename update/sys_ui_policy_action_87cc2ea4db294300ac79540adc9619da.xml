@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>branch_dispatched_to</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-09-28 17:40:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>87cc2ea4db294300ac79540adc9619da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>branch_dispatched_to</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_ui_policy_action_87cc2ea4db294300ac79540adc9619da</sys_update_name>
+        <sys_updated_by>manish.admin</sys_updated_by>
+        <sys_updated_on>2017-09-28 17:40:18</sys_updated_on>
+        <table>x_brla_fm_fault_case</table>
+        <ui_policy display_value="Dispatched to Branch">e1bce2a4db294300ac79540adc9619f6</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>

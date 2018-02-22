@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="action" table="x_brla_fm_notification_case_action" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>action</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Acknowledge</label>
+            <language>en</language>
+            <name>x_brla_fm_notification_case_action</name>
+            <sequence>0</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-04 13:17:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8c4a68eedbe18700ac79540adc9619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-04 13:17:26</sys_updated_on>
+            <value>Acknowledge</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>action</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Report Onsite</label>
+            <language>en</language>
+            <name>x_brla_fm_notification_case_action</name>
+            <sequence>1</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-04 13:17:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>804a68eedbe18700ac79540adc9619e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-04 13:17:26</sys_updated_on>
+            <value>Report Onsite</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>action</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Report Resolved</label>
+            <language>en</language>
+            <name>x_brla_fm_notification_case_action</name>
+            <sequence>2</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-04 13:17:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>404a68eedbe18700ac79540adc9619e2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-04 13:17:26</sys_updated_on>
+            <value>Report Resolved</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>action</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Verify Phone</label>
+            <language>en</language>
+            <name>x_brla_fm_notification_case_action</name>
+            <sequence>10</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 21:52:31</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>21b9e3b2db29c700ac79540adc961915</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 21:52:44</sys_updated_on>
+            <value>Verify Phone</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>action</element>
+            <name>x_brla_fm_notification_case_action</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-04 13:17:26</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>ba6e780f13828348873c70146144b019</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>action</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_notification_case_action_action</sys_update_name>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-04 13:17:26</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

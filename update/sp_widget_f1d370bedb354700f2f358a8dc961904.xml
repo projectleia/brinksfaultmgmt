@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+	var c = this;
+
+	c.init = function() {
+
+		c.current_state = 'all';
+		c.table_filter = {};
+		c.filtered_rows = [];
+		//c.selectedDays = c.selectedDays || c.dayFilter[0].period;
+
+		c.searchQuery = "";
+
+		c.dayFilter = [
+			{
+				period: "30",
+				display: "Last 30 Days"
+			},
+			{
+				period: "60",
+				display: "Last 60 Days"
+			},
+			{
+				period: "180",
+				display: "Last 180 Days"	
+			},
+			{
+				period: "all",
+				display: "All"
+			}
+
+		];
+
+		c.sortType = 'number';
+		c.sortReverse = 'true';
+		c.stateFilter = "!''";
+		
+		console.log(c);
+	};
+
+	c.getCaretClass = function(col) {
+		if (c.sortType == col) {
+			if (c.sortReverse) {
+				return 'fa-caret-down';
+			}
+			return 'fa-caret-up';
+		}
+		return '';
+	};
+
+	c.changeSort = function(col) {
+		c.sortReverse = !c.sortReverse;
+		c.sortType = col;
+	};
+
+	c.updateDaysFilter = function(){
+		c.data.daysFilter = c.selectedDays;
+		c.data.updateDaysFilter = true;
+		c.server.update();
+	};
+
+	c.changeState = function(state) {
+		console.log(state);
+		c.current_state = state.value;
+
+		if (state.value == 'all') {
+			c.table_filter.state_value = "!''";
+		} else {
+			c.table_filter.state_value = state.value + '';
+		}
+	};
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.filter-top {&#13;
+  margin-bottom: 15px;&#13;
+}&#13;
+&#13;
+.table-text {&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.issue-heading {&#13;
+  background-color: #002ea0 !important;&#13;
+  color: #fff !important;&#13;
+  padding: 10px 15px;&#13;
+  border-bottom: 1px solid transparent;&#13;
+  border-bottom-color: transparent;&#13;
+  border-top-right-radius: 3px;&#13;
+  border-top-left-radius: 3px;&#13;
+}&#13;
+&#13;
+.issue-search {&#13;
+  background-color: #002a93;&#13;
+  padding: 10px 30px;&#13;
+  color: #fff;&#13;
+  max-width: 350px;&#13;
+&#13;
+  .inner {&#13;
+    position: relative;&#13;
+  }&#13;
+&#13;
+  input {&#13;
+    background-color: transparent;&#13;
+    color: #fff;&#13;
+    border-top: none;&#13;
+    border-left: none;&#13;
+    border-right: none;&#13;
+    border-bottom: 1px solid rgba(255, 255, 255, .54);&#13;
+    display: block;&#13;
+    width: 100%;&#13;
+    height: 36px;&#13;
+    padding: 6px 18px 6px 0px;&#13;
+    font-size: 16px;&#13;
+  }&#13;
+&#13;
+  .icon {&#13;
+    position: absolute;&#13;
+    top: 8px;&#13;
+    right: 0px;&#13;
+    color: #fff;&#13;
+  }&#13;
+}&#13;
+&#13;
+input:focus::-webkit-input-placeholder { color:transparent; }&#13;
+input:focus:-moz-placeholder { color:transparent; }&#13;
+input:focus::placeholder { color:transparent; }&#13;
+input:focus:placeholder { color:transparent; }&#13;
+&#13;
+.date-filter-container {&#13;
+  float: right;&#13;
+  padding: 15px 0px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.filter-bar {&#13;
+  margin-bottom: 10px;&#13;
+  display: flex;&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+.state-filter {&#13;
+  background-color: #002a93;&#13;
+  min-height: 70px;&#13;
+  margin: 0px 1px;&#13;
+  flex: 1 0 auto;&#13;
+  display: block;&#13;
+  color: #bbb;&#13;
+  text-align: center;&#13;
+  border: none;&#13;
+}&#13;
+&#13;
+.state-filter:first-of-type {&#13;
+  margin-left: 0px;&#13;
+}&#13;
+&#13;
+.state-filter:last-of-type {&#13;
+  margin-right: 0px;&#13;
+}&#13;
+&#13;
+.state-filter:hover {&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.state-filter.active {&#13;
+  color: #fff;&#13;
+  background-color: #799bd0;&#13;
+}&#13;
+&#13;
+.state-filter-label {&#13;
+  vertical-align: middle; &#13;
+  display: inline-block;&#13;
+  font-size: 9px;&#13;
+  line-height: 14px;&#13;
+  width: 65%;&#13;
+  text-align: center;&#13;
+  padding-left: 5px;&#13;
+  padding-right: 5px;&#13;
+}&#13;
+&#13;
+.state-filter-number {&#13;
+  vertical-align: middle;&#13;
+  display: inline-block;&#13;
+  font-size: 26px;&#13;
+  width:35%; &#13;
+  height:100%;&#13;
+  text-align: center;&#13;
+  padding-left: 5px;&#13;
+  padding-right:7px;&#13;
+}&#13;
+&#13;
+th, &#13;
+td {&#13;
+  min-width: 100px;&#13;
+  padding: 8px;&#13;
+}&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Alerts list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+
+	if (input) {
+		//server call
+
+		if (input.updateDaysFilter || input.updateStateFilter) {
+			input.updateDaysFilter = false;
+			input.updateStateFilter = false;
+			data.rows = getRows();
+			data.counts = getCounts();
+		}
+
+	} else {
+		//initial load
+		data.state = $sp.getParameter('state') || 'all';
+		data.days = $sp.getParameter('days') || '30';
+
+		var userGR = new GlideRecord('sys_user');
+		userGR.get(gs.getUserID());
+		data.user_company = userGR.company + '';
+
+		data.stateFilter = 'all';
+		data.daysFilter = '30';
+		data.rows = getRows();
+		data.counts = getCounts();
+	}
+
+	function getRows() {
+		var rows = [];
+		
+		var alert_gr = new GlideRecord('x_brla_fm_fault_alert');
+		alert_gr.addQuery('device.account', data.user_company);
+		alert_gr.orderByDesc('sys_created_on');
+		alert_gr.query();
+		while (alert_gr.next()) {
+			var alert = {};
+			$sp.getRecordDisplayValues(alert, alert_gr, 'sys_id,processing_status,message_text,host_timestamp,ext_user_reference,sys_created_on');
+			alert.processing_status_value = alert_gr.processing_status + '';
+			alert.active_case = (alert_gr.active_case == 'true');
+			alert.sys_created_on_value = alert_gr.sys_created_on + '';
+			
+			var device = {};
+			device.sys_id = alert_gr.device + '';
+			device.name = alert_gr.device.name.getDisplayValue();
+			alert.device = device;
+			
+			var fault = {};
+			fault.sys_id = alert_gr.fault.sys_id + '';
+			fault.fault_code = alert_gr.fault.fault_code.getDisplayValue();
+			fault.type = alert_gr.fault.type.getDisplayValue();
+			fault.description = alert_gr.fault.description.getDisplayValue();
+			fault.logic = alert_gr.fault.logic.getDisplayValue();
+			fault.notes = alert_gr.fault.notes.getDisplayValue();
+			alert.fault = fault;
+			
+			alert.link = '?id=safe_manage_safes&name=' + alert.device.name;
+			
+			var case_record = {};
+			case_record.sys_id = alert_gr.case_record.sys_id + '';
+			case_record.number = alert_gr.case_record.number.getDisplayValue();
+			alert.case_record = case_record;
+			
+			rows.push(alert);
+		}
+		
+		return rows;
+	}
+
+	function getCounts() {
+
+		var counts = [{
+			value: 'all',
+			display: 'ALL',
+			count: ''
+		}];
+
+		var choices = new GlideRecord('sys_choice');
+		choices.addEncodedQuery('element=state^inactive=false^name=x_brla_fm_fault_case');
+		choices.orderBy('sequence');
+		choices.query();
+		while (choices.next()) {
+			var count = {};
+			count.sys_id = choices.sys_id + '';
+			count.value = parseInt(choices.value + '');
+			count.display = choices.label.getDisplayValue();
+			count.count = 0;
+			counts.push(count);
+		}
+
+		var totalIssues = new GlideAggregate('x_brla_fm_fault_case');
+		totalIssues.addAggregate('COUNT');
+		/*
+		if (input.daysFilter && input.daysFilter != 'all')
+			totalIssues.addEncodedQuery('sys_created_onRELATIVEGE@dayofweek@ago@' + input.daysFilter);
+		else if (!input || input.daysFilter != 'all')
+			totalIssues.addEncodedQuery('sys_created_onRELATIVEGE@dayofweek@ago@' + data.daysFilter);
+		totalIssues.query();
+*/
+
+		if (totalIssues.next())
+			counts[0].count = "  " + totalIssues.getAggregate('COUNT');
+
+		var issueGA = new GlideAggregate('x_brla_fm_fault_case');
+		issueGA.orderBy('state');
+		issueGA.addAggregate('COUNT', 'state');
+		/*
+		if (input.daysFilter && input.daysFilter != 'all')
+			issueGA.addEncodedQuery('sys_created_onRELATIVEGE@dayofweek@ago@' + input.daysFilter);
+		else if (!input || input.daysFilter != 'all')
+			issueGA.addEncodedQuery('sys_created_onRELATIVEGE@dayofweek@ago@' + data.daysFilter);
+*/
+		issueGA.query();
+		while (issueGA.next()) {
+			for (var inc = 1; inc < counts.length; inc++) {
+				if (issueGA.state == counts[inc].value) {
+					counts[inc].count = issueGA.getAggregate('COUNT', 'state');
+				}
+			}
+		}
+
+		//console.log(counts);
+		return counts;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-17 18:53:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f1d370bedb354700f2f358a8dc961904</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Safe - Alerts list</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_f1d370bedb354700f2f358a8dc961904</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-11-03 18:36:16</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="filter-top">
+    <div class="date-filter-container">
+      Viewing 
+      <select class="date-filter" ng-model="c.selectedDays" ng-change="c.updateDaysFilter()">
+        <option ng-repeat="option in c.dayFilter" class="date-filter-option" value="{{option.period}}">
+          {{option.display}}
+        </option>
+      </select>
+    </div>
+
+    <div class="issue-search">
+      <div class="inner">
+        <input ng-model="c.searchQuery" type="search" placeholder="Filter by Keywords or Column" />
+        <span class="fa fa-filter icon" />
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button ng-repeat="state in c.data.counts" ng-click="c.changeState(state)" role="button" 
+            ng-class="{'active': c.current_state == state.value}" class="state-filter">
+      <span class="state-filter-label">{{state.display}}</span>
+      <span class="state-filter-number">{{state.count}}</span>
+    </button>
+  </div>
+
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            <a ng-click="c.changeSort('number')" href="javascript:void(0)">
+              Safe <span class="fa" ng-class="c.getCaretClass('number')" />
+            </a>
+          </th>
+          <th>
+            <a ng-click="c.changeSort('state')" href="javascript:void(0)">
+              Fault Code <span class="fa" ng-class="c.getCaretClass('state')" />
+            </a>
+          </th>
+          <th>
+            <a ng-click="c.changeSort('safe_name')" href="javascript:void(0)">
+              Message <span class="fa" ng-class="c.getCaretClass('safe_name')" />
+            </a>
+          </th>
+          <th>
+            <a ng-click="c.changeSort('description')" href="javascript:void(0)">
+              Processing Status <span class="fa" ng-class="c.getCaretClass('description')" />
+            </a>
+          </th>
+          <th>
+            <a ng-click="c.changeSort('safe_model')" href="javascript:void(0)">
+              Case Record <span class="fa" ng-class="c.getCaretClass('safe_model')" />
+            </a>
+          </th>
+          <th>
+            <a ng-click="c.changeSort('safe_sn')" href="javascript:void(0)">
+              Active Case <span class="fa" ng-class="c.getCaretClass('safe_sn')" />
+            </a>
+          </th>
+          <th>
+            <a ng-click="c.changeSort('opened_at')" href="javascript:void(0)">
+              Created <span class="fa" ng-class="c.getCaretClass('opened_at')" />
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in c.filtered_rows = (c.data.rows | orderBy:c.sortType:c.sortReverse)">
+          <td>{{row.device.name}}</td>
+          <td>{{row.fault.fault_code}}</td>
+          <td>{{row.message_text}}</td>
+          <td>{{row.processing_status}}</td>
+          <td>{{row.case_record.number}}</td>
+          <td>{{row.active_case}}</td>
+          <td>{{row.sys_created_on}}</td>
+        </tr>
+        <tr ng-if="c.filtered_rows.length == 0">
+          <td colspan="9" class="text-center">-- No alerts --</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

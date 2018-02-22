@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+	var c = this;
+	
+	c.init = function() {
+		
+		for (var i = 0; i < c.data.issues.length; i++) {
+			c.data.issues[i].opened_at_display = moment(c.data.issues[i].opened_at_value).fromNow();
+		}
+		
+	};
+	
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Home new issues</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var userGR = new GlideRecord('sys_user');
+	userGR.get(gs.getUserID());
+	data.user_company = userGR.company + '';
+
+	data.issues = getIssues();
+
+	function getIssues() {
+		var issues = [];
+
+		if (data.user_company == '') {
+			return issues;
+		}
+
+		var issueGR = new GlideRecord('x_brla_fm_fault_case');
+		issueGR.addQuery('account', data.user_company);
+		issueGR.addEncodedQuery('state=1');
+		issueGR.orderByDesc('opened_at');
+		issueGR.setLimit(10);
+		issueGR.query();
+		while (issueGR.next()) {
+			var issue = {};
+			$sp.getRecordDisplayValues(issue, issueGR, 'sys_id,number,state,short_description,location,opened_at');
+			issue.opened_at_value = issueGR.opened_at + '';
+			issue.state_value = issueGR.state + '';
+			issue.safe_name = issueGR.device.name.getDisplayValue();
+			issue.safe_model = issueGR.device.model_number.getDisplayValue();
+			issue.safe_sn = issueGR.device.serial_number.getDisplayValue();
+			issue.safe_sys_id = issueGR.device + '';
+			issue.site_id = issueGR.device.location_id.getDisplayValue();
+			issue.link = '?id=safe_issue_detail&table=x_brla_fm_fault_case&sys_id=' + issue.sys_id;
+			issues.push(issue);
+		}
+		return issues;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:04:45</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>625a1edadbb5c300ac79540adc961963</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Safe - Home new issues</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_625a1edadbb5c300ac79540adc961963</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-19 16:26:37</sys_updated_on>
+        <template><![CDATA[<div class="home-list">
+  <h3 class="title">New Issues</h3>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Safe</th>
+          <th>Description</th>
+          <th>Opened</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="issue in c.data.issues | limitTo: 5">
+          <td><a ng-href="{{issue.link}}">{{issue.number}}</a></td>
+          <td>{{issue.safe_name}}</td>
+          <td>{{issue.short_description}}</td>
+          <td>{{issue.opened_at_display}}</td>
+        </tr>
+        <tr ng-if="c.data.issues.length == 0">
+          <td colspan="4" class="text-center">-- No new issues --</td>
+        </tr>
+      </tbody>
+    </table>
+    <div ng-if="c.data.issues.length > 5">
+      <a href="?id=safe_reported_issues&safe_state=new">View all</a>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="cmdb_ci" label="Vault" max_length="40" name="x_brla_fm_vault" sizeclass="16973" type="collection">
+        <element label="Account" max_length="32" name="account" reference="customer_account" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Address" max_length="100" name="address" type="string"/>
+        <element label="Armored branch" max_length="32" name="armored_branch" reference="x_brla_fm_branch" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="City" max_length="40" name="city" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Connectivity" max_length="40" name="connectivity" type="string">
+            <choice/>
+        </element>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Coordinates" max_length="255" name="coordinates" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:current.sys_id;" label="Correlation id" max_length="512" name="correlation_id" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="County" max_length="100" name="county" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Installation location" max_length="40" name="installation_location" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Latitude" max_length="40" name="latitude" type="float"/>
+        <element attributes="edge_encryption_enabled=true" label="Location ID" max_length="100" name="location_id" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Longitude" max_length="40" name="longitude" type="float"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Primary FLM" max_length="40" name="primary_flm" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Secondary FLM" max_length="40" name="secondary_flm" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Service cycle" max_length="40" name="service_cycle" type="string">
+            <choice/>
+        </element>
+        <element label="Friday" max_length="40" name="service_day_friday" type="boolean"/>
+        <element label="Monday" max_length="40" name="service_day_monday" type="boolean"/>
+        <element label="Saturday" max_length="40" name="service_day_saturday" type="boolean"/>
+        <element label="Sunday" max_length="40" name="service_day_sunday" type="boolean"/>
+        <element label="Thursday" max_length="40" name="service_day_thursday" type="boolean"/>
+        <element label="Tuesday" max_length="40" name="service_day_tuesday" type="boolean"/>
+        <element label="Wednesday" max_length="40" name="service_day_wednesday" type="boolean"/>
+        <element label="Servicing branch" max_length="32" name="servicing_branch" reference="x_brla_fm_branch" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Site phone" max_length="40" name="site_phone" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="State" max_length="40" name="state" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Time Zone" max_length="40" name="time_zone" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Unit phone" max_length="40" name="unit_phone" type="string"/>
+        <element label="BDNA normalized" max_length="40" name="u_bdna_normalized" type="boolean"/>
+        <element label="Normalized manufacturer" max_length="40" name="u_normalized_manufacturer" reference="core_company" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Normalized model number" max_length="40" name="u_normalized_model_number" type="string"/>
+        <element label="Normalize set" max_length="32" name="u_normalize_set" reference="sys_import_set" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Zip" max_length="40" name="zip" type="string"/>
+        <index name="index">
+            <element name="u_normalize_set"/>
+        </index>
+        <index name="index2">
+            <element name="correlation_id"/>
+        </index>
+        <index name="index3">
+            <element name="u_normalized_manufacturer"/>
+        </index>
+    </element>
+</database>

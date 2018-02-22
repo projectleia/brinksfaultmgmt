@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_brla_fm_fault_case" version="2" view="flm">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>bb576174dbccd740f2f358a8dc9619a4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>account</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>3f576174dbccd740f2f358a8dc9619a4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>device</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>bf576174dbccd740f2f358a8dc9619a4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>device.primary_flm</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>33576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>device.servicing_branch</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>b3576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_to</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>37576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>b7576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>priority</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>3b576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>bb576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>contact_type</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>3f576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>contact</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>bf576174dbccd740f2f358a8dc9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_on</element>
+            <list_id display_value="x_brla_fm_fault_case" element="NULL" name="x_brla_fm_fault_case" parent="NULL" relationship="NULL" sys_domain="global" view="79758ba94fa287000f2042fd0210c7aa">9a850fa94fa287000f2042fd0210c7a0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_id>33576174dbccd740f2f358a8dc9619a6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_brla_fm_fault_case</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-01-31 13:52:05</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9a850fa94fa287000f2042fd0210c7a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_brla_fm_fault_case</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_ui_list_x_brla_fm_fault_case_flm</sys_update_name>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-01-31 13:52:05</sys_updated_on>
+            <sys_user/>
+            <view display_value="FLM" name="flm">79758ba94fa287000f2042fd0210c7aa</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

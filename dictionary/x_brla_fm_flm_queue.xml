@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="FLM Queue" max_length="40" name="x_brla_fm_flm_queue" type="collection">
+        <element label="Case number" max_length="100" name="case_number" type="string"/>
+        <element label="Case" max_length="32" name="case_ref" reference="x_brla_fm_fault_case" type="reference"/>
+        <element label="Message" max_length="100" name="error_status" type="string"/>
+        <element label="FLM" max_length="100" name="flm" type="string"/>
+        <element label="Payload" max_length="4000" name="payload" type="string"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element label="Ready to send" sequence="10" value="ready"/>
+                <element label="Received" sequence="20" value="received"/>
+                <element label="Processed" sequence="30" value="processed"/>
+                <element label="Error" sequence="40" value="error"/>
+            </choice>
+        </element>
+        <element choice="1" label="Type" max_length="100" name="type" type="string">
+            <choice>
+                <element label="Inbound" sequence="10" value="inbound"/>
+                <element label="Outbound" sequence="20" value="outbound"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="case_ref"/>
+        </index>
+    </element>
+</database>

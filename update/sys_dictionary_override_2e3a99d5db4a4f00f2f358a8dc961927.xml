@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_dictionary_override">
+    <sys_dictionary_override action="INSERT_OR_UPDATE">
+        <attributes>ref_contributions=show_phone_customer_service,field_decorations=x_brla_fm_add_new_contact;</attributes>
+        <attributes_override>true</attributes_override>
+        <base_table>sn_customerservice_case</base_table>
+        <calculation/>
+        <calculation_override>false</calculation_override>
+        <default_value/>
+        <default_value_override>false</default_value_override>
+        <dependent/>
+        <dependent_override>false</dependent_override>
+        <display_override>false</display_override>
+        <element>contact</element>
+        <mandatory>false</mandatory>
+        <mandatory_override>false</mandatory_override>
+        <name>x_brla_fm_fault_case</name>
+        <read_only>false</read_only>
+        <read_only_override>false</read_only_override>
+        <reference_qual/>
+        <reference_qual_override>false</reference_qual_override>
+        <sys_class_name>sys_dictionary_override</sys_class_name>
+        <sys_created_by>steven.admin</sys_created_by>
+        <sys_created_on>2017-10-25 16:07:45</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2e3a99d5db4a4f00f2f358a8dc961927</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>contact</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_dictionary_override_2e3a99d5db4a4f00f2f358a8dc961927</sys_update_name>
+        <sys_updated_by>steven.admin</sys_updated_by>
+        <sys_updated_on>2017-10-25 16:07:45</sys_updated_on>
+    </sys_dictionary_override>
+</record_update>

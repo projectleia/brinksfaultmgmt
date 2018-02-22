@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, spUtil, $rootScope) {
+	var c = this;
+
+	c.init = function() {
+		if (!c.data.show) {
+			return;
+		}
+
+		c.data.opened_at = moment(c.data.opened_at_value).format('lll');
+		c.data.u_resolved = moment(c.data.u_resolved_value).format('lll');
+		c.data.closed_at = moment(c.data.closed_at_value).format('lll');
+
+		//console.log(c.data);
+	};
+
+	c.isWIP = function() {
+		if (c.data.state_value == '2') {
+			//Work in Progress
+			return true;
+		}
+		if (c.data.state_value == '-2') {
+			//Dispatch Branch
+			return true;
+		}
+		if (c.data.state_value == '-1') {
+			//Dispatched FLM
+			return true;
+		}
+		return false;
+	};
+
+	c.getIncidentWipClass = function() {
+		if (c.data.state_value == '1') {
+			//New
+			return '';
+		}
+		if (c.data.state_value == '2') {
+			//Work in Progress
+			return 'stage-current';
+		}
+		if (c.data.state_value == '-2') {
+			//Dispatch Branch
+			return 'stage-current';
+		}
+		if (c.data.state_value == '-1') {
+			//Dispatched FLM
+			return 'stage-current';
+		}
+		if (c.data.state_value == '7') {
+			//Alarm Cleared
+			return 'stage-completed';
+		}
+		if (c.data.state_value == '6') {
+			//Resolved
+			return 'stage-completed';
+		}
+		if (c.data.state_value == '3') {
+			//Closed Complete
+			return 'stage-completed';
+		}
+		return '';
+	};
+
+	c.getIncidentOpenClass = function() {
+		if (c.data.state_value == '1') {
+			//New
+			return 'stage-current';
+		}
+		return 'stage-completed';
+	};
+
+	$scope.$on('record.updated', function(name, data) {
+		c.server.update().then(function(response) {
+			c.init();
+		});
+	});
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.progress-tracker {&#13;
+  margin-bottom: 30px;&#13;
+}&#13;
+&#13;
+.title {&#13;
+  text-align: center;&#13;
+  margin-top: 10px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.stage-current.progress-wip {&#13;
+  background-color: #ec9422;&#13;
+}&#13;
+&#13;
+.stage-current.progress-resolved {&#13;
+  background-color: #29b88f;&#13;
+}&#13;
+&#13;
+.stage-current.progress-completed {&#13;
+  background-color: #29b88f;&#13;
+}&#13;
+&#13;
+.progress-group {&#13;
+  margin-bottom: 2px;&#13;
+  text-align: center;&#13;
+  color: #888;&#13;
+  background-color: rgba(144, 144, 144, 0.1);&#13;
+  padding: 15px;&#13;
+&#13;
+  label {&#13;
+    margin-bottom: 0px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.progress-group:last-of-type {&#13;
+  margin-bottom: 0px; &#13;
+}&#13;
+&#13;
+.stage-current {&#13;
+  font-size: 20px;&#13;
+  color: #fff;&#13;
+  font-weight: bold;&#13;
+  background-color: #799bd0;&#13;
+}&#13;
+&#13;
+.stage-completed {&#13;
+  color: #fff;&#13;
+  background-color: #002a93;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Progress tracker</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+	data.show = false;
+	data.table = $sp.getParameter('table') || input.table || '';
+	data.sys_id = $sp.getParameter('sys_id') || input.sys_id || '';
+
+	if (!data.sys_id) {
+		return;
+	}
+
+	var gr = new GlideRecord(data.table);
+	if (!gr.get(data.sys_id)) {
+		//not found
+		return;
+	}
+	if (!gr.canRead()) {
+		//cannot read record
+		return;
+	}
+
+	if (data.table == 'x_brla_fm_fault_case') {
+		data.opened_at_value = gr.opened_at + '';
+		data.u_resolved_value = gr.resolved_at + '';
+		data.closed_at_value = gr.closed_at + '';
+		data.state = gr.state.getDisplayValue();
+		data.state_value = gr.state + '';
+	} else {
+		return;
+	}
+
+	data.show = true;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:06:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>67aad65adbb5c300ac79540adc9619e9</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Safe - Progress tracker</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_67aad65adbb5c300ac79540adc9619e9</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2018-01-25 17:42:21</sys_updated_on>
+        <template><![CDATA[<div ng-if="c.data.show" class="progress-tracker">
+  <h3 class="title">Status Tracker</h3>
+
+  <div class="bottom">
+    <div ng-class="c.getIncidentOpenClass()" class="progress-group progress-opened">
+      <label>Opened</label>
+      <div>{{c.data.opened_at}}</div>
+    </div>
+
+    <div ng-class="c.getIncidentWipClass()" class="progress-group progress-wip">
+      <label>Work in Progress</label>
+      <div ng-if="c.isWIP() && c.data.state != 'Work in Progress'">({{c.data.state}})</div>
+    </div>
+
+    <div ng-class="{'stage-current': c.data.state_value == '6', 'stage-completed': c.data.state_value == '3'}" class="progress-group progress-resolved">
+      <label>Resolved</label>
+      <div ng-if="c.data.u_resolved_value">{{c.data.u_resolved}}</div>
+    </div>
+
+    <div ng-class="{'stage-current': c.data.state_value == '3'}" class="progress-group progress-completed">
+      <label>Completed</label>
+      <div ng-if="c.data.closed_at_value">{{c.data.closed_at}}</div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
+        <sp_angular_provider display_value="tpEnter">e6633758db434300ac79540adc961984</sp_angular_provider>
+        <sp_widget display_value="Safe - Reported issues list">512c525edbb5c300ac79540adc961985</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-12-11 17:45:34</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e2b3f7d8db434300ac79540adc9619d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>tpEnter.Safe - Reported issues list</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_e2b3f7d8db434300ac79540adc9619d5</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-11 17:45:34</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+</record_update>

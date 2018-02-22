@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_form_sections form_id="fd601848db298300f2f358a8dc9619fe" sys_domain="global" table="x_brla_fm_fault_case" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-10-31 00:48:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>55a105c713c28348873c70146144b056</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_brla_fm_fault_case" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">fd601848db298300f2f358a8dc9619fe</sys_ui_form>
+            <sys_ui_section caption="Fault Case" display_value="Fault Case" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">8da105c713c28348873c70146144b052</sys_ui_section>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-10-31 00:50:02</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-10-31 00:52:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2b92cd0b13c28348873c70146144b002</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_brla_fm_fault_case" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">fd601848db298300f2f358a8dc9619fe</sys_ui_form>
+            <sys_ui_section caption="Notes" display_value="Notes" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">af928d0b13c28348873c70146144b0ff</sys_ui_section>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-10-31 00:53:52</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-10-31 00:37:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>663f34cf13828348873c70146144b091</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_brla_fm_fault_case" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">fd601848db298300f2f358a8dc9619fe</sys_ui_form>
+            <sys_ui_section caption="Device Details" display_value="Device Details" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">ff4d8763db75c700ac79540adc961951</sys_ui_section>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-10-31 00:53:52</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-10-31 00:37:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>aa3f34cf13828348873c70146144b08b</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_brla_fm_fault_case" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">fd601848db298300f2f358a8dc9619fe</sys_ui_form>
+            <sys_ui_section caption="Closure Information" display_value="Closure Information" name="x_brla_fm_fault_case" sys_domain="global" view="Default view">79605848db298300f2f358a8dc961900</sys_ui_section>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-10-31 00:53:52</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_brla_fm_fault_case</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-26 16:59:41</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fd601848db298300f2f358a8dc9619fe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_brla_fm_fault_case</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_ui_form_sections_fd601848db298300f2f358a8dc9619fe</sys_update_name>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-26 16:59:41</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

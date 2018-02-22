@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope) {
+	var c = this;
+
+	c.init = function() {
+
+		c.my_device = {
+			displayValue: '',
+			value: '',
+			name: 'my_device'
+		};
+
+		if (c.data.input_safe) {
+			console.log('input safe');
+			//there is a safe from the url
+			//set the device field
+			c.my_device.displayValue = c.data.input_safe.displayValue;
+			c.my_device.value = c.data.input_safe.value;
+			$scope.page.g_form.setValue('device', c.my_device.value);
+			c.updateSafeDetails();
+		}
+
+		console.log(c.data);
+	};
+
+	c.updateSafeDetails = function() {
+		console.log('updateSafeDetails');
+		c.data.update_device = true;
+		c.data.safe_id = c.my_device.value;
+		c.server.update().then(function(r) {
+			c.safe_details = c.data.safe_details;
+		});
+	};
+
+	$scope.$on("field.change", function(evt, parms) {
+		if (parms.field.name == 'my_device') {
+			//device changed
+			//set the device reference field
+			c.my_device = parms.field;
+
+			if (c.my_device.value == '') {
+				//safe cleared
+				$scope.page.g_form.clearValue('device');
+				c.data.show_safe_details = false;
+			} else {
+				//set the hidden field
+				$scope.page.g_form.setValue('device', c.my_device.value);
+			}
+
+			c.updateSafeDetails();
+		}
+
+	});
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.safe-reference {&#13;
+  margin-bottom: 5px;&#13;
+}&#13;
+&#13;
+.safe-details {&#13;
+  padding: 15px 15px 0px 15px;&#13;
+  border: 1px solid #ccc;&#13;
+  border-radius: 4px; &#13;
+}&#13;
+&#13;
+.detail-section {&#13;
+&#13;
+  .form-group {&#13;
+    display: flex;&#13;
+&#13;
+    .field-label {&#13;
+      color: #002a93;&#13;
+      font-size: 14px;&#13;
+      font-weight: bold;&#13;
+      margin-bottom: 0px;&#13;
+      margin-right: 10px;&#13;
+      text-align: right;&#13;
+      flex: 0 0 25%;&#13;
+    }&#13;
+&#13;
+    .field-value {&#13;
+      font-size: 16px;&#13;
+      flex: 1 1 auto;&#13;
+    }&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Report issue safe details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+	if (input) {
+		//server call
+
+		if (input.update_device) {
+			var safe_fields = 'sys_id,name,serial_number,manufacturer,model_number,account,location_id,address,time_zone,city,state,zip';
+			safe_fields += ',site_phone,service_cycle,service_day_sunday,service_day_monday,service_day_tuesday,service_day_thursday';
+			safe_fields += ',service_day_friday,service_day_saturday,status,install_date,install_status,primary_flm,secondary_flm';
+			safe_fields += ',servicing_branch,armored_branch,compusafe_zone,connectivity';
+			var safeGR = new GlideRecord('x_brla_fm_safe');
+			if (safeGR.get(input.safe_id)) {
+				var safe_details = {};
+				$sp.getRecordDisplayValues(safe_details, safeGR, safe_fields);
+
+				data.safe_details = safe_details;
+				data.show_safe_details = true;
+				data.update_device = false;
+				return;
+			}
+		}
+
+		data.show_safe_details = false;
+	} else {
+		//initial load
+		data.device_table = 'x_brla_fm_safe';
+		data.url_safe = $sp.getParameter('safe') || '';
+
+		var userGR = new GlideRecord('sys_user');
+		userGR.get(gs.getUserID());
+		data.user_company = userGR.company + '';
+		data.device_query = 'account=' + data.user_company;
+
+		if (data.url_safe) {
+			//input safe
+			//look it up
+
+			var safe_gr = new GlideRecord('x_brla_fm_safe');
+			if (safe_gr.get(data.url_safe)) {
+				data.input_safe = {};
+				data.input_safe.displayValue = safe_gr.getDisplayValue();
+				data.input_safe.value = safe_gr.sys_id + '';
+			}
+		}
+
+		data.show_safe_details = false;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-16 17:11:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7021d3d6db79c300ac79540adc961921</sys_id>
+        <sys_mod_count>74</sys_mod_count>
+        <sys_name>Safe - Report issue safe details</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_7021d3d6db79c300ac79540adc961921</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-12 02:05:12</sys_updated_on>
+        <template><![CDATA[<div>
+  <div>
+    <span class="fa fa-asterisk mandatory" ng-class="{'mandatory-filled': c.my_device.value}" 
+          title="Mandatory" style="padding-right: .25em" aria-label="Mandatory" aria-hidden="false" />Which safe is affected?
+  </div>
+
+  <div class="safe-reference">
+    <sn-record-picker field="c.my_device" table="c.data.device_table" display-fields="'name,address,city,state,zip'" value-field="'sys_id'" 
+                      default-query="c.data.device_query" page-size="100" search-fields="'name,address,city,state,zip'" />
+  </div>
+
+  <div ng-if="c.data.show_safe_details" class="safe-details">
+    <div class="detail-section">
+      <div class="row">
+        <!-- left section -->
+        <div class="col-sm-6">
+
+          <div class="form-group">
+            <label class="field-label">Serial #</label>
+            <div class="field-value">{{c.safe_details.serial_number}}</div>
+          </div>
+          
+          <div class="form-group">
+            <label class="field-label">Model #</label>
+            <div class="field-value">{{c.safe_details.model_number}}</div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Manufacturer</label>
+            <div class="field-value">{{c.safe_details.manufacturer}}</div>
+          </div>
+          
+          <div class="form-group">
+            <label class="field-label">Servicing Branch</label>
+            <div class="field-value">{{c.safe_details.servicing_branch}}</div>
+          </div>
+
+        </div><!-- END left section -->
+
+        <!-- right section -->
+        <div class="col-sm-6">
+
+          <div class="form-group">
+            <label class="field-label">Location</label>
+            <div class="field-value">{{c.safe_details.address}}, {{c.safe_details.city}}, {{c.safe_details.state}} {{c.safe_details.zip}}</div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Site Phone</label>
+            <div class="field-value">{{c.safe_details.site_phone}}</div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Time Zone</label>
+            <div class="field-value">{{c.safe_details.time_zone}}</div>
+          </div>
+
+        </div><!-- END right section -->
+      </div><!-- END row -->
+    </div><!-- END detail-section -->
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

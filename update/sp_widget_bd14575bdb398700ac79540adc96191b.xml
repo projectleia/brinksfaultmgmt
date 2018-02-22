@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope, $timeout) {
+	var c = this;
+
+	c.init = function() {
+
+		//c.getData();
+
+		c.table_title = c.data.safe_issue_count;
+		if (c.data.safe_issue_count == 1) {
+			c.table_title += ' issue';
+		} else {
+			c.table_title += ' issues';
+		}
+		c.table_title = 'Safe Status - 1 issue';
+
+		c.chart_options = {
+			"backgroundColor": "transparent", 
+			"bar": {
+				"groupWidth": "95%" 
+			}, 
+			"legend": {
+				"position": "none" 
+			}, 
+			"fontName": "Montserrat, sans-serif", 
+			"chartArea":{
+				"left":"150",
+				"top":"0",
+				"width":"90%",
+				"height":"90%", 
+				"backgroundColor":"white"
+			}, 
+			"hAxis": {
+				"viewWindowMode":'pretty',
+				"viewWindow": {
+					"min":"0"
+				}
+			} 
+		};
+
+		c.chart_string = JSON.stringify(c.chart_options);
+		c.chart_loading1 = false;
+		c.selected_view = c.data.selected_view;
+		c.data.issue_status_data = c.data.issue_state_views[0].data_array;
+
+		checkGoogle();
+
+		console.log(c.data);
+	};
+
+	c.getData = function() {
+		c.loading = true;
+		c.data.get_data = true;
+		c.server.update().then(function(r) {
+			c.loading = false;
+			console.log(c.data);
+		});
+	};
+
+	c.updateView = function() {
+		c.chart_loading1 = true;
+		for (var i = 0; i < c.data.issue_state_views.length; i++) {
+			//iterate through the view options
+			if (c.data.issue_state_views[i].value == c.selected_view) {
+				//found the selected option
+				//set the chart data to the selected view data
+				c.data.issue_status_data = c.data.issue_state_views[i].data_array;
+				//update the chart
+				$timeout(function() {
+					//simulated load time for better UX
+					drawColumnChart();
+					c.chart_loading1 = false;
+				}, 100);
+			}
+		}
+	};
+
+	jQuery(window).resize(function() {
+		$scope.$apply(function() {
+			drawColumnChart();
+			drawGaugeChart();
+		});
+	});
+
+	function drawCharts() {
+		google.charts.load('current', {'packages':['corechart', 'gauge', 'bar']});
+
+		google.charts.setOnLoadCallback(
+			function() {
+				drawColumnChart();
+				drawGaugeChart();
+			}
+		);
+	}
+
+	function checkGoogle() {
+		if (typeof google == 'undefined') {
+			setTimeout(checkGoogle, 100);
+			return;
+		}
+		drawCharts();
+	}
+
+	c.reDraw = function() {
+		c.chart_options = JSON.parse(c.chart_string);
+		drawColumnChart();
+	};
+
+	function drawColumnChart() {
+		if (c.data.issue_status_data.length < 2) {
+			return;
+		}
+		var data = google.visualization.arrayToDataTable(c.data.issue_status_data);
+
+		var chart_view = new google.visualization.DataView(data);
+		var chart = new google.visualization.BarChart(document.getElementById("columnchart_values"));
+		chart.draw(chart_view, c.chart_options);
+	}
+
+	function drawGaugeChart() {
+		var chart_data = google.visualization.arrayToDataTable([
+			['Label', 'Value'],
+			['', c.data.okay_percentage] 
+		]);
+
+		var chart_options = {
+			redFrom: 0, 
+			redTo: 75,
+			yellowFrom: 75, 
+			yellowTo: 90, 
+			greenFrom: 90, 
+			greenTo: 100 
+		};
+
+		var chart = new google.visualization.Gauge(document.getElementById('gauge-chart'));
+		chart.draw(chart_data, chart_options);
+	}
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.loading { &#13;
+  text-align: center;&#13;
+  color: #bdbdbd;&#13;
+  z-index: 1;&#13;
+  position: absolute;&#13;
+  left: 0px;&#13;
+  top: 0px;&#13;
+  width: 100%;&#13;
+  height: 300px;&#13;
+  line-height: 300px;&#13;
+  background-color: rgba(0, 0, 0, .1);&#13;
+}&#13;
+&#13;
+.row-hero {&#13;
+  margin-left: -10px;&#13;
+  margin-right: -10px;&#13;
+&#13;
+  &gt; div {&#13;
+    padding-left: 10px;&#13;
+    padding-right: 10px; &#13;
+  }&#13;
+}&#13;
+&#13;
+.row-bottom {&#13;
+  margin-left: -10px;&#13;
+  margin-right: -10px;&#13;
+&#13;
+  &gt; div {&#13;
+    padding-left: 10px;&#13;
+    padding-right: 10px; &#13;
+  }&#13;
+}&#13;
+&#13;
+.gauge-container {&#13;
+  text-align: center; &#13;
+&#13;
+  .chart-container {&#13;
+    display: inline-block; &#13;
+  }&#13;
+}&#13;
+&#13;
+.hero-block {&#13;
+  flex: 1 1 auto;&#13;
+  -ms-flex: 1 1 auto;&#13;
+  line-height: 1;&#13;
+  display: block;&#13;
+  text-decoration: none;&#13;
+  border: 1px solid #fff;&#13;
+  text-align: center;&#13;
+  padding: 30px 15px;&#13;
+  background-color: rgba(0, 95, 168, .9);&#13;
+  margin-bottom: 20px;&#13;
+  color: #fff;&#13;
+&#13;
+  .count-circle {&#13;
+    border: 5px solid #fff;&#13;
+    border-radius: 50%;&#13;
+    height: 100px;&#13;
+    width: 100px;&#13;
+    margin-left: auto;&#13;
+    margin-right: auto;&#13;
+    font-size: 60px;&#13;
+    line-height: 90px;&#13;
+    margin-bottom: 15px;&#13;
+  }&#13;
+&#13;
+  .block-title {&#13;
+    font-size: 30px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.hero-block:hover, &#13;
+.hero-block:focus, &#13;
+.hero-block:active {&#13;
+  .block-title {&#13;
+    text-decoration: none; &#13;
+  }&#13;
+}&#13;
+&#13;
+.block-orange {&#13;
+  background-color: #ec9422;&#13;
+&#13;
+  &amp;:hover, &#13;
+  &amp;:focus {&#13;
+    background-color: darken(#ec9422, 5%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.block-green {&#13;
+  background-color: #29b88f;&#13;
+&#13;
+  &amp;:hover, &#13;
+  &amp;:focus {&#13;
+    background-color: darken(#29b88f, 5%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.block-blue {&#13;
+  background-color: #0039a6;&#13;
+&#13;
+  &amp;:hover, &#13;
+  &amp;:focus {&#13;
+    background-color: darken(#0039a6, 5%);&#13;
+  }&#13;
+}&#13;
+&#13;
+.charts-title {&#13;
+  font-size: 60px;&#13;
+  font-weight: bold;&#13;
+  line-height: 1;&#13;
+  text-align: center;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.stats-container {&#13;
+  background-color: #68c5e7;&#13;
+  color: #fff;&#13;
+  padding: 20px;&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: nowrap;&#13;
+  flex-flow: row nowrap;&#13;
+  text-align: center;&#13;
+  margin-bottom: 20px;&#13;
+&#13;
+  .section {&#13;
+    flex: 1 1 auto;&#13;
+    -ms-flex: 1 1 auto;&#13;
+&#13;
+    .inner {&#13;
+      border-bottom: 2px solid #fff;&#13;
+      display: inline-block;&#13;
+&#13;
+      .big-text {&#13;
+        font-size: 50px;&#13;
+        line-height: 1;&#13;
+      }&#13;
+&#13;
+      .small-text {&#13;
+        font-size: 20px;&#13;
+        line-height: 1;&#13;
+        margin-bottom: 5px;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.stats-container2 {&#13;
+  background-color: #68c5e7;&#13;
+  color: #fff;&#13;
+  padding-top: 20px;&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: nowrap;&#13;
+  flex-flow: row nowrap;&#13;
+  text-align: center;&#13;
+  margin-bottom: 20px;&#13;
+&#13;
+  .section {&#13;
+    flex: 1 1 100%;&#13;
+    -ms-flex: 1 1 100%;&#13;
+    padding: 0px 20px;&#13;
+    margin-bottom: 20px;&#13;
+&#13;
+    .inner {&#13;
+      display: inline-block;&#13;
+&#13;
+      .big-text {&#13;
+        font-size: 50px;&#13;
+        line-height: 1;&#13;
+      }&#13;
+&#13;
+      .small-text {&#13;
+        font-size: 16px;&#13;
+        line-height: 1;&#13;
+        margin-bottom: 10px;&#13;
+        padding-bottom: 10px;&#13;
+        border-bottom: 2px solid #fff;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+@media (min-width: 768px) {&#13;
+  .stats-container2 {&#13;
+    .section {&#13;
+      flex: 1 1 33%;&#13;
+      -ms-flex: 1 1 33%;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.donut-container {&#13;
+  background-color: #e3eef7;&#13;
+  color: #000;&#13;
+  padding: 20px;&#13;
+&#13;
+  .title {&#13;
+    text-align: center;&#13;
+    font-size: 32px;&#13;
+    margin-top: 0px;&#13;
+    margin-bottom: 20px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.column-chart-container {&#13;
+  background-color: #e3eef7;&#13;
+  color: #000;&#13;
+  padding: 20px;&#13;
+}&#13;
+&#13;
+.column-top {&#13;
+  margin-bottom: 20px;&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+&#13;
+  .title {&#13;
+    margin: 0px;&#13;
+    display: inline-block;&#13;
+    line-height: 36px;&#13;
+    flex: 1 1 auto;&#13;
+    -ms-flex: 1 1 auto;&#13;
+  }&#13;
+&#13;
+  .viewing-filter {&#13;
+    flex: 1 1 auto;&#13;
+    -ms-flex: 1 1 auto;&#13;
+    text-align: right;&#13;
+&#13;
+    .dropdown {&#13;
+      display: inline-block; &#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.my-flex2 {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+&#13;
+  .section {&#13;
+    flex: 1 0 auto;&#13;
+    -ms-flex: 1 1 auto;&#13;
+  }&#13;
+}&#13;
+&#13;
+.bottom {&#13;
+  background-color: #e9e9e9;&#13;
+  padding: 40px;&#13;
+}&#13;
+&#13;
+.viewing-filter {&#13;
+  float: right;&#13;
+&#13;
+  select {&#13;
+    display: inline-block;&#13;
+    width: 160px;&#13;
+    padding: 6px 12px 6px 3px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.title-section {&#13;
+  .title {&#13;
+    margin-top: 0px;&#13;
+    margin-bottom: 20px;&#13;
+    font-size: 40px;&#13;
+    line-height: 1;&#13;
+    font-weight: bold;&#13;
+  }&#13;
+&#13;
+  .dropdown {&#13;
+    display: inline-block; &#13;
+  }&#13;
+}&#13;
+&#13;
+.dashboard-container {&#13;
+  padding: 40px;&#13;
+  background-color: #68c5e7;&#13;
+  color: #fff;&#13;
+  margin-bottom: 20px;&#13;
+&#13;
+  .donut-title {&#13;
+    text-align: center;&#13;
+    font-size: 28px;&#13;
+  }&#13;
+&#13;
+  .area-title {&#13;
+    margin-top: 0px;&#13;
+    margin-bottom: 20px;&#13;
+    font-size: 40px;&#13;
+    line-height: 1;&#13;
+    font-weight: bold;&#13;
+  }&#13;
+}&#13;
+&#13;
+.my-flex {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+}&#13;
+&#13;
+.left {&#13;
+  margin-right: 20px;&#13;
+  flex: 0 0 auto;&#13;
+  -ms-flex: 0 0 auto;&#13;
+&#13;
+  .section {&#13;
+    margin-bottom: 20px;&#13;
+&#13;
+    .inner {&#13;
+      border-bottom: 2px solid #fff;&#13;
+      display: inline-block;&#13;
+&#13;
+      .big-text {&#13;
+        font-size: 50px;&#13;
+        line-height: 1;&#13;
+      }&#13;
+&#13;
+      .small-text {&#13;
+        font-size: 20px;&#13;
+        line-height: 1;&#13;
+        margin-bottom: 5px;&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.right {&#13;
+  flex: 1 1 auto;&#13;
+  -ms-flex: 1 1 auto;&#13;
+}&#13;
+&#13;
+.donutchart {&#13;
+  height: 300px;&#13;
+  width: 100%;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Home alerts dashboard</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+	if (!input) {
+		//initial load
+
+		var userGR = new GlideRecord('sys_user');
+		userGR.get(gs.getUserID());
+		data.user_company = userGR.company + '';
+
+		data.selected_view = '0';
+
+		getData();
+		getReportedIssueData();
+	} else {
+		//call to server
+		data.user_company = input.user_company;
+		data.issue_state_views = input.issue_state_views;
+		data.selected_view = input.selected_view;
+
+		if (input.get_data) {
+			getData();
+			data.get_data = false;
+			return;
+		}
+	}
+
+	function getData() {
+		getSafeCounts();
+		data.reported_issues_count = getReportedIssuesCount();
+		data.safes_with_case = getSafeCaseCount();
+		data.safes_with_alert = getSafeAlertCount();
+		data.active_alert_count = getActiveAlertCount();
+
+		if (data.safe_all_count == 0) {
+			//no safes
+			data.okay_percentage = 100;
+		} else {
+			//has safes, do normal calculations
+			data.okay_percentage = 100 * (data.safe_okay_count / data.safe_all_count);
+			if (data.okay_percentage > 50) {
+				data.okay_percentage = Math.floor(data.okay_percentage);
+			} else {
+				data.okay_percentage = Math.ceil(data.okay_percentage);
+			}
+		}
+
+		data.issue_percentage = 100 - data.okay_percentage;
+	}
+
+	function getSafeCaseCount() {
+		var count = 0;
+		//aggregate cases by device		
+		var count_agg = new GlideAggregate('x_brla_fm_fault_case');
+		count_agg.addQuery('device.account', data.user_company);
+		count_agg.addEncodedQuery('active=true');
+		//count_agg.addEncodedQuery('device.active=true');
+
+		count_agg.groupBy('device');
+		count_agg.query();
+		while (count_agg.next()) {
+			//counting unique safes
+			count++;
+		}
+		return count;
+	}
+
+	function getSafeAlertCount() {
+		var count = 0;
+		var count_agg = new GlideAggregate('x_brla_fm_fault_alert');
+		count_agg.addQuery('device.account', data.user_company);
+		count_agg.addEncodedQuery('active_case=true');
+		//count_agg.addEncodedQuery('device.active=true');
+		count_agg.groupBy('device');
+		count_agg.query();
+		while (count_agg.next()) {
+			//counting unique safes
+			count++;
+		}
+		return count;
+	}
+
+	function getReportedIssueData() {
+		//get the active issue states
+		data.issue_states = [];
+		var choices = new GlideRecord('sys_choice');
+		choices.addEncodedQuery('element=state^inactive=false^name=x_brla_fm_fault_case');
+		choices.orderBy('sequence');
+		choices.query();
+		while (choices.next()) {
+			var issue_state = {};
+			issue_state.value = parseInt(choices.value + '');
+			issue_state.display = choices.label.getDisplayValue();
+			data.issue_states.push(issue_state);
+		}
+
+		data.issue_state_views = [
+			{label: 'last week', value: '0', query: 'opened_at>=javascript:gs.beginningOfLast7Days()', data_array: []}, 
+			{label: 'last month', value: '1', query: 'opened_at>=javascript:gs.beginningOfLast30Days()', data_array: []},
+			{label: 'last 6 months', value: '2', query: 'opened_at>=javascript:gs.beginningOfLast6Months()', data_array: []},
+			{label: 'all', value: '3', query: '', data_array: []} 
+		];
+
+		for (var j = 0; j < data.issue_state_views.length; j++) {
+			//for each view option
+			//get the counts and the formatted data
+			data.issue_state_views[j].data_array = getIssueCounts(data.issue_state_views[j].query, data.issue_states, data.user_company);
+		}
+	}
+
+	function getActiveAlertCount() {
+		var count = 0;
+		var count_ga = new GlideAggregate('x_brla_fm_fault_alert');
+		count_ga.addQuery('device.account', data.user_company);
+		count_ga.addEncodedQuery('active_case=true');
+		//count_ga.addEncodedQuery('device.active=true');
+		count_ga.addAggregate('COUNT');
+		count_ga.query();
+		if (count_ga.next()) {
+			count = parseInt(count_ga.getAggregate('COUNT'));
+		}
+		return count;
+	}
+
+	function getReportedIssuesCount() {
+		var count = 0;
+		var count_gr = new GlideAggregate('x_brla_fm_fault_case');
+		count_gr.addQuery('account', data.user_company);
+		count_gr.addEncodedQuery('active=true');
+		count_gr.addAggregate('COUNT');
+		count_gr.query();
+		if (count_gr.next()) {
+			count = parseInt(count_gr.getAggregate('COUNT'));
+		}
+		return count;
+	}
+
+	function getSafeCounts() {
+
+		//issue count
+		data.safe_issue_count = 0;
+		//aggregate alerts by device
+		var count = new GlideAggregate('x_brla_fm_fault_case');
+		count.addQuery('account', data.user_company);
+		count.addEncodedQuery('active=true');
+		count.groupBy('device');
+		count.query();
+		while (count.next()) {
+			//counting unique safes
+			data.safe_issue_count++;
+		}
+
+		//all count
+		data.safe_all_count = 0;
+		var count2 = new GlideAggregate('x_brla_fm_safe');
+		count2.addQuery('account', data.user_company);
+		count2.addEncodedQuery('active=true');
+		count2.addAggregate('COUNT');
+		count2.query();
+		if (count2.next()) {
+			data.safe_all_count = parseInt(count2.getAggregate('COUNT'));
+		}
+
+		//okay count
+		//number of safes minus the ones with issues
+		data.safe_okay_count = data.safe_all_count - data.safe_issue_count;
+	}
+
+	function getIssueCounts(query, issue_states, user_company) {
+		var count_array = [["Status", "Issues", { role: "annotation" }]];
+		var issueGA = new GlideAggregate('x_brla_fm_fault_case');
+		issueGA.addQuery('account', user_company);
+		if (query) {
+			issueGA.addEncodedQuery(query);
+		}
+		issueGA.orderBy('state');
+		issueGA.addAggregate('COUNT', 'state');
+		issueGA.query();
+		while (issueGA.next()) {
+			//for each agregate of cases groupsed by state
+			for (var i = 0; i < issue_states.length; i++) {
+				if (issueGA.state == issue_states[i].value) {
+					//matched the state with the aggregated state
+					//set the count for the state
+					var state_count = parseInt(issueGA.getAggregate('COUNT', 'state'));
+					count_array.push([issue_states[i].display, state_count, state_count]);
+					//stop checking
+					break;
+				}
+			}
+		}
+
+		return count_array;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-19 19:51:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bd14575bdb398700ac79540adc96191b</sys_id>
+        <sys_mod_count>173</sys_mod_count>
+        <sys_name>Safe - Home alerts dashboard</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_bd14575bdb398700ac79540adc96191b</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-13 16:15:20</sys_updated_on>
+        <template><![CDATA[<div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <div class="row row-hero">
+    <div class="col-sm-6">
+      <a href="?id=safe_manage_safes&safe_state=issue_reported" class="hero-block block-orange">
+        <div class="count-circle">
+          <span class="count">{{c.data.reported_issues_count}}</span>
+        </div>
+        <span class="block-title">ISSUES IN PROGRESS</span>
+      </a>
+    </div>
+
+    <div class="col-sm-6">
+      <a href="?id=safe_report_issue" class="hero-block block-blue">
+        <div class="count-circle">
+          <span class="count"><span class="fa fa-flag" /></span>
+        </div>
+        <span class="block-title">REPORT A NEW ISSUE</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="row row-bottom">
+    <div class="col-md-6">
+      <div class="stats-container2">
+        <div class="section">
+          <div class="inner">
+
+            <div class="small-text">MY SAFES</div>
+            <div class="big-text">{{c.data.safe_all_count}}</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="inner">
+            <div class="small-text">SAFES WITH CASES</div>
+            <div class="big-text">{{c.data.safes_with_case}}</div>
+
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="inner">
+            <div class="small-text">SAFES WITH ALERTS</div>
+            <div class="big-text">{{c.data.safes_with_alert}}</div>
+
+          </div>
+        </div>
+      </div><!-- END stats-container -->
+
+      <div ng-if="false" class="stats-container">
+        <div class="section">
+          <div class="inner">
+            <div class="big-text">{{c.data.safe_all_count}}</div>
+            <div class="small-text">SAFES</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="inner">
+            <div class="big-text">{{c.data.reported_issues_count}}</div>
+            <div class="small-text">ISSUES</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="inner">
+            <div class="big-text">{{c.data.active_alert_count}}</div>
+            <div class="small-text">ALERTS</div>
+          </div>
+        </div>
+      </div><!-- END stats-container -->
+
+      <div class="gauge-container">
+        <h4>% Safes in Good Order</h4>
+
+        <div id="gauge-chart" class="chart-container" />
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+      <div class="column-chart-container">
+        <div class="column-top">
+          <h4 class="title">Reported Issues by Status</h4>
+          <div class="viewing-filter">
+            Viewing 
+            <select ng-model="c.selected_view" ng-change="c.updateView()" class="form-control">
+              <option ng-repeat="option in c.data.issue_state_views" value="{{option.value}}">{{option.label}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="width: 100%; height: 300px; position: relative;">
+          <div ng-show="c.chart_loading1" class="loading">
+            <span class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" />
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div ng-show="c.data.issue_status_data.length < 2">
+            No issues to show.
+          </div>
+          <div id="columnchart_values" style="width: 100%; height: 300px;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--
+<div style="display:none;">
+<textarea ng-model="c.chart_string" class="form-control"></textarea>
+<button ng-click="c.reDraw()">Redraw Chart</button>
+</div>
+-->
+</div>]]></template>
+    </sp_widget>
+</record_update>

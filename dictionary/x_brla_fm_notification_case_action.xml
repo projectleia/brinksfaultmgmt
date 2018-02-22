@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Notification Case Action" max_length="40" name="x_brla_fm_notification_case_action" type="collection">
+        <element choice="1" label="Action" max_length="40" name="action" type="choice">
+            <choice>
+                <element label="Acknowledge" sequence="0" value="Acknowledge"/>
+                <element label="Report Onsite" sequence="1" value="Report Onsite"/>
+                <element label="Report Resolved" sequence="2" value="Report Resolved"/>
+                <element label="Verify Phone" sequence="10" value="Verify Phone"/>
+            </choice>
+        </element>
+        <element label="Case ref" max_length="32" name="case_ref" reference="x_brla_fm_fault_case" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Phone" max_length="40" name="phone" type="string"/>
+        <element dependent="reference_table" dependent_on_field="reference_table" label="Reference record" max_length="32" name="reference_record" type="document_id" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Reference table" max_length="100" name="reference_table" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="status" type="string">
+            <choice>
+                <element label="Sent" sequence="10" value="Sent"/>
+                <element label="Processed" sequence="20" value="Processed"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="reference_record"/>
+        </index>
+        <index name="index2">
+            <element name="case_ref"/>
+        </index>
+    </element>
+</database>

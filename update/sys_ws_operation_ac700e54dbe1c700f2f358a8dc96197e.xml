@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>Add Alert</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	// implement resource here
+	var body = request.body.data;
+	var responseJson = {};
+
+	//Check if Device Serial Number is Passed In.
+	if(body.device_serial_number+'' == ''){  //!body.device_serial_number || 
+		response.setStatus(400);
+		responseJson.Status = 'Error';
+		responseJson.Message = 'Missing manadatory Device Serial Number.';
+		response.setBody(responseJson);
+	}
+	else {
+		var faultAlertRec = new GlideRecord('x_brla_fm_fault_alert');
+		faultAlertRec.initialize();
+		for(var field in body){
+			faultAlertRec[field] = body[field];
+		}
+		var inserted = faultAlertRec.insert();
+
+		if(inserted){
+			response.setStatus(200);
+			responseJson.Status = 'Success';
+			responseJson.Message = 'Alert was successfully added. Servicenow SysID ' + inserted;
+			response.setBody(responseJson);
+		}
+	}
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_brla_fm/faultalert</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-09-27 19:48:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ac700e54dbe1c700f2f358a8dc96197e</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Add Alert</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_ws_operation_ac700e54dbe1c700f2f358a8dc96197e</sys_update_name>
+        <sys_updated_by>manish.admin</sys_updated_by>
+        <sys_updated_on>2017-09-27 22:02:18</sys_updated_on>
+        <web_service_definition display_value="Fault Alert">f8bff154dbe1c700f2f358a8dc961996</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

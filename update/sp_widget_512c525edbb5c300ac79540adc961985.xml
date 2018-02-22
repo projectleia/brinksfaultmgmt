@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($location) {
+	var c = this;
+
+	c.init = function() {
+
+		c.loading = true;
+		c.page_size = 10;
+
+		c.getData();
+
+		c.current_state = 'all';
+		c.table_filter = {};
+		c.filtered_rows = [];
+		c.filter = {};
+
+		if (c.data.device) {
+			c.filter.device = c.data.device;
+		}
+
+		c.searchQuery = '';
+
+		c.sortType = 'number';
+		c.sortReverse = 'true';
+
+		//console.log(c);
+	};
+
+	c.getData = function() {
+		c.loading = true;
+		c.data.get_data = true;
+		c.server.update().then(function(r) {
+			//console.log('done loading');
+			c.loading = false;
+		});
+	};
+
+	c.getCaretClass = function(col) {
+		if (c.sortType == col) {
+			if (c.sortReverse) {
+				return 'fa-caret-down';
+			}
+			return 'fa-caret-up';
+		}
+		return '';
+	};
+
+	c.changeSort = function(col) {
+		c.sortReverse = !c.sortReverse;
+		c.sortType = col;
+	};
+
+	c.updateDaysFilter = function(){
+		c.data.daysFilter = c.selectedDays;
+		c.data.updateDaysFilter = true;
+		c.server.update();
+	};
+
+	c.changeState = function(state) {
+		var loc = $location.search();
+		loc.case_state = state.value;
+		$location.search(loc);
+	};
+
+	c.changeDateRange = function(dr_value) {
+		var loc = $location.search();
+		loc.date_range = dr_value;
+		$location.search(loc);
+	};
+
+	c.deviceChange = function() {
+		var loc = $location.search();
+		loc.device = c.filter.device;
+		$location.search(loc);
+	};
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.loading {&#13;
+  text-align: center; &#13;
+}&#13;
+&#13;
+.filter-top {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+}&#13;
+&#13;
+.safe-filter {&#13;
+  flex: 0 0 250px;&#13;
+  -ms-flex: 0 0 250px;&#13;
+  margin-right: 15px;&#13;
+&#13;
+  .input-group {&#13;
+    width: 100%; &#13;
+  }&#13;
+}&#13;
+&#13;
+.table-text {&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.date-dropdown {&#13;
+  flex: 0 0 250px;&#13;
+  -ms-flex: 0 0 250px;&#13;
+  margin-right: 15px;&#13;
+&#13;
+  .dropdown-menu &gt; .active &gt; a, &#13;
+  .dropdown-menu &gt; .active &gt; a:hover, &#13;
+    .dropdown-menu &gt; .active &gt; a:focus {&#13;
+      background-color: #ddd; &#13;
+    }&#13;
+&#13;
+  .dropdown-toggle {&#13;
+    background: transparent;&#13;
+    border-top: none;&#13;
+    border-right: none;&#13;
+    border-left: none;&#13;
+    box-shadow: none;&#13;
+    border-radius: 0px;&#13;
+    border-bottom: 2px solid #a5a5a5;&#13;
+    color: #0039a6;&#13;
+  }&#13;
+}&#13;
+&#13;
+.issue-heading {&#13;
+  background-color: #002ea0 !important;&#13;
+  color: #fff !important;&#13;
+  padding: 10px 15px;&#13;
+  border-bottom: 1px solid transparent;&#13;
+  border-bottom-color: transparent;&#13;
+  border-top-right-radius: 3px;&#13;
+  border-top-left-radius: 3px;&#13;
+}&#13;
+&#13;
+.issue-search {&#13;
+  flex: 0 0 350px;&#13;
+  -ms-flex: 0 0 350px;&#13;
+  margin-right: 15px;&#13;
+  background-color: #002a93;&#13;
+  padding: 10px 30px;&#13;
+  color: #fff;&#13;
+  width: 350px;&#13;
+  margin-bottom: 15px;&#13;
+&#13;
+  .inner {&#13;
+    position: relative;&#13;
+  }&#13;
+&#13;
+  input {&#13;
+    background-color: transparent;&#13;
+    color: #fff;&#13;
+    border-top: none;&#13;
+    border-left: none;&#13;
+    border-right: none;&#13;
+    border-bottom: 1px solid rgba(255, 255, 255, .54);&#13;
+    display: block;&#13;
+    width: 100%;&#13;
+    height: 36px;&#13;
+    padding: 6px 18px 6px 0px;&#13;
+    font-size: 16px;&#13;
+  }&#13;
+&#13;
+  .icon {&#13;
+    position: absolute;&#13;
+    top: 8px;&#13;
+    right: 0px;&#13;
+    color: #fff;&#13;
+  }&#13;
+}&#13;
+&#13;
+input:focus::-webkit-input-placeholder { color:transparent; }&#13;
+input:focus:-moz-placeholder { color:transparent; }&#13;
+input:focus::placeholder { color:transparent; }&#13;
+input:focus:placeholder { color:transparent; }&#13;
+&#13;
+.date-filter-container {&#13;
+  float: right;&#13;
+  padding: 15px 0px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.filter-bar {&#13;
+  margin-bottom: 10px;&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-direction: row;&#13;
+  flex-flow: row nowrap;&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+.state-filter {&#13;
+  background-color: #002a93;&#13;
+  min-height: 70px;&#13;
+  margin: 0px 1px;&#13;
+  flex: 1 1 auto;&#13;
+  -ms-flex: 1 1 auto;&#13;
+  display: block;&#13;
+  color: #bbb;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.state-filter:first-of-type {&#13;
+  margin-left: 0px;&#13;
+}&#13;
+&#13;
+.state-filter:last-of-type {&#13;
+  margin-right: 0px;&#13;
+}&#13;
+&#13;
+.state-filter:hover {&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.state-filter.active {&#13;
+  color: #fff;&#13;
+  background-color: #799bd0;&#13;
+}&#13;
+&#13;
+.state-filter-label {&#13;
+  vertical-align: middle; &#13;
+  display: inline-block;&#13;
+  font-size: 9px;&#13;
+  line-height: 14px;&#13;
+  width: 65%;&#13;
+  text-align: center;&#13;
+  padding-left: 5px;&#13;
+  padding-right: 5px;&#13;
+}&#13;
+&#13;
+.state-filter-number {&#13;
+  vertical-align: middle;&#13;
+  display: inline-block;&#13;
+  font-size: 26px;&#13;
+  width:35%; &#13;
+  height:100%;&#13;
+  text-align: center;&#13;
+  padding-left: 5px;&#13;
+  padding-right:7px;&#13;
+}&#13;
+&#13;
+th, &#13;
+td {&#13;
+  min-width: 100px;&#13;
+  padding: 8px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Reported issues list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+
+	if (input) {
+		//server call
+		data.case_state = input.case_state;
+		data.device = input.device;
+		data.date_range = input.date_range;
+		data.user_company = input.user_company;
+		data.date_ranges = input.date_ranges;
+		data.selected_date_range = input.selected_date_range;
+
+		if (input.get_data) {
+
+			data.issues = getIssues();
+			data.counts = getCounts();
+
+			for (var j = 0; j < data.counts.length; j++) {
+				if (data.counts[j].value == data.case_state) {
+					data.counts[j].active = true;
+				} else {
+					data.counts[j].active = false;
+				}
+			}
+			
+			data.get_data = false;
+			return;
+		}
+	} else {
+		//initial load
+		data.case_state = $sp.getParameter('case_state') || 'all';
+		data.device = $sp.getParameter('device') || '';
+		data.date_range = $sp.getParameter('date_range') || 'all';
+
+		var userGR = new GlideRecord('sys_user');
+		userGR.get(gs.getUserID());
+		data.user_company = userGR.company + '';
+
+		data.date_ranges = [
+			{
+				display: 'last 30 days', 
+				value: 30, 
+				query: 'opened_at>=javascript:gs.beginningOfLast30Days()', 
+				active: false 
+			}, 
+			{
+				display: 'last 60 days', 
+				value: 60, 
+				query: 'opened_at>=javascript:gs.beginningOfLast60Days()', 
+				active: false 
+			}, 
+			{
+				display: 'last 90 days', 
+				value: 90, 
+				query: 'opened_at>=javascript:gs.beginningOfLast90Days()', 
+				active: false 
+			}, 
+			{
+				display: 'all', 
+				value: 0, 
+				query: '', 
+				active: true 
+			} 
+		];
+		data.selected_date_range = data.date_ranges[3];
+
+		for (var i = 0; i < data.date_ranges.length; i++) {
+			if (data.date_ranges[i].value == data.date_range) {
+				data.date_ranges[i].active = true;
+				data.selected_date_range = data.date_ranges[i];
+			} else {
+				data.date_ranges[i].active = false;
+			}
+		}
+
+		data.issues = [];
+	}
+
+	function getIssues() {
+		var issues = [];
+
+		var issueGR = new GlideRecord('x_brla_fm_fault_case');
+		issueGR.addQuery('account', data.user_company);
+		if (data.case_state != 'all') {
+			issueGR.addQuery('state', data.case_state);
+		}
+		if (data.device) {
+			issueGR.addEncodedQuery('device.nameLIKE' + data.device);
+		}
+
+		if (data.date_range != 'all') {
+			issueGR.addEncodedQuery(data.selected_date_range.query);
+		}
+		data.issue_query = issueGR.getEncodedQuery();
+
+		issueGR.orderByDesc('opened_at');
+
+		issueGR.query();
+		while (issueGR.next()) {
+			var issue = {};
+			$sp.getRecordDisplayValues(issue, issueGR, 'sys_id,number,state,device,short_description,opened_at');
+			issue.device_value = issueGR.device + '';
+			issue.opened_at_value = issueGR.opened_at + '';
+			issue.state_value = issueGR.state + '';
+			issue.device_model_number = issueGR.device.model_number.getDisplayValue();
+			issue.device_serial_number = issueGR.device.serial_number.getDisplayValue();
+			issue.device_location_id = issueGR.device.location_id.getDisplayValue();
+			issue.device_address = issueGR.device.address.getDisplayValue();
+			issue.link = '?id=safe_issue_detail&table=x_brla_fm_fault_case&sys_id=' + issue.sys_id;
+
+			issues.push(issue);
+		}
+		return issues;
+	}
+
+	function getCounts() {
+
+		var counts = [{
+			value: 'all',
+			display: 'ALL',
+			count: 0
+		}];
+
+		var choices = new GlideRecord('sys_choice');
+		choices.addEncodedQuery('element=state^inactive=false^name=x_brla_fm_fault_case');
+		choices.orderBy('sequence');
+		choices.query();
+		while (choices.next()) {
+			var count = {};
+			count.sys_id = choices.sys_id + '';
+			count.value = parseInt(choices.value + '');
+			count.display = choices.label.getDisplayValue();
+			count.count = 0;
+			counts.push(count);
+		}
+
+		var issueGA = new GlideAggregate('x_brla_fm_fault_case');
+		issueGA.addQuery('account', data.user_company);
+		issueGA.orderBy('state');
+		issueGA.addAggregate('COUNT', 'state');
+		issueGA.query();
+		while (issueGA.next()) {
+			for (var inc = 1; inc < counts.length; inc++) {
+				if (issueGA.state == counts[inc].value) {
+					//set the count for the state
+					counts[inc].count = parseInt(issueGA.getAggregate('COUNT', 'state'));
+
+					//add the count to the all count
+					counts[0].count += counts[inc].count;
+				}
+			}
+		}
+		return counts;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:12:45</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>512c525edbb5c300ac79540adc961985</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>Safe - Reported issues list</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_512c525edbb5c300ac79540adc961985</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-13 16:14:38</sys_updated_on>
+        <template><![CDATA[<script type="text/ng-template" id="paginationAlternative" ng-if="range.total > 0">
+<div ng-if="range.total > 0" class="range-label">Displaying {{ range.lower }} to {{ range.upper }} of {{ range.total }} entries</div>
+<a ng-if="range.total > 0" href="" title="Previous page" ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(pagination.current - 1)">&lsaquo;</a>
+<a ng-if="range.total > 0" href="" title="Next page"  ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.current + 1)">&rsaquo;</a>
+</script>
+
+<script type="text/ng-template" id="template">
+<div class="pagination-container">
+	<div class="range-label">Displaying {{ range.lower }} - {{ range.upper }} of {{ range.total }}</div>
+	<ul class="pagination" ng-if="1 < pages.length || !autoHide">
+      <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == 1 }">
+          <a href="" ng-click="setCurrent(1)">&laquo;</a>
+  </li>
+      <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }">
+          <a href="" ng-click="setCurrent(pagination.current - 1)">Previous</a>
+  </li>
+      <li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }">
+          <a href="" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+  </li>
+
+      <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }">
+          <a href="" ng-click="setCurrent(pagination.current + 1)">Next</a>
+  </li>
+      <li ng-if="boundaryLinks"  ng-class="{ disabled : pagination.current == pagination.last }">
+          <a href="" ng-click="setCurrent(pagination.last)">Last</a>
+  </li>
+  </ul>
+  </div>
+</script>
+
+<div>
+  <div class="filter-top">
+    <div class="safe-filter">
+      <div class="form-group">
+        <label>All columns</label>
+        <div class="input-group">
+          <input ng-model="c.searchQuery" type="text" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="safe-filter">
+      <div class="form-group">
+        <label>Safe name</label>
+        <div class="input-group">
+          <input ng-model="c.filter.device" tp-enter="c.deviceChange()" type="text" class="form-control" />
+          <span class="input-group-btn">
+            <button ng-click="c.deviceChange()" class="btn btn-primary" type="button"><span class="fa fa-filter" /></button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="date-dropdown">
+      <label>
+        Viewing
+      </label>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownDate" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          {{c.data.selected_date_range.display}}
+          <span class="fa fa-angle-down" />
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownDate">
+          <li ng-repeat="dr in c.data.date_ranges | filter:{value}" ng-class="{'active': dr.active}" ng-if="dr.display != 'all'" >
+            <a ng-click="c.changeDateRange(dr.value)" href="javascript:void(0)">{{dr.display}}</a>
+          </li>
+          <li role="separator" class="divider" />
+          <li ng-class="{'active': c.data.date_range == 'all'}">
+            <a ng-click="c.changeDateRange('all')" href="javascript:void(0)">All</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <a ng-repeat="state_filter in c.data.counts" ng-click="c.changeState(state_filter)" ng-class="{'active': state_filter.active}" 
+       href="javascript:void(0)" class="state-filter">
+      <span class="state-filter-label">{{state_filter.display}}</span>
+      <span class="state-filter-number">{{state_filter.count}}</span>
+    </a>
+  </div>
+
+  <div ng-if="c.loading" class="loading">
+    <span class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" />
+    <span class="sr-only">Loading...</span>
+  </div><!-- END loading -->
+
+  <div ng-if="!c.loading">
+    <div class="table-container">
+      <table class="table table-striped table-hover table-text">
+        <thead>
+          <tr>
+            <th>
+              <a ng-click="c.changeSort('number')" href="javascript:void(0)">
+                Number <span class="fa" ng-class="c.getCaretClass('number')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('state')" href="javascript:void(0)">
+                Status <span class="fa" ng-class="c.getCaretClass('state')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('safe_name')" href="javascript:void(0)">
+                Safe name <span class="fa" ng-class="c.getCaretClass('safe_name')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('description')" href="javascript:void(0)">
+                Description <span class="fa" ng-class="c.getCaretClass('description')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('safe_model')" href="javascript:void(0)">
+                Model <span class="fa" ng-class="c.getCaretClass('safe_model')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('safe_sn')" href="javascript:void(0)">
+                Serial # <span class="fa" ng-class="c.getCaretClass('safe_sn')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('site_id')" href="javascript:void(0)">
+                Site ID <span class="fa" ng-class="c.getCaretClass('site_id')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('location')" href="javascript:void(0)">
+                Location <span class="fa" ng-class="c.getCaretClass('location')" />
+              </a>
+            </th>
+            <th>
+              <a ng-click="c.changeSort('opened_at')" href="javascript:void(0)">
+                Opened <span class="fa" ng-class="c.getCaretClass('opened_at')" />
+              </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>          
+          <tr dir-paginate="issue in c.filtered_rows = (c.data.issues | filter:c.table_filter:true | filter:c.searchQuery | orderBy:c.sortType:c.sortReverse | itemsPerPage: c.page_size)">
+            <td><a ng-href="{{issue.link}}">{{issue.number}}</a></td>
+            <td>{{issue.state}}</td>
+            <td>{{issue.device}}</td>
+            <td>{{issue.short_description}}</td>
+            <td>{{issue.device_model_number}}</td>
+            <td>{{issue.device_serial_number}}</td>
+            <td>{{issue.device_location_id}}</td>
+            <td>{{issue.device_address}}</td>
+            <td>{{issue.opened_at}}</td>
+          </tr>
+          <tr ng-if="c.filtered_rows.length == 0">
+            <td colspan="9" class="text-center">-- No issues --</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <dir-pagination-controls max-size="c.page_size" template-url="template"></dir-pagination-controls>
+      </div>
+    </div><!-- END table-container -->
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

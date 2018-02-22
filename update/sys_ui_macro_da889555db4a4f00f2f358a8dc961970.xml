@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>add_new_contact</name>
+        <scoped_name>x_brla_fm_add_new_contact</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>steven.admin</sys_created_by>
+        <sys_created_on>2017-10-25 16:01:02</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>da889555db4a4f00f2f358a8dc961970</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>add_new_contact</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_ui_macro_da889555db4a4f00f2f358a8dc961970</sys_update_name>
+        <sys_updated_by>steven.admin</sys_updated_by>
+        <sys_updated_on>2017-10-25 16:01:02</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<j:set var="jvar_n" value="create_user:${ref}" />
+<span id="${jvar_n}" onclick="showNewContactForm()" name="${jvar_n}" title="Add new contact" alt="Add new contact" 
+	  tabindex="0" class="btn btn-default icon-add" style="display: none;">
+	<span class="sr-only">Add new contact</span>
+</span>
+<script>
+	function showNewContactForm() {
+		var modalDialog = new GlideModal('x_brla_fm_addNewContactForm');
+		modalDialog.setTitle('Create New Contact');
+		modalDialog.render();
+	}
+	
+	//show link if empty
+	function onChange_caller_id_unknown_user(element, original, changed, loading) {
+		var display = 'inline-block';
+		if (changed.length > 0) {
+			display = 'none';
+		}
+
+		var e = gel('${jvar_n}');
+		e.style.display = display;
+	}
+
+	var h = new GlideEventHandler('onChange_incident_caller_id_unknown_user', onChange_caller_id_unknown_user, '${ref}');
+	g_event_handlers.push(h);
+</script>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

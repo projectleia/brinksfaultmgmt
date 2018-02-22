@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout) {
+
+	$scope.userID = $scope.user.sys_id;
+	if (cabrillo.isNative()) {
+		$scope.isViewNative = true;
+	}
+
+	$scope.openPopUp = function() {
+		var url = "$chat_support.do?queueID=" + $scope.data.connect_support_queue_id;
+		var popup = window.open (url, "popup", "width=900, height=600"); 
+	};
+
+	$scope.openLogin = function () {
+		$scope.modalInstance = $uibModal.open({
+			templateUrl: 'modalLogin',
+			scope: $scope
+		});
+	};
+
+	$rootScope.$on('sp.avatar_changed', function() {
+		$scope.userID = "";
+		$timeout(function() {
+			$scope.userID = $scope.user.sys_id;
+		});
+	});
+
+	$scope.isHomepage = function() {
+		if (!$scope.page.id) {
+			return true;
+		}
+
+		if ($scope.page.id == $scope.portal.homepage_dv) {
+			return true;
+		}
+
+		return false;
+	};
+
+	$scope.$on('sp_loading_indicator', function(e, value) {
+		$scope.loadingIndicator = value;
+	});
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.title {&#13;
+  display: inline-block;&#13;
+  line-height: 1;&#13;
+  margin: 17px 10px 10px 0px;&#13;
+  color: #000;&#13;
+  font-size: 20px;&#13;
+}&#13;
+&#13;
+.badge {&#13;
+  vertical-align: 2px; &#13;
+}&#13;
+&#13;
+.navbar-default {&#13;
+  background-color: #f2f2f2;&#13;
+  border-top: none;&#13;
+  border-bottom: 3px solid #fcb539;&#13;
+  margin: 0px;&#13;
+&#13;
+  .navbar-nav {&#13;
+    &gt; li &gt; a {&#13;
+      color: #777;&#13;
+      background-color: transparent;&#13;
+      border-bottom: 3px solid transparent;&#13;
+    }&#13;
+&#13;
+    &gt; li &gt; a:hover, &#13;
+      &gt; li &gt; a:focus {&#13;
+        color: #0039a6;&#13;
+      }&#13;
+&#13;
+    &gt; li.active &gt; a {&#13;
+      color: #0039a6;&#13;
+      border-color: #0039a6;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.dropdown-menu &gt; li &gt; a:hover, &#13;
+.dropdown-menu &gt; li &gt; a:focus {&#13;
+  .badge {&#13;
+    color: #002a93;&#13;
+    background-color: #fff;&#13;
+  }&#13;
+}&#13;
+&#13;
+.right-nav {&#13;
+  .dropdown-menu {&#13;
+    padding: 0px;&#13;
+    min-width: 250px;&#13;
+    width: 100%;&#13;
+  }&#13;
+&#13;
+  .top {&#13;
+    padding: 15px; &#13;
+  }&#13;
+&#13;
+  .middle {&#13;
+    padding: 15px; &#13;
+  }&#13;
+&#13;
+  .bottom {&#13;
+    padding: 10px 15px;&#13;
+    background-color: #e6e6e6;&#13;
+    border-top: 1px solid #e6e6e6;&#13;
+  }&#13;
+}&#13;
+&#13;
+&#13;
+.header2 {&#13;
+  background-color: #fff;&#13;
+  border-bottom: 3px solid #fcb539;&#13;
+&#13;
+  .navbar {&#13;
+    background-color: transparent;&#13;
+    border: none;&#13;
+    margin: 0px; &#13;
+  }&#13;
+&#13;
+  .top {&#13;
+    padding: 15px 0px;&#13;
+&#13;
+    .company-label {&#13;
+      color: #333;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  .bottom {&#13;
+    .navbar-nav {&#13;
+      &gt; li &gt; a {&#13;
+        color: #777;&#13;
+        background-color: transparent;&#13;
+      }&#13;
+&#13;
+      &gt; li &gt; a:hover, &#13;
+        &gt; li &gt; a:focus {&#13;
+          color: #0039a6;&#13;
+        }&#13;
+&#13;
+      &gt; li.active &gt; a {&#13;
+        color: #0039a6;&#13;
+&#13;
+        span {&#13;
+          border-bottom: 3px solid #0039a6;&#13;
+        }&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.nav .dropdown:hover .dropdown-menu {&#13;
+  display: block;&#13;
+}&#13;
+&#13;
+/* Loading Bar */&#13;
+.load-bar {&#13;
+  position: absolute;&#13;
+  width: 100%;&#13;
+  height: 10px;&#13;
+  background-color: #fcb539;&#13;
+  z-index: 999;&#13;
+  margin-top: -3px;&#13;
+}&#13;
+&#13;
+.bar {&#13;
+  content: "";&#13;
+  display: inline;&#13;
+  position: absolute;&#13;
+  width: 0;&#13;
+  height: 100%;&#13;
+  left: 50%;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.bar:nth-child(1) {&#13;
+  background-color: $brand-primary;&#13;
+  animation: loading 3s linear infinite;&#13;
+}&#13;
+&#13;
+.bar:nth-child(2) {&#13;
+  background-color: $brand-info;&#13;
+  animation: loading 3s linear 1s infinite;&#13;
+}&#13;
+&#13;
+.bar:nth-child(3) {&#13;
+  background-color: $brand-success;&#13;
+  animation: loading 3s linear 2s infinite;&#13;
+}&#13;
+&#13;
+@keyframes loading {&#13;
+  from {left: 50%; width: 0;z-index:100;}&#13;
+  33.3333% {left: 0; width: 100%;z-index: 10;}&#13;
+  to {left: 0; width: 100%;}&#13;
+}&#13;
+/* ----------------- */</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, element) {	
+	$(element).on('click.nav','.navbar-collapse.in',function(e) {	
+		var target = $(e.target);
+		if (target.is('a')) {
+			// collapse mobile nav if clicked an anchor
+			$(this).removeClass('in').addClass('collapse');
+			return;
+		}
+
+		// if neither target nor parent is an anchor, do nothing
+		if (!target.parent().is('a')) {
+			return;
+		}
+
+		// collapse mobile nav if target is part of a submenu
+		if (target.parents("ul.dropdown-menu").length > 0) {
+			$(this).removeClass('in').addClass('collapse');
+		}
+	});
+}]]></link>
+        <name>Safe - Header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	// Defines the support queue ID that will be linked to by the Live Chat link in header
+	data.connect_support_queue_id = $sp.getValue('sp_chat_queue');
+	data.login_page = $sp.getValue('login_page');
+	var menu = $sp.getValue("sp_rectangle_menu");
+	data.menu = $sp.getWidgetFromInstance(menu);
+	if (data.menu && data.menu.data) {
+		data.menu.data.replace = true;
+		// Hide login if menu already has link to login
+		data.hasLogin = false;
+		if (data.menu.data.menu.items) {
+			for(var i in data.menu.data.menu.items) {
+				var item = data.menu.data.menu.items[i];
+				if (item.type == 'page' && item.sp_page == data.login_page)
+					data.hasLogin = true;
+			}
+		}
+	}
+
+	data.page = $sp.getParameter('id') || 'safe_index';
+
+	var userGR = new GlideRecord('sys_user');
+	userGR.get(gs.getUserID());
+	data.user_company = userGR.company + '';
+	data.companyName = userGR.company.getDisplayValue();
+	data.company_logo = userGR.company.banner_image.getDisplayValue();
+
+	data.company_dropdown_display = data.companyName;
+	if (data.company_dropdown_display == '') {
+		data.company_dropdown_display = gs.getUserDisplayName();
+	}
+
+	data.reported_issues_count = getReportedIssuesCount();
+
+	getSafeCountsCase();
+
+	function getReportedIssuesCount() {
+		var count = 0;
+		var count_gr = new GlideAggregate('x_brla_fm_fault_case');
+		count_gr.addQuery('account', data.user_company);
+		count_gr.addEncodedQuery('active=true');
+		count_gr.addAggregate('COUNT');
+		count_gr.query();
+		if (count_gr.next()) {
+			count = parseInt(count_gr.getAggregate('COUNT'));
+		}
+		return count;
+	}
+	
+	function getSafeCountsCase() {
+
+		//issue count
+		data.issue_count = 0;
+		//aggregate cases by device
+		var count = new GlideAggregate('x_brla_fm_fault_case');
+		count.addQuery('device.account', data.user_company);
+		count.addEncodedQuery('active=true');
+		//count.addEncodedQuery('device.active=true');
+		count.groupBy('device');
+		count.query();
+		while (count.next()) {
+			//counting unique safes
+			data.issue_count++;
+		}
+
+		//all count
+		data.all_count = 0;
+		var count2 = new GlideAggregate('x_brla_fm_safe');
+		count2.addQuery('account', data.user_company);
+		count2.addEncodedQuery('active=true');
+		count2.addAggregate('COUNT');
+		count2.query();
+		if (count2.next()) {
+			data.all_count = parseInt(count2.getAggregate('COUNT'));
+		}
+
+		//okay count
+		//number of safes minus the ones with issues
+		data.okay_count = data.all_count - data.issue_count;
+	}
+
+	function getSafeCountsAlert() {
+
+		//issue count
+		data.issue_count = 0;
+		//aggregate alerts by device
+		var count = new GlideAggregate('x_brla_fm_fault_alert');
+		count.addQuery('device.account', data.user_company);
+		count.addEncodedQuery('active_case=true');
+		//count.addEncodedQuery('device.active=true');
+		count.groupBy('device');
+		count.query();
+		while (count.next()) {
+			//counting unique safes
+			data.issue_count++;
+		}
+
+		//all count
+		data.all_count = 0;
+		var count2 = new GlideAggregate('x_brla_fm_safe');
+		count2.addQuery('account', data.user_company);
+		count2.addEncodedQuery('active=true');
+		count2.addAggregate('COUNT');
+		count2.query();
+		if (count2.next()) {
+			data.all_count = parseInt(count2.getAggregate('COUNT'));
+		}
+
+		//okay count
+		//number of safes minus the ones with issues
+		data.okay_count = data.all_count - data.issue_count;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 12:57:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7398d61adbb5c300ac79540adc961918</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>Safe - Header</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_header_footer_7398d61adbb5c300ac79540adc961918</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-12 15:39:27</sys_updated_on>
+        <template><![CDATA[<nav ng-if="::user.logged_in" class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+              data-target="#sp-nav-bar2" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ng-href="?id={{::portal.homepage_dv}}">
+        <img alt="Brinks" ng-src="{{::portal.logo}}" />
+      </a>
+      <span ng-if="::!user.logged_in" class="title">Login</span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div sp-navbar-toggle="" class="collapse navbar-collapse" id="sp-nav-bar2">
+      <ul ng-if="::user.logged_in" class="nav navbar-nav left-nav">
+        <li class="dropdown" ng-class="{'active':c.data.page == 'safe_manage_safes'}">
+          <a href="?id=safe_manage_safes" class="dropdown-toggle" data-toggle="dropdown" 
+             role="button" aria-haspopup="true" aria-expanded="false">
+            My Safes 
+            <span class="badge">{{c.data.all_count}}</span>
+            <span class="caret" />
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="?id=safe_manage_safes&safe_state=issue_reported">Safes with an ISSUE REPORTED <span class="badge">{{c.data.issue_count}}</span></a></li>
+            <li><a href="?id=safe_manage_safes&safe_state=no_issue">Safes with NO ISSUE <span class="badge">{{c.data.okay_count}}</span></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="?id=safe_manage_safes&safe_state=all">All</a></li>
+          </ul>
+        </li>
+        <li ng-class="{'active':c.data.page == 'safe_reported_issues'}">
+          <a href="?id=safe_reported_issues"><span>Reported Issues <span class="badge">{{c.data.reported_issues_count}}</span></span></a>
+        </li>
+        <!--
+<li ng-class="{'active':c.data.page == 'safe_alerts'}">
+<a href="?id=safe_alerts&active=true"><span>Alerts <span class="badge">{{data.alert_count}}</span></span></a>
+</li>
+-->
+        <li ng-class="{'active':c.data.page == 'safe_report_issue'}">
+          <a href="?id=safe_report_issue"><span>Report an Issue</span></a>
+        </li>
+
+      </ul>
+
+      <ul ng-if="::user.logged_in" class="nav navbar-nav navbar-right right-nav">
+        <li>
+          <a href="https://brinks.cirreon.com/" target="_blank" title="Available for most safe types">
+            Safe Transactions <span class="fa fa-info-circle" />
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" 
+             role="button" aria-haspopup="true" aria-expanded="false">
+            {{c.data.company_dropdown_display}} <span class="caret" />
+          </a>
+          <div class="dropdown-menu">
+            <div>
+              <div ng-if="c.data.company_logo" class="top">
+                <img ng-src="{{c.data.company_logo}}" />
+              </div>
+              <div class="middle">
+                <div>Hi {{::user.name}}!</div>
+                <div></div>
+              </div>
+            </div>
+            <div class="bottom">
+              <a href="?id=safe_user_profile" class="btn btn-primary btn-sm"><span class="fa fa-fw fa-pencil" /> Edit Profile</a>
+              <a ng-href="{{::portal.logoutUrl}}" class="btn btn-default btn-sm pull-right"><span class="fa fa-fw fa-sign-out" /> ${Logout}</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Include The Menu -->
+      <!--<sp-widget widget="data.menu"></sp-widget>-->
+
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div ng-show="loadingIndicator" class="load-bar">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>]]></template>
+    </sp_header_footer>
+</record_update>

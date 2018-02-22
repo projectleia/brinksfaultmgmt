@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[onModalLoad();
+
+var req_by = '';
+
+function onModalLoad() {
+	var contact_account = gel('contact_account');
+	
+	var account = g_form.getValue('account');
+	if(account)
+		reflistPick('contact_account',account,g_form.getDisplayBox('account').value);
+	mandatoryCheck(contact_account);
+}
+
+function submitSaveContact() {
+	
+	var reqFields = ['account', 'first_name', 'last_name', 'email', 'title', 'phone_number'];
+
+	var userObj = {
+		account: gel('contact_account').value,
+		first_name: gel('contact_first_name').value, 
+		last_name: gel('contact_last_name').value,
+		email: gel('contact_email').value,
+		phone_number: gel('contact_phone_number').value,
+		mobile_phone: gel('contact_mobile_phone_number').value	 
+	};
+
+	//validate form
+	for (var prop in userObj) {
+		if (reqFields.indexOf(prop) >= 0 && userObj[prop] == '') {
+			alert('You must fill out all *required* fields to create a new user.');
+			return false;
+		}
+	}
+
+	var userJSON = JSON.stringify(userObj);
+
+	var newContact = new GlideAjax('x_brla_fm.newContactAJAX');
+	newContact.addParam('sysparm_name', 'addContact');
+	newContact.addParam('sysparm_user', userJSON);
+	newContact.getXML(function(response){
+		var answer = response.responseXML.documentElement.getAttribute("answer");
+		if(typeof(answer) == 'string' && answer.toLowerCase().indexOf('error') > -1) {
+			alert(answer);
+		} else {
+			g_form.setValue('contact', answer);
+			g_form.setValue('account', gel('contact_account').value);
+			GlideDialogWindow.get().destroy();
+		}
+	});
+}
+
+function mandatoryCheck(elem) {
+	if (elem.value == '') {
+		//alert('blank');
+		$j('#' + elem.id + '-container').addClass('is-required').removeClass('is-filled');
+	} else {
+		//alert('filled');
+		$j('#' + elem.id + '-container').addClass('is-filled').removeClass('is-required');
+	}
+}
+
+function cancelContactModal() {
+	GlideDialogWindow.get().destroy();
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_brla_fm_addNewContactForm.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<g:ui_form>
+		<style>
+			.site-warning {
+				color: #f95050;
+				font-size: smaller;
+				font-weight: bold;
+				width: 100%;
+				text-align: center;
+				float: right;
+			}
+		</style>
+		<div class="modal-body">
+			<div class="form-horizontal">
+				<div id="contact_account-container" class="form-group is-required">
+					<div>
+						<label for="contact_account" class="col-xs-12 col-md-3 col-lg-4 control-label">
+							<span class="required-marker label_description" />
+							<span class="label-text">Account</span>
+						</label>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-9 col-lg-8">
+						<g:ui_reference id="contact_account" name="contact_account" table="customer_account" query="active=true^customer=true" />
+					</div>
+				</div>
+				<div id="contact_first_name-container" class="form-group is-required">
+					<div>
+						<label for="contact_first_name" class="col-xs-12 col-md-3 col-lg-4 control-label">
+							<span class="required-marker label_description" />
+							<span class="label-text">First Name</span>
+						</label>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-9 col-lg-8">
+						<input type="text" class="form-control" id="contact_first_name" name="contact_first_name" onkeyup="mandatoryCheck(this)" />
+					</div>
+				</div>
+				<div id="contact_last_name-container" class="form-group is-required">
+					<div>
+						<label for="contact_last_name" class="col-xs-12 col-md-3 col-lg-4 control-label">
+							<span class="required-marker label_description" />
+							<span class="label-text">Last Name</span>
+						</label>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-9 col-lg-8">
+						<input type="text" class="form-control" id="contact_last_name" name="contact_last_name" onkeyup="mandatoryCheck(this)" />
+					</div>
+				</div>
+				<div id="contact_email-container" class="form-group is-required">
+					<div>
+						<label for="contact_email" class="col-xs-12 col-md-3 col-lg-4 control-label">
+							<span class="required-marker label_description" />
+							<span class="label-text">Email</span>
+						</label>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-9 col-lg-8">
+						<input type="email" class="form-control" id="contact_email" name="contact_email" onkeyup="mandatoryCheck(this)" />
+					</div>
+				</div>
+				<div id="contact_phone_number-container" class="form-group is-required">
+					<div>
+						<label for="contact_phone_number" class="col-xs-12 col-md-3 col-lg-4 control-label">
+							<span class="required-marker label_description" />
+							<span class="label-text">Phone Number</span>
+						</label>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-9 col-lg-8">
+						<input type="tel" class="form-control" id="contact_phone_number" name="contact_phone_number" onchange="formatPhone(this)" onkeyup="mandatoryCheck(this)" />
+					</div>
+				</div>
+				<div id="contact_mobile_phone_number-container" class="form-group">
+					<div>
+						<label for="contact_mobile_phone_number" class="col-xs-12 col-md-3 col-lg-4 control-label">
+							<span class="required-marker label_description" />
+							<span class="label-text">Mobile Number</span>
+						</label>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-9 col-lg-8">
+						<input type="tel" class="form-control" id="contact_mobile_phone_number" name="contact_mobile_phone_number" onchange="formatPhone(this)" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" onclick="cancelContactModal()">Cancel</button>
+			<button type="button" class="btn btn-primary" onclick="submitSaveContact()">Save contact Information</button>
+		</div>
+	</g:ui_form>
+</j:jelly>]]></html>
+        <name>addNewContactForm</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>steven.admin</sys_created_by>
+        <sys_created_on>2017-10-25 15:56:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4fd79515db4a4f00f2f358a8dc961933</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>addNewContactForm</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_ui_page_4fd79515db4a4f00f2f358a8dc961933</sys_update_name>
+        <sys_updated_by>steven.admin</sys_updated_by>
+        <sys_updated_on>2017-10-25 18:38:25</sys_updated_on>
+    </sys_ui_page>
+</record_update>

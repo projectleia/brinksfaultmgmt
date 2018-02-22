@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <description/>
+        <event_name>x_brla_fm.fault.case.branch.acknowledged</event_name>
+        <fired_by>Branch Dispatch Events BR on Fault Case table</fired_by>
+        <queue/>
+        <suffix>fault.case.branch.acknowledged</suffix>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2017-10-03 14:09:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8b7c6bc6dba14700ac79540adc9619d6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_brla_fm.fault.case.branch.acknowledged</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sysevent_register_8b7c6bc6dba14700ac79540adc9619d6</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2017-10-03 14:55:51</sys_updated_on>
+        <table>x_brla_fm_fault_case</table>
+    </sysevent_register>
+</record_update>

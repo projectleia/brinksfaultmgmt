@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_map">
+    <sys_transform_map action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copy_empty_fields>true</copy_empty_fields>
+        <enforce_mandatory_fields>No</enforce_mandatory_fields>
+        <name>BFM Safe Profile Transform</name>
+        <order>100</order>
+        <run_business_rules>true</run_business_rules>
+        <run_script>true</run_script>
+        <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+	
+	var letter = ['U', 'M', 'T', 'W', 'R', 'F', 'S'];
+	var day = ['service_day_sunday', 'service_day_monday', 'service_day_tuesday', 'service_day_wednesday', 'service_day_thursday', 'service_day_friday', 'service_day_saturday'];
+	
+	var service_days = source.u_service_days;
+	for(var i = 0; i < letter.length; i++) {
+		if(service_days.indexOf(letter[i]) > -1)
+			target[day[i]] = true;
+		else
+			target[day[i]] = false;
+	}
+	
+	target.install_status = 1;
+
+})(source, target, map, log, action==="update");]]></script>
+        <source_table>x_brla_fm_bfm_safe_profile_import</source_table>
+        <sys_class_name>sys_transform_map</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2017-09-27 14:38:25</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a4887c18dbed8700f2f358a8dc9619de</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>BFM Safe Profile Transform</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_transform_map_a4887c18dbed8700f2f358a8dc9619de</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2017-09-28 03:55:28</sys_updated_on>
+        <target_table>x_brla_fm_safe</target_table>
+    </sys_transform_map>
+</record_update>

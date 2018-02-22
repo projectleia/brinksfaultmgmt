@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+	var c = this;
+
+	c.init = function() {
+		checkGoogle();
+
+		console.log(c.data);
+	};
+
+	function googleReady() {
+		google.charts.load("current", {packages:["corechart"]});
+		google.charts.load('current', {'packages':['gauge']});
+
+		google.charts.setOnLoadCallback(drawChart1);
+		google.charts.setOnLoadCallback(drawChart2);
+		google.charts.setOnLoadCallback(drawChart3);
+		google.charts.setOnLoadCallback(drawGaugeChart);
+	}
+
+	function checkGoogle() {
+		if (typeof google == 'undefined') {
+			setTimeout(checkGoogle, 250);
+			return;
+		}
+		googleReady();
+	}
+
+	function drawChart1() {
+		var chart_data = google.visualization.arrayToDataTable([
+			['Pac Man', 'Percentage'],
+			['', 50],
+			['', 50]
+		]);
+
+		var chart_options = {
+			legend: 'none', 
+			backgroundColor: 'transparent', 
+			pieSliceText: 'none',
+			pieStartAngle: 0,
+			tooltip: { trigger: 'none' },
+			slices: {
+				0: { color: '#00e2f6' },
+				1: { color: 'transparent' }
+			}
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('chart1'));
+		chart.draw(chart_data, chart_options);
+	}
+
+	function drawChart2() {
+		var chart_data = google.visualization.arrayToDataTable([
+			['Pac Man', 'Percentage'],
+			['', 40],
+			['', 60]
+		]);
+
+		var chart_options = {
+			legend: 'none', 
+			backgroundColor: 'transparent', 
+			pieSliceText: 'none',
+			pieStartAngle: 0,
+			tooltip: { trigger: 'none' },
+			slices: {
+				0: { color: '#39bb00' },
+				1: { color: 'transparent' }
+			}
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('chart2'));
+		chart.draw(chart_data, chart_options);
+	}
+
+	function drawChart3() {
+		var chart_data = google.visualization.arrayToDataTable([
+			['Pac Man', 'Percentage'],
+			['', 98],
+			['', 2]
+		]);
+
+		var chart_options = {
+			legend: 'none', 
+			backgroundColor: 'transparent', 
+			pieSliceText: 'none',
+			pieStartAngle: 0,
+			tooltip: { trigger: 'none' },
+			slices: {
+				0: { color: '#000f55' },
+				1: { color: 'transparent' }
+			}
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('chart3'));
+		chart.draw(chart_data, chart_options);
+	}
+
+	function drawGaugeChart() {
+		var chart_data = google.visualization.arrayToDataTable([
+			['Label', 'Value'],
+			['Managed Service', 50],
+			['Daily Credit', 40],
+			['Active', 98]
+		]);
+
+		var chart_options = {
+			//width: 400, 
+			//height: 120,
+			/*
+          redFrom: 90, 
+          redTo: 100,
+          yellowFrom: 75, 
+          yellowTo: 90, 
+          greenFrom: 50, 
+          greenTo: 75, 
+          */
+			//minorTicks: 5
+		};
+
+		var chart = new google.visualization.Gauge(document.getElementById('gauge-chart'));
+
+		chart.draw(chart_data, chart_options);
+	}
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.gauge-chart {&#13;
+  &#13;
+}&#13;
+&#13;
+.title1 {&#13;
+  text-align: center;&#13;
+  color: #000;&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+.my-flex {&#13;
+  display: flex;&#13;
+  color: #fff;&#13;
+  margin-bottom: 20px;&#13;
+&#13;
+  .my-box {&#13;
+    flex: 1 1 33%;&#13;
+    text-align: center;&#13;
+    line-height: 1;&#13;
+    padding: 20px;&#13;
+    margin-bottom: 20px;&#13;
+    margin-right: 20px;&#13;
+&#13;
+    .percentage {&#13;
+      font-size: 50px; &#13;
+    }&#13;
+&#13;
+    .title {&#13;
+      font-size: 40px; &#13;
+    }&#13;
+  }&#13;
+&#13;
+  .my-box:last-of-type {&#13;
+    margin-right: 0px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.bg-1 {&#13;
+  background-color: #00e2f6;&#13;
+}&#13;
+&#13;
+.bg-2 {&#13;
+  background-color: #39bb00;&#13;
+}&#13;
+&#13;
+.bg-3 {&#13;
+  background-color: #000f55; &#13;
+}&#13;
+&#13;
+.my-flex2 {&#13;
+  display: flex;&#13;
+&#13;
+  .hero-block:first-of-type {&#13;
+    margin-right: 20px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.hero-block {&#13;
+  flex: 1 0 auto;&#13;
+  line-height: 1;&#13;
+  display: block;&#13;
+  text-decoration: none;&#13;
+  border: 1px solid #fff;&#13;
+  text-align: center;&#13;
+  padding: 30px 15px;&#13;
+  background-color: rgba(0, 95, 168, .9);&#13;
+  margin-bottom: 20px;&#13;
+  color: #fff;&#13;
+&#13;
+  .count-circle {&#13;
+    border: 5px solid #fff;&#13;
+    border-radius: 50%;&#13;
+    height: 100px;&#13;
+    width: 100px;&#13;
+    margin-left: auto;&#13;
+    margin-right: auto;&#13;
+    font-size: 60px;&#13;
+    line-height: 90px;&#13;
+    margin-bottom: 15px;&#13;
+  }&#13;
+&#13;
+  .block-title {&#13;
+    font-size: 30px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.hero-block:hover, &#13;
+.hero-block:focus, &#13;
+.hero-block:active {&#13;
+  .block-title {&#13;
+    text-decoration: underline; &#13;
+  }&#13;
+}&#13;
+&#13;
+.block-orange {&#13;
+  background-color: #ec9422;&#13;
+}&#13;
+&#13;
+.block-green {&#13;
+  background-color: #29b88f;&#13;
+}&#13;
+&#13;
+.block-blue {&#13;
+  background-color: #0039a6;&#13;
+}&#13;
+&#13;
+.box3 {&#13;
+  text-align: center;&#13;
+  line-height: 1;&#13;
+  padding: 20px;&#13;
+  color: #fff;&#13;
+  display: block;&#13;
+  font-size: 28px;&#13;
+  margin-bottom: -20px;&#13;
+&#13;
+  .percentage {&#13;
+    font-size: 40px; &#13;
+    margin-bottom: 5px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.chart-container {&#13;
+  margin-bottom: 20px;&#13;
+ &#13;
+  &gt; div {&#13;
+    &#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - New dashboard</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-23 12:49:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6a87de28db82cb00f2f358a8dc9619d7</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>Safe - New dashboard</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_6a87de28db82cb00f2f358a8dc9619d7</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-24 13:27:55</sys_updated_on>
+        <template><![CDATA[<div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+  <h2 class="title1">SAFE VELOCITY INDEX</h2>
+  
+<!--
+  <div class="my-flex">
+    <div class="my-box bg-1">
+      <div class="percentage">50%</div>
+      <div class="title">MANAGED SERVICE</div>
+    </div>
+
+    <div class="my-box bg-2">
+      <div class="percentage">40%</div>
+      <div class="title">DAILY CREDIT</div>
+    </div>
+
+    <div class="my-box bg-3">
+      <div class="percentage">98%</div>
+      <div class="title">ACTIVE</div>
+    </div>
+  </div>
+-->
+  
+  <div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div href="javascript:void(0)" class="box3 bg-1">
+          <div class="percentage">50%</div>
+          <div class="title">MANAGED SERVICE</div>
+        </div>
+        
+        <div class="chart-container">
+          <div id="chart1" />
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div href="javascript:void(0)" class="box3 bg-2">
+          <div class="percentage">40%</div>
+          <div class="title">DAILY CREDIT</div>
+        </div>
+        
+        <div class="chart-container">
+          <div id="chart2" />
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div href="javascript:void(0)" class="box3 bg-3">
+          <div class="percentage">98%</div>
+          <div class="title">ACTIVE</div>
+        </div>
+        
+        <div class="chart-container">
+          <div id="chart3" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="my-flex2">
+      <a href="?id=safe_manage_safes&safe_state=issue_reported" class="hero-block block-orange">
+        <div class="count-circle">
+          <span class="count">3</span>
+        </div>
+        <span class="block-title">FAULTS IN PROGRESS</span>
+      </a>
+
+      <a href="?id=safe_report_issue" class="hero-block block-blue">
+        <div class="count-circle">
+          <span class="count"><span class="fa fa-flag" /></span>
+        </div>
+        <span class="block-title">REPORT AN ISSUE</span>
+      </a>
+    </div>
+  </div>
+  
+  <div>
+    <div id="gauge-chart" class="gauge-chart" />
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="angular.dirPagination">e54de314db434300ac79540adc96190d</sp_dependency>
+        <sp_widget display_value="Safe - Reported issues list">512c525edbb5c300ac79540adc961985</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-12-11 17:28:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f2cfab14db434300ac79540adc961957</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>angular.dirPagination.Safe - Reported issues list</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_f2cfab14db434300ac79540adc961957</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-11 17:28:22</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+	var c = this;
+	
+	c.init = function() {
+		
+		for (var i = 0; i < c.data.alerts.length; i++) {
+			c.data.alerts[i].sys_created_on_display = moment(c.data.alerts[i].sys_created_on).fromNow();
+		}
+		
+	};
+	
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Home active alerts</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	var userGR = new GlideRecord('sys_user');
+	userGR.get(gs.getUserID());
+	data.user_company = userGR.company + '';
+
+	data.alerts = getAlerts();
+
+	function getAlerts() {
+		var alerts = [];
+
+		var alert_gr = new GlideRecord('x_brla_fm_fault_alert');
+		alert_gr.addQuery('device.account', data.user_company);
+		alert_gr.addEncodedQuery('active_case=true');
+		alert_gr.orderByDesc('sys_created_on');
+		alert_gr.query();
+		while (alert_gr.next()) {
+			var alert = {};
+			$sp.getRecordDisplayValues(alert, alert_gr, 'sys_id,processing_status,message_text,host_timestamp,ext_user_reference,sys_created_on');
+			alert.processing_status_value = alert_gr.processing_status + '';
+			alert.active_case = (alert_gr.active_case == 'true');
+			alert.sys_created_on_value = alert_gr.sys_created_on + '';
+
+			var device = {};
+			device.sys_id = alert_gr.device + '';
+			device.name = alert_gr.device.name.getDisplayValue();
+			alert.device = device;
+
+			var fault = {};
+			fault.sys_id = alert_gr.fault.sys_id + '';
+			fault.fault_code = alert_gr.fault.fault_code.getDisplayValue();
+			fault.type = alert_gr.fault.type.getDisplayValue();
+			fault.description = alert_gr.fault.description.getDisplayValue();
+			fault.logic = alert_gr.fault.logic.getDisplayValue();
+			fault.notes = alert_gr.fault.notes.getDisplayValue();
+			alert.fault = fault;
+
+			alert.link = '?id=safe_manage_safes&name=' + alert.device.name;
+
+			var case_record = {};
+			case_record.sys_id = alert_gr.case_record.sys_id + '';
+			case_record.number = alert_gr.case_record.number.getDisplayValue();
+			alert.case_record = case_record;
+
+			alerts.push(alert);
+		}
+
+		return alerts;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:03:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>36f9521edbb5c300ac79540adc961962</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Safe - Home active alerts</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_36f9521edbb5c300ac79540adc961962</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-19 16:28:22</sys_updated_on>
+        <template><![CDATA[<div class="home-list">
+  <h3 class="title">Active Alerts</h3>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Safe</th>
+          <th>Message</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="alert in c.data.alerts | limitTo: 5">
+          <td>{{alert.device.name}}</td>
+          <td><span title="{{alert.fault.fault_code}}">{{alert.message_text}}</span></td>
+          <td>{{alert.sys_created_on_display}}</td>
+        </tr>
+        <tr ng-if="c.data.alerts.length == 0">
+          <td colspan="3" class="text-center">-- No active alerts --</td>
+        </tr>
+      </tbody>
+    </table>
+    <div ng-if="c.data.alerts.length > 5">
+      <a href="?id=safe_alerts&active=true">View all</a>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>Add Members</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var requestBody = request.body;
+	while(requestBody.hasNext()){
+		var entry = requestBody.nextEntry();
+		//Get branch record associated with branch id.
+		var branchSysID = getBranch(entry.branch_id);
+
+		//Get members first and last name.
+		var memberName = entry.name;
+		var memberFirstName = memberName.substring(memberName.indexOf(' ') + 1, memberName.length);
+		var memberLastName = memberName.substring(0, memberName.indexOf(','));
+		memberName = memberFirstName + ' ' + memberLastName;
+		var memberSysID = getMember(memberName);
+
+		//Phone Number
+		var memberPhone = entry.phone;
+
+		//Carrier - Get mapping from PK Service Provider number from BAMS
+		var memberCarrier = getCarrier(parseInt(entry.carrier));
+
+		//Insert Member record - If one value is null respond with error.
+		if(!memberSysID || !branchSysID || !memberPhone || !memberCarrier){
+			response.setStatus(400);
+			return 'Skipping record. Null value found in packet.';
+		}
+
+		//Add update Member Record.
+		var memberRec = new GlideRecord('x_brla_fm_branch_team_member');
+		memberRec.addEncodedQuery('branch=' + branchSysID + '^member=' + memberSysID + '^mobile_number=' + memberPhone);
+		memberRec.query();
+
+		if(memberRec.next()){
+			memberRec.member = memberSysID;
+			memberRec.branch = branchSysID;
+			memberRec.mobile_number = memberPhone;
+			memberRec.carrier = memberCarrier;
+			memberRec.update();
+			response.setStatus(200);
+			return 'Success: Member ' + memberName + ' updated for Branch ' + entry.branch_id;
+		} else {
+			memberRec.initialize();
+			memberRec.member = memberSysID;
+			memberRec.branch = branchSysID;
+			memberRec.mobile_number = memberPhone;
+			memberRec.carrier = memberCarrier;
+			memberRec.active = true;
+			var memberRecSysID = memberRec.insert();
+			if(memberRecSysID){
+				response.setStatus(201);
+				return 'Success: Member ' + memberName + ' added for Branch ' + entry.branch_id;
+			} else{
+				response.setStatus(400);
+				return 'Error: Member ' + memberName + ' not added for Branch ' + entry.branch_id;
+			}
+		}
+	}
+
+	function getBranch(branchID){
+		var branchQuery = 'branch_id=' + branchID;
+		var branchRec = new GlideRecord('x_brla_fm_branch');
+		branchRec.addEncodedQuery(branchQuery);
+		branchRec.setLimit(1);
+		branchRec.query();
+		return branchRec.next() ? branchRec.getValue('sys_id') : null;
+	}
+
+	function getMember(memberName){
+		var userQuery = 'name=' + memberName;
+		var memberRec = new GlideRecord('sys_user');
+		memberRec.addEncodedQuery(userQuery);
+		memberRec.setLimit(1);
+		memberRec.query();
+		return memberRec.next() ? memberRec.getValue('sys_id') : null;
+	}
+
+	function getCarrier(code){
+		var codeQuery = '^bams_carrier_code=' + code;
+		var carrierRec = new GlideRecord('x_brla_fm_carrier');
+		carrierRec.addEncodedQuery(codeQuery);
+		carrierRec.setLimit(1);
+		carrierRec.query();
+		return carrierRec.next() ? carrierRec.getValue('sys_id') : null;
+	}
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_brla_fm/bams/members</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/members</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>fenil.admin</sys_created_by>
+        <sys_created_on>2017-12-21 19:32:54</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7d0ca76bdbc34b00ac79540adc9619c6</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>Add Members</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_ws_operation_7d0ca76bdbc34b00ac79540adc9619c6</sys_update_name>
+        <sys_updated_by>fenil.admin</sys_updated_by>
+        <sys_updated_on>2018-01-31 17:34:54</sys_updated_on>
+        <web_service_definition display_value="BAMS">e9ab276bdbc34b00ac79540adc9619f5</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

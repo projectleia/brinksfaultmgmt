@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Carrier" max_length="40" name="x_brla_fm_carrier" type="collection">
+        <element label="BAMS Carrier Code" max_length="40" name="bams_carrier_code" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Extension" max_length="40" name="extension" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Name" max_length="40" name="name" type="string"/>
+        <index name="index">
+            <element name="name"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_brla_fm_flm_queue</collection>
+        <condition>current.status == 'received'</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_brla_fm_flm_queue">type=inbound^EQ<item endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="inbound"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Inbound - Parts update</name>
+        <onclick/>
+        <order>300</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	var load_fields_length = 21;
+	var payload = current.payload+'';
+	var load_values = payload.split("|");
+	var error_message = '', status_message = '';
+	
+	if(load_values[1] && load_values[1] == '13') {
+
+		var case_rec = new GlideRecord('x_brla_fm_fault_case');
+		if(case_rec.get(current.case_ref+'')) {
+
+			if(current.flm) case_rec.flm_dispatched_to = current.flm;
+			if(load_values[5]) case_rec.flm_external_number = load_values[5];
+
+			var notes = '';
+			if(load_values[6]) notes = 'Part sequence number: ' + load_values[6];
+			if(load_values[7]) notes += '\nPart number: ' + load_values[7];
+			if(load_values[8]) notes += '\nPart description: ' + load_values[8];
+			if(load_values[9]) notes += '\nPart quantity used: ' + load_values[9];
+			if(notes != '') {
+				notes = 'VENDOR PARTS UPDATE\n' + notes;
+				case_rec.work_notes = notes;
+			}
+			case_rec.update();
+			current.status = 'processed';
+		} 
+	}
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2018-02-07 03:43:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>682f9b7edbcc9f40f2f358a8dc96197c</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Inbound - Parts update</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_682f9b7edbcc9f40f2f358a8dc96197c</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2018-02-08 14:09:22</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+</record_update>

@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope, $location) {
+	var c = this;
+
+	c.init = function() {
+		c.filtered_safes = [];
+		c.filter = {};
+		c.sortType = 'name';
+		c.sortReverse = 'true';
+		c.loading = true;
+		c.page_size = 10;
+
+		c.getData();
+
+		if (c.data.name) {
+			c.filter.name = c.data.name;
+		}
+
+		if (c.data.model_number) {
+			c.filter.model_number = c.data.model_number;
+		}
+
+		if (c.data.address) {
+			c.filter.address = c.data.address;
+		}
+
+		if (c.data.city) {
+			c.filter.city = c.data.city;
+		}
+
+		if (c.data.state) {
+			c.filter.state = c.data.state;
+		}
+
+		if (c.data.zip) {
+			c.filter.zip = c.data.zip;
+		}
+
+		if (c.data.location) {
+			c.filter.location = c.data.location;
+		}
+
+		c.safe_filter = {};
+		c.safe_state = c.data.safe_state;
+
+		if (c.safe_state == 'issue_reported') {
+			//safe.safe_state = 'no_issue';
+			c.safe_filter.safe_state = 'issue_reported';
+		} else if (c.safe_state == 'no_issue') {
+			c.safe_filter.safe_state = 'no_issue';
+		} else {
+			//all
+		}
+		//console.log(c);
+	};
+
+	c.getData = function() {
+		c.loading = true;
+		c.data.get_data = true;
+		c.server.update().then(function(r) {
+			c.loading = false;
+			console.log(c.data);
+		});
+	};
+
+	c.clearFilters = function() {
+		var loc = $location.search();
+		loc.name = '';
+		loc.model_number = '';
+		loc.location = '';
+		$location.search(loc);
+	};
+
+	c.clearFilter = function(filter) {
+		var loc = $location.search();
+		loc[filter] = '';
+		$location.search(loc);	
+	};
+
+	c.getCaretClass = function(col) {
+		if (c.sortType == col) {
+			if (c.sortReverse) {
+				return 'fa-caret-down';
+			}
+			return 'fa-caret-up';
+		}
+		return '';
+	};
+
+	c.changeSort = function(col) {
+		c.sortReverse = !c.sortReverse;
+		c.sortType = col;
+	};
+
+	c.nameChange = function() {
+		var loc = $location.search();
+		loc.name = c.filter.name;
+		$location.search(loc);
+	};
+
+	c.modelNumberChange = function() {
+		var loc = $location.search();
+		loc.model_number = c.filter.model_number;
+		$location.search(loc);
+	};
+
+	c.addressChange = function() {
+		var loc = $location.search();
+		loc.address = c.filter.address;
+		$location.search(loc);
+	};
+
+	c.locationChange = function() {
+		var loc = $location.search();
+		loc.location = c.filter.location;
+		$location.search(loc);
+	};
+
+	c.cityChange = function() {
+		var loc = $location.search();
+		loc.city = c.filter.city;
+		$location.search(loc);
+	};
+
+	c.stateChange = function() {
+		var loc = $location.search();
+		loc.state = c.filter.state;
+		$location.search(loc);
+	};
+
+	c.zipChange = function() {
+		var loc = $location.search();
+		loc.zip = c.filter.zip;
+		$location.search(loc);
+	};
+
+	c.locationChange = function() {
+		var loc = $location.search();
+		loc.location = c.filter.location;
+		$location.search(loc);
+	};
+
+	c.changeSafeTab = function(safe, tab) {
+		if (tab == 1) {
+			//alerts tab
+			//only allow if there are alerts to see
+			if (safe.alerts.length != 0) {
+				safe.active_tab = tab;
+			}
+		} else if (tab == 2) {
+			//cases tab
+			//only allow if there are cases to see
+			if (safe.cases.length != 0) {
+				safe.active_tab = tab;
+			}
+		} else {
+			safe.active_tab = tab;
+		}
+	};
+
+	c.changeSafeState = function(state) {
+		var loc = $location.search();
+		loc.safe_state = state;
+		$location.search(loc);
+	};
+
+	c.getStatusMessageClass = function(safe) {
+		if (safe.safe_state == 'issue_reported') {
+			return 'status-alert';
+		} else if (safe.safe_state == 'no_issue') {
+			return 'status-okay';
+		}
+		return '';
+	};
+
+	c.getSafeStatusClass = function(safe) {
+		if (safe.safe_state == 'no_issue') {
+			return 'status-icon-okay';
+		} else if (safe.safe_state == 'issue_reported') {
+			return 'status-icon-alert';
+		}
+		return '';
+	};
+
+	c.toggleSafe = function(safe) {
+		safe.open = !safe.open;
+	};
+
+	c.getToggleClass = function(safe) {
+		if (safe.open == true) {
+			return 'fa-rotate-90';
+		}
+		return 'fa-chevron-right';
+	};
+
+	c.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.loading { &#13;
+  text-align: center; &#13;
+}&#13;
+&#13;
+.detail-section {&#13;
+&#13;
+  .form-group {&#13;
+    display: flex;&#13;
+    display: -ms-flexbox;&#13;
+    -ms-flex-direction: row;&#13;
+    -ms-flex-wrap: wrap;&#13;
+    flex-flow: row wrap;&#13;
+&#13;
+    .field-label {&#13;
+      color: #002a93;&#13;
+      font-size: 14px;&#13;
+      font-weight: bold;&#13;
+      margin-bottom: 0px;&#13;
+      margin-right: 10px;&#13;
+      text-align: right;&#13;
+      flex: 0 1 25%;&#13;
+      -ms-flex: 0 1 25%;&#13;
+    }&#13;
+&#13;
+    .field-value {&#13;
+      font-size: 16px;&#13;
+      flex: 1 1 auto;&#13;
+      -ms-flex: 1 1 auto;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.filter-by {&#13;
+  color: #000;&#13;
+  margin-bottom: 10px;&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+.flm-control {&#13;
+  .choices button {&#13;
+    background: transparent;&#13;
+    border: none;&#13;
+    color: #000;&#13;
+    margin-bottom: 10px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.location-flex {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+&#13;
+  input {&#13;
+    flex: 0 1 250px;&#13;
+    -ms-flex: 0 1 250px;&#13;
+    margin-right: 5px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.filter-container {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+  position: relative;&#13;
+&#13;
+  .form-group {&#13;
+    margin-bottom: 5px;&#13;
+&#13;
+    label {&#13;
+      font-size: 14px;&#13;
+      margin-bottom: 0px;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  .dropdown {&#13;
+    position: initial; &#13;
+  }&#13;
+&#13;
+  .dropdown-menu {&#13;
+    width: 100%;&#13;
+    left: 0px;&#13;
+    padding: 15px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.filter-dropdown {&#13;
+  flex: 0 1 auto;&#13;
+  -ms-flex: 0 1 auto;&#13;
+  margin-right: 5px;&#13;
+}&#13;
+&#13;
+.filter-text {&#13;
+  flex: 0 1 250px;&#13;
+  -ms-flex: 0 1 250px;&#13;
+  margin-right: 10px;&#13;
+}&#13;
+&#13;
+.current-filters {&#13;
+  .btn-clear-filter {&#13;
+    margin-right: 5px;&#13;
+  }&#13;
+&#13;
+  .clear-all {&#13;
+    background: transparent;&#13;
+    border: none;&#13;
+    text-decoration: underline;&#13;
+    font-size: 12px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.status-selector {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+  margin-bottom: 15px;&#13;
+&#13;
+  .status-block {&#13;
+    background-color: #002a93;&#13;
+    color: #99aad4;&#13;
+    flex: 1 1 auto;&#13;
+    -ms-flex: 1 1 auto;&#13;
+    display: flex;&#13;
+    display: -ms-flexbox;&#13;
+    -ms-flex-direction: row;&#13;
+    -ms-flex-wrap: wrap;&#13;
+    flex-flow: row wrap;&#13;
+    height: 75px;&#13;
+    margin-right: 2px;&#13;
+    border: none;&#13;
+  }&#13;
+&#13;
+  .status-block:hover, &#13;
+  .status-block:focus, &#13;
+  .status-block:active {&#13;
+    color: #fff;&#13;
+  }&#13;
+&#13;
+  .status-block.active {&#13;
+    color: #fff;&#13;
+  }&#13;
+&#13;
+  .status-block-okay.active {&#13;
+    background-color: #29b88f;&#13;
+    color: #fff;&#13;
+  }&#13;
+&#13;
+  .status-block-issue.active {&#13;
+    background-color: #ec9422;&#13;
+    color: #fff;&#13;
+  }&#13;
+&#13;
+  .status-block:last-of-type {&#13;
+    margin-right: 0px;&#13;
+  }&#13;
+&#13;
+  .icon-container {&#13;
+    flex: 0 1 auto;&#13;
+    -ms-flex: 0 1 auto;&#13;
+    font-size: 40px;&#13;
+    line-height: 75px;&#13;
+    height: 75px;&#13;
+    padding-left: 15px;&#13;
+    padding-right: 15px;&#13;
+  }&#13;
+&#13;
+  .label-container {&#13;
+    flex: 1 1 auto;&#13;
+    -ms-flex: 1 1 auto;&#13;
+    text-transform: uppercase;&#13;
+    display: flex;&#13;
+    display: -ms-flexbox;&#13;
+    -ms-flex-direction: column;&#13;
+    -ms-flex-wrap: nowrap;&#13;
+    flex-flow: column nowrap;&#13;
+    justify-content: center;&#13;
+    -ms-flex-pack: center;&#13;
+    height: 75px;&#13;
+    font-size: 24px;&#13;
+    text-align: left;&#13;
+  }&#13;
+&#13;
+  .count-container {&#13;
+    flex: 0 1 auto;&#13;
+    -ms-flex: 0 1 auto;&#13;
+    font-size: 32px;&#13;
+    line-height: 75px;&#13;
+    text-align: right;&#13;
+    height: 75px;&#13;
+    padding-right: 15px;&#13;
+    padding-left: 10px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.no-issue .col-safe-state {&#13;
+  background-color: #29b88f;&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.issue-reported .col-safe-state {&#13;
+  background-color: #ec9422;&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.nav-tabs {&#13;
+  border-bottom: 2px solid #ddd;&#13;
+}&#13;
+.nav-tabs &gt; li.active &gt; a,&#13;
+.nav-tabs &gt; li.active &gt; a:focus,&#13;
+.nav-tabs &gt; li.active &gt; a:hover {&#13;
+  border-width: 0;&#13;
+}&#13;
+.nav-tabs &gt; li &gt; a {&#13;
+  border: none;&#13;
+  color: #a0a0a0;&#13;
+}&#13;
+.nav-tabs &gt; li.active &gt; a,&#13;
+.nav-tabs &gt; li &gt; a:hover {&#13;
+  border: none;&#13;
+  color: $brand-primary !important;&#13;
+  background: transparent;&#13;
+}&#13;
+.nav-tabs &gt; li &gt; a::after {&#13;
+  content: "";&#13;
+  background: $brand-primary;&#13;
+  height: 2px;&#13;
+  position: absolute;&#13;
+  width: 100%;&#13;
+  left: 0px;&#13;
+  bottom: -1px;&#13;
+  transition: all .250s ease 0s;&#13;
+  transform: scale(0);&#13;
+}&#13;
+.nav-tabs &gt; li.active &gt; a::after,&#13;
+.nav-tabs &gt; li:hover &gt; a::after {&#13;
+  transform: scale(1);&#13;
+}&#13;
+&#13;
+.nav-tabs &gt; li.disabled &gt; a {&#13;
+  color: #bdbdbd !important;&#13;
+}&#13;
+&#13;
+.nav-tabs &gt; li.disabled &gt; a::after {&#13;
+  transform: scale(0) !important; &#13;
+}&#13;
+&#13;
+.tab-nav &gt; li &gt; a::after {&#13;
+  background: #21527d none repeat scroll 0% 0%;&#13;
+  color: #fff;&#13;
+}&#13;
+.tab-pane {&#13;
+  padding: 15px 0;&#13;
+}&#13;
+.nav-tabs .btn {&#13;
+  margin-top: 10px;&#13;
+}&#13;
+.report-form {&#13;
+  margin-top: 5px;&#13;
+}&#13;
+.report-form .report-heading {&#13;
+  color: $brand-primary;&#13;
+}&#13;
+.report-form .report-action {&#13;
+  margin-top: 5px;&#13;
+}&#13;
+.report-form textarea {&#13;
+  resize: none;&#13;
+}&#13;
+.modal-title {&#13;
+  color: #333333;&#13;
+}&#13;
+.modal-label {&#13;
+  color: #333333&#13;
+}&#13;
+.btn-warning {&#13;
+  background-color: #fcb539;&#13;
+  color: #333333;&#13;
+}&#13;
+.card {&#13;
+  background: #FFF none repeat scroll 0% 0%;&#13;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);&#13;
+  margin-bottom: 30px;&#13;
+}&#13;
+body {&#13;
+  background: #EDECEC;&#13;
+  padding: 50px&#13;
+}&#13;
+.panel {&#13;
+  background-color: transparent;&#13;
+  border: none;&#13;
+}&#13;
+.system-status {&#13;
+  font-weight: bold;&#13;
+  text-align: center;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+.system-status2 {&#13;
+  font-weight: bold;&#13;
+  text-align: center;&#13;
+  margin-bottom: 10px;&#13;
+  margin-right: auto;&#13;
+  margin-left: auto;&#13;
+  border: 1px solid;&#13;
+  border-radius: 10px;&#13;
+  width: 40%;&#13;
+}&#13;
+.status-okay {&#13;
+  background-color: #5cb85c;&#13;
+  color: #f5f5f5;&#13;
+}&#13;
+.status-alert {&#13;
+  background-color: #fc3939;&#13;
+  border: none;&#13;
+  border-radius: 0px;&#13;
+  color: #f5f5f5;&#13;
+}&#13;
+.status-icon-okay {&#13;
+  color: #29b88f;&#13;
+}&#13;
+.status-icon-alert {&#13;
+  color: #fc3939;&#13;
+}&#13;
+.alert-list-item {&#13;
+  background-color: transparent;&#13;
+  border: none;&#13;
+}&#13;
+&#13;
+.tab-alert {&#13;
+  .list-group-item {&#13;
+    background: transparent;&#13;
+    border: none;&#13;
+  }&#13;
+}&#13;
+&#13;
+.safe-header .safe-row {&#13;
+  height: 30px;&#13;
+  line-height: 30px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+.safe-header .safe-column {&#13;
+  color: $brand-primary;&#13;
+  font-size: 18pt&#13;
+}&#13;
+&#13;
+.detail-group {&#13;
+  margin-bottom: 5px;&#13;
+}&#13;
+.detail-header {&#13;
+  color: $brand-primary;&#13;
+  font-size: 14px;&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+.alert-col-heading {&#13;
+  color: $brand-primary;&#13;
+  font-weight: bold;&#13;
+}&#13;
+.safe-toggle {&#13;
+  font-size: 20px;&#13;
+}&#13;
+.safe-status {&#13;
+  font-size: 20px;&#13;
+}&#13;
+&#13;
+.col-toggle {&#13;
+  flex: 0 0 50px;&#13;
+  -ms-flex: 0 1 50px;&#13;
+  text-align: center;&#13;
+&#13;
+  a {&#13;
+    display: block;&#13;
+&#13;
+    .fa {&#13;
+      transition: transform .25s; &#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.col-status {&#13;
+  flex: 0 0 50px;&#13;
+  -ms-flex: 0 1 50px;&#13;
+  text-align: center;&#13;
+}&#13;
+.col-name {&#13;
+  flex: 0 0 115px;&#13;
+  -ms-flex: 0 1 115px;&#13;
+  padding: 0px 5px;&#13;
+}&#13;
+.col-address {&#13;
+  flex: 1 0 auto;&#13;
+  -ms-flex: 1 1 auto;&#13;
+  padding: 0px 15px;&#13;
+  white-space: nowrap;&#13;
+  overflow: hidden;&#13;
+  text-overflow: ellipsis;&#13;
+}&#13;
+.col-model {&#13;
+  flex: 1 0 10%;&#13;
+  -ms-flex: 1 1 10%;&#13;
+  padding: 0px 5px;&#13;
+}&#13;
+.col-safe-state {&#13;
+  flex: 0 0 175px;&#13;
+  -ms-flex: 0 1 175px;&#13;
+  padding: 0px 5px;&#13;
+  text-align: center;&#13;
+}&#13;
+.col-report-button {&#13;
+  flex: 0 1 auto;&#13;
+  -ms-flex: 0 1 auto;&#13;
+  padding-left: 5px;&#13;
+  padding-right: 15px;&#13;
+}&#13;
+.safe-description {&#13;
+  border-bottom: 1px solid #ddd;&#13;
+  margin-bottom: 10px;&#13;
+  padding-bottom: 10px;&#13;
+  padding-left: 10px;&#13;
+}&#13;
+&#13;
+.safe-info {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: wrap;&#13;
+  flex-flow: row wrap;&#13;
+  margin-bottom: 15px;&#13;
+  line-height: 18px;&#13;
+}&#13;
+&#13;
+.safe-info .safe-icon {&#13;
+  flex: 0 1 35px;&#13;
+  -ms-flex: 0 1 35px;&#13;
+  text-align: center;&#13;
+  font-size: 18px;&#13;
+  color: $brand-primary;&#13;
+}&#13;
+&#13;
+.safe-info .safe-text {&#13;
+  flex: 1 1 auto;&#13;
+  -ms-flex: 1 1 auto;&#13;
+}&#13;
+&#13;
+.safe-detail {&#13;
+  margin-left: 60px;&#13;
+  margin-right: 60px;&#13;
+  padding-right: 15px;&#13;
+  padding-bottom: 15px;&#13;
+}&#13;
+&#13;
+.safe-container {&#13;
+  background: #f2f2f2;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.safe-container.open {&#13;
+  background: #e6e6e6;&#13;
+  min-height: 320px;&#13;
+}&#13;
+&#13;
+.safe-row {&#13;
+  display: flex;&#13;
+  display: -ms-flexbox;&#13;
+  -ms-flex-direction: row;&#13;
+  -ms-flex-wrap: nowrap;&#13;
+  flex-flow: row nowrap;&#13;
+  line-height: 50px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Manage safes list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+
+	if (input) {
+		//call to server
+		data.name = input.name;
+		data.address = input.address;
+		data.city = input.city;
+		data.state = input.state;
+		data.zip = input.zip;
+		data.location = input.location;
+		data.sys_id = input.sys_id;
+		data.safe_state = input.safe_state;
+		data.user_company = input.user_company;
+		data.limit = input.limit;
+
+		if (input.get_data) {
+			data.safes = getAllSafes();
+			getCountsCase();
+			data.get_data = false;
+			return;
+		}
+
+	} else {
+		//initial load
+
+		data.name = $sp.getParameter('name') || '';
+		data.address = $sp.getParameter('address') || '';
+		data.city = $sp.getParameter('city') || '';
+		data.state = $sp.getParameter('state') || '';
+		data.zip = $sp.getParameter('zip') || '';
+		data.state = $sp.getParameter('state') || '';
+		data.location = $sp.getParameter('location') || '';
+		data.sys_id = $sp.getParameter('sys_id') || '';
+		data.safe_state = $sp.getParameter('safe_state') || '';
+
+		var userGR = new GlideRecord('sys_user');
+		userGR.get(gs.getUserID());
+		data.user_company = userGR.company + '';
+
+		if (data.safe_state != 'issue_reported' && data.safe_state != 'no_issue') {
+			data.safe_state = 'all';
+		}
+
+		data.safes = [];
+		getCountsCase();
+	}
+	
+	function getCountsCase() {
+
+		//issue count
+		data.issue_count = 0;
+		//aggregate cases by device		
+		var count = new GlideAggregate('x_brla_fm_fault_case');
+		count.addQuery('device.account', data.user_company);
+		count.addEncodedQuery('active=true');
+		//count.addEncodedQuery('device.active=true');
+
+		if (data.name) {
+			count.addEncodedQuery('device.nameLIKE' + data.name);
+		}
+
+		if (data.model_number) {
+			count.addEncodedQuery('device.model_numberLIKE' + data.model_number);
+		}
+
+		if (data.location) {
+			count.addEncodedQuery('device.addressLIKE' + data.location + '^ORdevice.cityLIKE' + data.location + '^ORdevice.stateLIKE' + data.location + '^ORdevice.zipLIKE' + data.location);
+		}
+
+		count.groupBy('device');
+		count.query();
+		while (count.next()) {
+			//counting unique safes
+			data.issue_count++;
+		}
+
+		//all count
+		data.all_count = 0;
+		var count2 = new GlideAggregate('x_brla_fm_safe');
+		count2.addQuery('account', data.user_company);
+		count2.addEncodedQuery('active=true');
+
+		if (data.name) {
+			count2.addEncodedQuery('nameLIKE' + data.name);
+		}
+
+		if (data.model_number) {
+			count2.addEncodedQuery('model_numberLIKE' + data.model_number);
+		}
+
+		if (data.location) {
+			count2.addEncodedQuery('addressLIKE' + data.location + '^ORcityLIKE' + data.location + '^ORstateLIKE' + data.location + '^ORzipLIKE' + data.location);
+		}
+
+		count2.addAggregate('COUNT');
+		count2.query();
+		if (count2.next()) {
+			data.all_count = parseInt(count2.getAggregate('COUNT'));
+		}
+
+		//okay count
+		//number of safes minus the ones with issues
+		data.okay_count = data.all_count - data.issue_count;
+	}
+
+	function getCountsAlert() {
+
+		//issue count
+		data.issue_count = 0;
+		//aggregate alerts by device
+		var count = new GlideAggregate('x_brla_fm_fault_alert');
+		count.addQuery('device.account', data.user_company);
+		count.addEncodedQuery('active_case=true');
+		//count.addEncodedQuery('device.active=true');
+
+		if (data.name) {
+			count.addEncodedQuery('device.nameLIKE' + data.name);
+		}
+
+		if (data.model_number) {
+			count.addEncodedQuery('device.model_numberLIKE' + data.model_number);
+		}
+
+		if (data.location) {
+			count.addEncodedQuery('device.addressLIKE' + data.location + '^ORdevice.cityLIKE' + data.location + '^ORdevice.stateLIKE' + data.location + '^ORdevice.zipLIKE' + data.location);
+		}
+
+		count.groupBy('device');
+		count.query();
+		while (count.next()) {
+			//counting unique safes
+			data.issue_count++;
+		}
+
+		//all count
+		data.all_count = 0;
+		var count2 = new GlideAggregate('x_brla_fm_safe');
+		count2.addQuery('account', data.user_company);
+		count2.addEncodedQuery('active=true');
+
+		if (data.name) {
+			count2.addEncodedQuery('nameLIKE' + data.name);
+		}
+
+		if (data.model_number) {
+			count2.addEncodedQuery('model_numberLIKE' + data.model_number);
+		}
+
+		if (data.location) {
+			count2.addEncodedQuery('addressLIKE' + data.location + '^ORcityLIKE' + data.location + '^ORstateLIKE' + data.location + '^ORzipLIKE' + data.location);
+		}
+
+		count2.addAggregate('COUNT');
+		count2.query();
+		if (count2.next()) {
+			data.all_count = parseInt(count2.getAggregate('COUNT'));
+		}
+
+		//okay count
+		//number of safes minus the ones with issues
+		data.okay_count = data.all_count - data.issue_count;
+	}
+
+	function getAllSafes() {
+		var safes = [];
+
+		var safeGR = new GlideRecord('x_brla_fm_safe');
+		safeGR.addQuery('account', data.user_company);
+		safeGR.addEncodedQuery('active=true');
+
+		if (data.name) {
+			safeGR.addEncodedQuery('nameLIKE' + data.name);
+		}
+
+		if (data.model_number) {
+			safeGR.addEncodedQuery('model_numberLIKE' + data.model_number);
+		}
+
+		if (data.location) {
+			safeGR.addEncodedQuery('addressLIKE' + data.location + '^ORcityLIKE' + data.location + '^ORstateLIKE' + data.location + '^ORzipLIKE' + data.location);
+		}
+
+		safeGR.query();
+		data.all_query = safeGR.getEncodedQuery();
+		var safe_fields = 'sys_id,name,serial_number,manufacturer,model_number,account,location_id,address,time_zone,city,state,zip';
+		safe_fields += ',site_phone,service_cycle,service_day_sunday,service_day_monday,service_day_tuesday,service_day_thursday';
+		safe_fields += ',service_day_friday,service_day_saturday,status,install_date,install_status,primary_flm,secondary_flm';
+		safe_fields += ',servicing_branch,armored_branch,compusafe_zone,connectivity';
+		while (safeGR.next()) {
+			var safe = {};
+			$sp.getRecordDisplayValues(safe, safeGR, safe_fields);
+			safe.account_value = safeGR.account + '';
+			safe.safe_state = 'no_issue';
+			safe.safe_state_display = 'NO ISSUE';
+			safe.active_tab = 0;
+			safe.open = false;
+			safe.address_display = safe.address + ', ' + safe.city + ', ' + safe.state + ' ' + safe.zip;
+			safe.report_issue_link = '?id=safe_report_issue&safe=' + safe.sys_id;
+
+			safe.alerts = [];
+			var alarmsGR = new GlideRecord('x_brla_fm_fault_alert');
+			alarmsGR.addQuery('device', safe.sys_id);
+			alarmsGR.orderByDesc('sys_created_on');
+			alarmsGR.addEncodedQuery('active_case=true');
+			//alarmsGR.setLimit(5);
+			alarmsGR.query();
+			while (alarmsGR.next()) {
+				var alert = {};
+				$sp.getRecordDisplayValues(alert, alarmsGR, 'sys_id,device_id,device_serial_number,fault_code,message_text,case_record,processing_status,sys_created_on');
+				alert.case_record_value = alarmsGR.case_record + '';
+				alert.processing_status_value = alarmsGR.processing_status + '';
+				alert.active_case = (alarmsGR.active_case + '' == 'true');
+
+				alert.fault = {};
+				alert.fault.type = alarmsGR.fault.type.getDisplayValue();
+				alert.fault.code = alarmsGR.fault.fault_code.getDisplayValue();
+				alert.fault.description = alarmsGR.fault.description.getDisplayValue();
+				alert.fault.logic = alarmsGR.fault.logic.getDisplayValue();
+				alert.fault.notes = alarmsGR.fault.notes.getDisplayValue();
+
+				alert.link = '';
+
+				//if (alert.active_case) {
+				//safe.safe_state = 'issue_reported';
+				//safe.safe_state_display = 'ISSUE REPORTED';
+				//}
+				safe.alerts.push(alert);
+			}
+
+			//get cases
+			safe.cases = [];
+			var case_gr = new GlideRecord('x_brla_fm_fault_case');
+			case_gr.addQuery('device', safe.sys_id);
+			case_gr.addEncodedQuery('active=true');
+			case_gr.orderByDesc('opened_at');
+			//case_gr.setLimit(5);
+			case_gr.query();
+			while (case_gr.next()) {
+				var fault_case = {};
+				$sp.getRecordDisplayValues(fault_case, case_gr, 'sys_id,number,state,short_description,location,opened_at');
+				fault_case.opened_at_value = case_gr.opened_at + '';
+				fault_case.state_value = case_gr.state + '';
+				fault_case.safe_name = case_gr.device.name.getDisplayValue();
+				fault_case.safe_model = case_gr.device.model_number.getDisplayValue();
+				fault_case.safe_sn = case_gr.device.serial_number.getDisplayValue();
+				fault_case.safe_sys_id = case_gr.device + '';
+				fault_case.site_id = case_gr.device.location_id.getDisplayValue();
+				fault_case.link = '?id=safe_issue_detail&table=x_brla_fm_fault_case&sys_id=' + fault_case.sys_id;
+				
+				//set case state to issue reported
+				safe.safe_state = 'issue_reported';
+				safe.safe_state_display = 'ISSUE REPORTED';
+				safe.cases.push(fault_case);
+			}
+
+			safes.push(safe);
+		}
+
+		return safes;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:05:36</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>617a961edbb5c300ac79540adc96199c</sys_id>
+        <sys_mod_count>139</sys_mod_count>
+        <sys_name>Safe - Manage safes list</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_617a961edbb5c300ac79540adc96199c</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-13 16:15:33</sys_updated_on>
+        <template><![CDATA[<script type="text/ng-template" id="paginationAlternative" ng-if="range.total > 0">
+<div ng-if="range.total > 0" class="range-label">Displaying {{ range.lower }} to {{ range.upper }} of {{ range.total }} entries</div>
+<a ng-if="range.total > 0" href="" title="Previous page" ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(pagination.current - 1)">&lsaquo;</a>
+<a ng-if="range.total > 0" href="" title="Next page"  ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.current + 1)">&rsaquo;</a>
+</script>
+
+<script type="text/ng-template" id="template">
+<div class="pagination-container"> 
+	<div class="range-label">Displaying {{ range.lower }} - {{ range.upper }} of {{ range.total }}</div>
+	<ul class="pagination" ng-if="1 < pages.length || !autoHide">
+      <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == 1 }">
+          <a href="" ng-click="setCurrent(1)">&laquo;</a>
+  </li>
+      <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }">
+          <a href="" ng-click="setCurrent(pagination.current - 1)">Previous</a>
+  </li>
+      <li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }">
+          <a href="" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+  </li>
+
+      <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }">
+          <a href="" ng-click="setCurrent(pagination.current + 1)">Next</a>
+  </li>
+      <li ng-if="boundaryLinks"  ng-class="{ disabled : pagination.current == pagination.last }">
+          <a href="" ng-click="setCurrent(pagination.last)">Last</a>
+  </li>
+  </ul>
+  </div>
+</script>
+
+<div>
+  <div class="m-b">
+    <div class="filter-by">FILTER BY</div>
+    <div class="filter-container">
+
+      <div class="filter-text">
+        <div class="form-group">
+          <label>Name</label>
+          <div class="input-group">
+            <input ng-model="c.filter.name" tp-enter="c.nameChange()" type="text" class="form-control" />
+            <span class="input-group-btn">
+              <button ng-click="c.nameChange()" class="btn btn-primary" type="button">Apply</button>
+            </span>
+          </div>
+        </div>
+      </div><!-- END filter-text -->
+
+      <div class="filter-text">
+        <div class="form-group">
+          <label>Model #</label>
+          <div class="input-group">
+            <input ng-model="c.filter.model_number" tp-enter="c.modelNumberChange()" type="text" class="form-control" />
+            <span class="input-group-btn">
+              <button ng-click="c.modelNumberChange()" class="btn btn-primary" type="button">Apply</button>
+            </span>
+          </div>
+        </div>
+      </div><!-- END filter-text -->
+
+      <div class="filter-text">
+        <div class="form-group">
+          <label>Location</label>
+          <div class="input-group">
+            <input ng-model="c.filter.location" tp-enter="c.locationChange()" type="text" class="form-control" />
+            <span class="input-group-btn">
+              <button ng-click="c.locationChange()" class="btn btn-primary" type="button">Apply</button>
+            </span>
+          </div>
+        </div>
+      </div><!-- END filter-text -->
+    </div><!-- END filter-container -->
+
+    <div class="current-filters">
+      <button ng-if="c.data.name" ng-click="c.clearFilter('name')" class="btn btn-default btn-sm btn-clear-filter" role="button">
+        <span class="fa fa-times fa-fw" /> Name: {{c.data.name}}
+      </button>
+
+      <button ng-if="c.data.model_number" ng-click="c.clearFilter('model_number')" class="btn btn-default btn-sm btn-clear-filter" role="button">
+        <span class="fa fa-times fa-fw" /> Model #: {{c.data.model_number}}
+      </button>
+
+      <button ng-if="c.data.location" ng-click="c.clearFilter('location')" class="btn btn-default btn-sm btn-clear-filter" role="button">
+        <span class="fa fa-times fa-fw" /> Location: {{c.data.location}}
+      </button>
+
+      <button ng-if="c.data.name || c.data.model_number || c.data.location" ng-click="c.clearFilters()" class="clear-all">CLEAR ALL</button>
+    </div>
+  </div><!-- END current-filters -->
+
+  <div class="status-selector">    
+    <a ng-click="c.changeSafeState('all')" href="javascript:void(0)" ng-class="{'active': c.safe_state == 'all'}" class="status-block">
+      <div class="icon-container"><span class="fa fa-fw fa-home" /></div>
+      <div class="label-container">All</div>
+      <div class="count-container">{{c.data.all_count}}</div>
+    </a>
+
+    <a ng-click="c.changeSafeState('issue_reported')" href="javascript:void(0)" ng-class="{'active': c.safe_state == 'issue_reported'}" class="status-block status-block-issue">
+      <div class="icon-container"><span class="fa fa-fw fa-exclamation" /></div>
+      <div class="label-container">Issue Reported</div>
+      <div class="count-container">{{c.data.issue_count}}</div>
+    </a>
+
+    <a ng-click="c.changeSafeState('no_issue')" href="javascript:void(0)" ng-class="{'active': c.safe_state == 'no_issue'}" class="status-block status-block-okay">
+      <div class="icon-container"><span class="fa fa-fw fa-thumbs-o-up" /></div>
+      <div class="label-container">No Issue</div>
+      <div class="count-container">{{c.data.okay_count}}</div>
+    </a>
+  </div><!-- END status-selector -->
+
+  <div class="header-container">
+    <div class="safe-row-container">
+      <div class="safe-row">
+        <div class="safe-column col-toggle"></div>
+        <div class="safe-column col-name">
+          <a ng-click="c.changeSort('name')" href="javascript:void(0)">
+            Name <span class="fa" ng-class="c.getCaretClass('name')" />
+          </a>
+        </div>
+        <div class="safe-column col-safe-state">
+          <a ng-click="c.changeSort('safe_state')" href="javascript:void(0)">
+            Status <span class="fa" ng-class="c.getCaretClass('safe_state')" />
+          </a>
+        </div>
+        <div class="safe-column col-address">
+          <a ng-click="c.changeSort('location')" href="javascript:void(0)">
+            Location <span class="fa" ng-class="c.getCaretClass('location')" />
+          </a>
+        </div>
+
+        <div class="safe-column col-report-button">
+
+        </div>
+      </div>
+    </div>
+  </div><!-- END header-container -->
+
+  <div ng-show="c.loading" class="loading">
+    <span class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" />
+    <span class="sr-only">Loading...</span>
+  </div><!-- END loading -->
+
+  <div ng-if="!c.loading">
+    <div ng-show="c.filtered_safes.length == 0" class="empty-list">
+      No safes
+    </div><!-- END empty-list -->
+
+    <div dir-paginate="safe in c.filtered_safes = (c.data.safes | filter:c.safe_filter | orderBy:c.sortType:c.sortReverse | itemsPerPage: c.page_size)" 
+         ng-class="[safe.open ? 'open' : 'closed', safe.safe_state == 'no_issue' ? 'no-issue' : 'issue-reported']" class="safe-container">
+      <div class="safe-row-container">
+        <div class="safe-row">
+          <div class="safe-column col-toggle">
+            <a ng-click="c.toggleSafe(safe)" href="javascript:void(0)" class="safe-toggle" >
+              <span class="fa fa-chevron-right" ng-class="{'fa-rotate-90': safe.open}" />
+            </a>
+          </div>
+          <div class="safe-column col-name">{{safe.name}}</div>
+          <div class="safe-column col-safe-state">{{safe.safe_state_display}}</div>
+          <div class="safe-column col-address" title="{{safe.address_display}}">{{safe.address_display}}</div>
+          <div class="safe-column col-report-button">
+            <a ng-href="{{safe.report_issue_link}}" class="btn btn-danger btn-sm">
+              <span class="fa fa-flag" /><span class="hidden-xs m-l-xs">Report an Issue</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div ng-show="safe.open == true" class="safe-detail">
+        <div class="row">
+
+          <!-- Tabbed Navigation -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" ng-class="{'active': safe.active_tab == 0}">
+              <a ng-click="c.changeSafeTab(safe, 0)" href="javascript:void(0)" aria-controls="safe_details" role="tab">Safe Details</a>
+            </li>
+
+            <li role="presentation" ng-class="{'active': safe.active_tab == 1, 'disabled': safe.alerts.length == 0}">
+              <a ng-click="c.changeSafeTab(safe, 1)" href="javascript:void(0)" aria-controls="alerts" role="tab">
+                Alerts <span ng-if="safe.alerts.length != 0" class="badge">{{safe.alerts.length}}</span>
+              </a>
+            </li>
+
+            <li role="presentation" ng-class="{'active': safe.active_tab == 2, 'disabled': safe.cases.length == 0}">
+              <a ng-click="c.changeSafeTab(safe, 2)" href="javascript:void(0)" aria-controls="cases" role="tab">
+                Cases <span ng-if="safe.cases.length != 0" class="badge">{{safe.cases.length}}</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+
+            <!-- Tab: Safe Details -->
+            <div ng-show="safe.active_tab == 0" role="tabpanel" class="tab-pane active" id="safe_details">
+              <div class="detail-section">
+                <div class="row">
+                  <!-- left section -->
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+                      <label class="field-label">Name</label>
+                      <div class="field-value">{{safe.name}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Serial #</label>
+                      <div class="field-value">{{safe.serial_number}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Manufacturer</label>
+                      <div class="field-value">{{safe.manufacturer}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Model #</label>
+                      <div class="field-value">{{safe.model_number}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Install Date</label>
+                      <div class="field-value">{{safe.install_date}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Install Status</label>
+                      <div class="field-value">{{safe.install_status}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Connectivity</label>
+                      <div class="field-value">{{safe.connectivity}}</div>
+                    </div>
+
+                  </div><!-- END left section -->
+
+                  <!-- right section -->
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+                      <label class="field-label">Primary FLM</label>
+                      <div class="field-value">{{safe.primary_flm}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Secondary FLM</label>
+                      <div class="field-value">{{safe.secondary_flm}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Location</label>
+                      <div class="field-value">{{safe.address}}, {{safe.city}}, {{safe.state}} {{safe.zip}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Site Phone</label>
+                      <div class="field-value">{{safe.site_phone}}</div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="field-label">Time Zone</label>
+                      <div class="field-value">{{safe.time_zone}}</div>
+                    </div>
+
+                  </div><!-- END right section -->
+                </div><!-- END row -->
+              </div><!-- END detail-section -->
+
+              <div>
+                <a ng-href="{{safe.report_issue_link}}" class="btn btn-info btn-sm">
+                  <span class="fa fa-fw fa-pencil" /> Update contact info
+                </a>
+              </div>
+            </div>
+
+            <!-- Tab: Alerts -->
+            <div ng-show="safe.active_tab == 1" class="tab-alert">
+              <div class="detail-section">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Fault Code</th>
+                      <th>Message</th>
+                      <th>Status</th>
+                      <th>Created</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="alert in safe.alerts">
+                      <td><a ng-href="{{alert.link}}">{{alert.fault.code}}</a></td>
+                      <td>{{alert.message_text}}</td>
+                      <td>{{alert.processing_status}}</td>
+                      <td>{{alert.sys_created_on}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div><!-- END tab-alert -->
+
+            <!-- Tab: Cases -->
+            <div ng-show="safe.active_tab == 2" class="tab-case">
+              <div class="detail-section">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Number</th>
+                      <th>Status</th>
+                      <th>Description</th>
+                      <th>Opened</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="fault_case in safe.cases">
+                      <td><a ng-href="{{fault_case.link}}">{{fault_case.number}}</a></td>
+                      <td>{{fault_case.state}}</td>
+                      <td>{{fault_case.short_description}}</td>
+                      <td>{{fault_case.opened_at}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div ng-if="safe.cases.length >= 5" class="list-more">
+                  <a ng-href="?id=safe_reported_issues&device={{safe.sys_id}}">View all issues</a>
+                </div>
+              </div><!-- END detail-section -->
+            </div><!-- END tab-case -->
+
+          </div>
+        </div>
+      </div>
+    </div><!-- END ng-repeat -->
+
+    <div ng-show="true|| c.filtered_safes.length > 10">
+      <dir-pagination-controls max-size="c.page_size" template-url="template"></dir-pagination-controls>
+    </div>
+  </div><!-- END not-loading-container -->
+</div>]]></template>
+    </sp_widget>
+</record_update>

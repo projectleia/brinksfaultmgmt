@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Branch" max_length="40" name="x_brla_fm_branch" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Address" max_length="1000" name="address" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Branch" max_length="40" name="branch" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Branch ID" max_length="40" name="branch_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Branch name" max_length="100" name="branch_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="City" max_length="100" name="city" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Region" max_length="100" name="region" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="State" max_length="40" name="state" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Zip / Postal code" max_length="40" name="zip_postal_code" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="last_discovered" label="Most recent discovery" language="en" table="x_brla_fm_vault">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>last_discovered</element>
+            <help/>
+            <hint/>
+            <label>Most recent discovery</label>
+            <language>en</language>
+            <name>x_brla_fm_vault</name>
+            <plural>Most recent discoverys</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-26 17:26:20</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>c0861848dba98300f2f358a8dc96198d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Most recent discovery</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_documentation_x_brla_fm_vault_last_discovered_en</sys_update_name>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-26 17:26:20</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

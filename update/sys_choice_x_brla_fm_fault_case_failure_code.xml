@@ -1,0 +1,1429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="failure_code" table="x_brla_fm_fault_case" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>AC Power Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>0</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9eca1b64db250b00f2f358a8dc96190a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>20</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Armored/Messenger Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>1</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>26ca1b64db250b00f2f358a8dc96194c</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>27</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Battery Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>2</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5eca1b64db250b00f2f358a8dc961903</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>19</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Both Cassettes Full</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>3</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4ecad764db250b00f2f358a8dc9619cf</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>11</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Brink's Engineering Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>4</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6eca1b64db250b00f2f358a8dc961975</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>32</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Cables Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>5</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>96cad764db250b00f2f358a8dc9619ef</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>16</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CompuSafe® Configuration</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>6</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>93ca5b64db250b00f2f358a8dc961935</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>52</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CompuSafe® Services Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>7</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>26ca1b64db250b00f2f358a8dc96196d</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>31</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Console/Monitor Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>8</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4ecad764db250b00f2f358a8dc9619e8</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>15</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Controller Board</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>9</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ccda5b64db250b00f2f358a8dc9619ef</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>68</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Currency Room Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>10</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2aca1b64db250b00f2f358a8dc96195c</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>29</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Customer Service Center Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>11</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6eca1b64db250b00f2f358a8dc961964</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>30</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Door Assembly Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>12</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>96ca1b64db250b00f2f358a8dc961919</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>22</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Ejector Bar</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>13</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6bca5b64db250b00f2f358a8dc961982</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>59</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Ejector Motor</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>14</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5cda9b64db250b00f2f358a8dc961956</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>74</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Ejector Tab</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>15</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a3ca5b64db250b00f2f358a8dc96198e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>60</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Electronics/Computer Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>16</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9ecad764db250b00f2f358a8dc9619fc</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>18</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Email Setup/Change Request</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>17</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5cda9b64db250b00f2f358a8dc961971</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>76</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Envelope Drop Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>18</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>42cad764db250b00f2f358a8dc9619dc</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>13</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Envelope Drop Jam</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>19</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8ecad764db250b00f2f358a8dc9619d5</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>12</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>EPROM</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>20</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>84da9b64db250b00f2f358a8dc961916</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:24</sys_updated_on>
+            <value>71</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Escrow Bin (CS4K Series)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>21</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0bca1b64db250b00f2f358a8dc9619f0</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>46</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Glory Currency Counter (CS4K Series)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>22</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>47ca1b64db250b00f2f358a8dc9619d2</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>43</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Hub Clamp</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>23</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>18da9b64db250b00f2f358a8dc961949</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>73</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Installatin/Disconnect Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>24</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3aca1b64db250b00f2f358a8dc9619a2</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>37</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Installation Contractor Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>25</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>76ca1b64db250b00f2f358a8dc961999</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>36</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Left Acceptor Bill Jam</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>26</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f9cad764db250b00f2f358a8dc96199a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>01</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Left Acceptor Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>27</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4ecad764db250b00f2f358a8dc9619a3</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>03</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Left Acceptor Foreign Object Jam</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>28</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>42cad764db250b00f2f358a8dc9619ae</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>05</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Left Cassette Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>29</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4ecad764db250b00f2f358a8dc9619b8</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>07</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Left Cassette Full</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>30</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>42cad764db250b00f2f358a8dc9619c4</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>09</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Lock Bars</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>31</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f7ca5b64db250b00f2f358a8dc9619be</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>64</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Lock Linkage Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>32</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>52ca1b64db250b00f2f358a8dc961912</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>21</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Lower Door</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>33</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bbca5b64db250b00f2f358a8dc9619ca</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>65</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Lower Door Solenoid</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>34</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ffca5b64db250b00f2f358a8dc9619d6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>66</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Lower Door Switch</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>35</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b7ca5b64db250b00f2f358a8dc9619e3</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>67</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Messenger Touchkey Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>36</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2aca1b64db250b00f2f358a8dc96193c</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>25</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>MIS (Central Database) Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>37</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2aca1b64db250b00f2f358a8dc96197e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>33</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Modem/Communications Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>38</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5eca1b64db250b00f2f358a8dc961920</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>23</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Motor Position Board</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>39</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c4da9b64db250b00f2f358a8dc961909</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>70</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Obstruction</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>40</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>07ca5b64db250b00f2f358a8dc961907</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>50</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Phone Line Unplugged</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>41</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dcda9b64db250b00f2f358a8dc96198b</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>77</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Plunger Arm Assembly (CS4K Series)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>42</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>07ca1b64db250b00f2f358a8dc9619dc</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>44</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Positioning Motor</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>43</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>14da9b64db250b00f2f358a8dc961964</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>75</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Power Supply</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>44</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c4da9b64db250b00f2f358a8dc961923</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>72</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Preventative Maintenance Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>45</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>36ca1b64db250b00f2f358a8dc961990</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>35</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Printer Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>46</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86cad764db250b00f2f358a8dc9619e2</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>14</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Right Acceptor Bill Jam</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>47</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bdcad764db250b00f2f358a8dc96199e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>02</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Right Acceptor Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>48</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8ecad764db250b00f2f358a8dc9619a8</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>04</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Right Acceptor Foreign Object Jam</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>49</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86cad764db250b00f2f358a8dc9619b3</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>06</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Right Cassette Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>50</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86cad764db250b00f2f358a8dc9619be</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>08</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Right Cassette Full</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>51</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8ecad764db250b00f2f358a8dc9619c9</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>10</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Safe Activation Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>52</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7eca1b64db250b00f2f358a8dc9619ab</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>38</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sales Account Rep Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>53</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>76ca1b64db250b00f2f358a8dc961987</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>34</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sensor Board</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>54</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>88da5b64db250b00f2f358a8dc9619fc</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>69</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Site Survey Required</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>55</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:01:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e0da9b64db250b00f2f358a8dc9619a6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>78</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Slide Door Assembly (CS4K Series)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>56</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>47ca1b64db250b00f2f358a8dc9619e6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>45</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Software Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>57</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>52cad764db250b00f2f358a8dc9619f6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>17</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Store Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>58</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>66ca1b64db250b00f2f358a8dc961944</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>26</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sunlight</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>59</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5fca5b64db250b00f2f358a8dc96193f</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>53</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Technician Procedure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>60</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>66ca1b64db250b00f2f358a8dc961954</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>28</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Touchkey Receptacle (CS3K &amp; CS4K Series)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>61</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>36ca1b64db250b00f2f358a8dc9619b5</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>40</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tube Blocker</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>62</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9bca5b64db250b00f2f358a8dc961960</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>56</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tube Blocker Solenoid</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>63</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6fca5b64db250b00f2f358a8dc96196b</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>57</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tube Blocker Switch</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>64</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a3ca5b64db250b00f2f358a8dc961977</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>58</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tube Holder Assembly</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>65</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5bca5b64db250b00f2f358a8dc961955</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>55</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tubes</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>66</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9bca5b64db250b00f2f358a8dc96194a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>54</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Upper Door</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>67</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>23ca5b64db250b00f2f358a8dc96199a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>61</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Upper Door Solenoid</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>68</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e7ca5b64db250b00f2f358a8dc9619a6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>62</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Upper Door Switch</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>69</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b7ca5b64db250b00f2f358a8dc9619b2</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>63</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>USB Hub (Future Models)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>70</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0bca1b64db250b00f2f358a8dc9619c8</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>42</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Variance/Forced Correction</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>71</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5bca5b64db250b00f2f358a8dc96192a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>51</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Video Camera (CS3K Series)</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>72</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7eca1b64db250b00f2f358a8dc9619be</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>41</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>failure_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Wiring Harness Failure</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_case</name>
+            <sequence>73</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5eca1b64db250b00f2f358a8dc961934</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:10:25</sys_updated_on>
+            <value>24</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>failure_code</element>
+            <name>x_brla_fm_fault_case</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-09-28 21:00:51</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>ea2f788f13828348873c70146144b0ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>failure_code</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_fault_case_failure_code</sys_update_name>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 21:00:51</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

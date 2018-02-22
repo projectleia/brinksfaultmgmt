@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>TP13 - Nullify old fault alerts</name>
+        <run_once>true</run_once>
+        <script><![CDATA[findOldAlerts();
+
+function findOldAlerts() {
+	var count = 0;
+	gs.info('FAULT ALERT CLEANUP started.');	
+	//Query alerts that created a case
+	var faultAlert = new GlideRecord('x_brla_fm_fault_alert');
+	faultAlert.addQuery('processing_status', 'Case Created');
+	faultAlert.addNotNullQuery('case_record');
+	faultAlert.query();
+	while(faultAlert.next()) {		
+		//Get the case record
+		var faultCase = new GlideRecord('x_brla_fm_fault_case');
+		if(faultCase.get(faultAlert.case_record+'')) {
+			//Calculate hours between the time the alert was received vs. time the case was created
+			var alertTime = new GlideDateTime(faultAlert.host_timestamp+'');
+			var createdTime = new GlideDateTime(faultCase.sys_created_on+'');
+			var duration = GlideDateTime.subtract(alertTime, createdTime).getNumericValue();
+			var hours = ((duration / 1000) / 60) / 60;
+			if(hours > 12) {
+				gs.info('FAULT ALERT CLEANUP deleting ' + faultCase.number + ' due to old alert.');
+				faultAlert.processing_status = 'Case Deleted';
+				faultAlert.processing_message = 'Case ' + faultCase.number + ' deleted';
+				faultAlert.case_record = '';
+				faultAlert.setWorkflow(false);
+				faultAlert.update();
+				//Delete the case
+				faultCase.setWorkflow(false);
+				faultCase.deleteRecord();
+				count++;
+			}
+		}
+	}
+	gs.info('FAULT ALERT CLEANUP deleted ' + count + ' cases.');
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2018-02-06 22:35:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b9eb2576db889f40f2f358a8dc961958</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>TP13 - Nullify old fault alerts</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_fix_b9eb2576db889f40f2f358a8dc961958</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2018-02-07 03:37:12</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" extends="sn_customerservice_case" label="Fault Case" max_length="40" name="x_brla_fm_fault_case" sizeclass="663" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Bill Jam Code" max_length="40" name="bill_jam_code" type="string">
+            <choice>
+                <element label="Dog-Eared Bill" value="03"/>
+                <element label="Good Bill" value="01"/>
+                <element label="Limp/Worn Bill" value="02"/>
+                <element label="Paper-Clipped Bill" value="08"/>
+                <element label="Stapled Bill" value="07"/>
+                <element label="Taped Bill" value="06"/>
+                <element label="Torn Bill" value="04"/>
+                <element label="Unknown" value="10"/>
+                <element label="Wet Bill" value="05"/>
+                <element label="Wrinkled Bill" value="09"/>
+            </choice>
+        </element>
+        <element label="Branch accepted by" max_length="32" name="branch_accepted_by" reference="sys_user" type="reference"/>
+        <element label="Branch dispatched to" max_length="32" name="branch_dispatched_to" reference="x_brla_fm_branch" type="reference"/>
+        <element label="Closed on First Contact" max_length="40" name="closed_on_first_contact" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Close Code" max_length="40" name="close_code" type="string">
+            <choice>
+                <element label="Customer Phone Line" sequence="10" value="81"/>
+                <element label="CompuSafe" sequence="20" value="82"/>
+                <element label="Call Cancelled" sequence="30" value="99"/>
+            </choice>
+        </element>
+        <element label="Device" max_length="32" name="device" reference="x_brla_fm_vault" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Failure Code" max_length="40" name="failure_code" type="string">
+            <choice>
+                <element label="AC Power Failure" sequence="0" value="20"/>
+                <element label="Armored/Messenger Procedure" sequence="1" value="27"/>
+                <element label="Battery Failure" sequence="2" value="19"/>
+                <element label="Both Cassettes Full" sequence="3" value="11"/>
+                <element label="Brink's Engineering Procedure" sequence="4" value="32"/>
+                <element label="Cables Failure" sequence="5" value="16"/>
+                <element label="CompuSafe® Configuration" sequence="6" value="52"/>
+                <element label="CompuSafe® Services Procedure" sequence="7" value="31"/>
+                <element label="Console/Monitor Failure" sequence="8" value="15"/>
+                <element label="Controller Board" sequence="9" value="68"/>
+                <element label="Currency Room Procedure" sequence="10" value="29"/>
+                <element label="Customer Service Center Procedure" sequence="11" value="30"/>
+                <element label="Door Assembly Failure" sequence="12" value="22"/>
+                <element label="Ejector Bar" sequence="13" value="59"/>
+                <element label="Ejector Motor" sequence="14" value="74"/>
+                <element label="Ejector Tab" sequence="15" value="60"/>
+                <element label="Electronics/Computer Failure" sequence="16" value="18"/>
+                <element label="Email Setup/Change Request" sequence="17" value="76"/>
+                <element label="Envelope Drop Failure" sequence="18" value="13"/>
+                <element label="Envelope Drop Jam" sequence="19" value="12"/>
+                <element label="EPROM" sequence="20" value="71"/>
+                <element label="Escrow Bin (CS4K Series)" sequence="21" value="46"/>
+                <element label="Glory Currency Counter (CS4K Series)" sequence="22" value="43"/>
+                <element label="Hub Clamp" sequence="23" value="73"/>
+                <element label="Installatin/Disconnect Procedure" sequence="24" value="37"/>
+                <element label="Installation Contractor Procedure" sequence="25" value="36"/>
+                <element label="Left Acceptor Bill Jam" sequence="26" value="01"/>
+                <element label="Left Acceptor Failure" sequence="27" value="03"/>
+                <element label="Left Acceptor Foreign Object Jam" sequence="28" value="05"/>
+                <element label="Left Cassette Failure" sequence="29" value="07"/>
+                <element label="Left Cassette Full" sequence="30" value="09"/>
+                <element label="Lock Bars" sequence="31" value="64"/>
+                <element label="Lock Linkage Failure" sequence="32" value="21"/>
+                <element label="Lower Door" sequence="33" value="65"/>
+                <element label="Lower Door Solenoid" sequence="34" value="66"/>
+                <element label="Lower Door Switch" sequence="35" value="67"/>
+                <element label="Messenger Touchkey Failure" sequence="36" value="25"/>
+                <element label="MIS (Central Database) Procedure" sequence="37" value="33"/>
+                <element label="Modem/Communications Failure" sequence="38" value="23"/>
+                <element label="Motor Position Board" sequence="39" value="70"/>
+                <element label="Obstruction" sequence="40" value="50"/>
+                <element label="Phone Line Unplugged" sequence="41" value="77"/>
+                <element label="Plunger Arm Assembly (CS4K Series)" sequence="42" value="44"/>
+                <element label="Positioning Motor" sequence="43" value="75"/>
+                <element label="Power Supply" sequence="44" value="72"/>
+                <element label="Preventative Maintenance Procedure" sequence="45" value="35"/>
+                <element label="Printer Failure" sequence="46" value="14"/>
+                <element label="Right Acceptor Bill Jam" sequence="47" value="02"/>
+                <element label="Right Acceptor Failure" sequence="48" value="04"/>
+                <element label="Right Acceptor Foreign Object Jam" sequence="49" value="06"/>
+                <element label="Right Cassette Failure" sequence="50" value="08"/>
+                <element label="Right Cassette Full" sequence="51" value="10"/>
+                <element label="Safe Activation Procedure" sequence="52" value="38"/>
+                <element label="Sales Account Rep Procedure" sequence="53" value="34"/>
+                <element label="Sensor Board" sequence="54" value="69"/>
+                <element label="Site Survey Required" sequence="55" value="78"/>
+                <element label="Slide Door Assembly (CS4K Series)" sequence="56" value="45"/>
+                <element label="Software Failure" sequence="57" value="17"/>
+                <element label="Store Procedure" sequence="58" value="26"/>
+                <element label="Sunlight" sequence="59" value="53"/>
+                <element label="Technician Procedure" sequence="60" value="28"/>
+                <element label="Touchkey Receptacle (CS3K &amp; CS4K Series)" sequence="61" value="40"/>
+                <element label="Tube Blocker" sequence="62" value="56"/>
+                <element label="Tube Blocker Solenoid" sequence="63" value="57"/>
+                <element label="Tube Blocker Switch" sequence="64" value="58"/>
+                <element label="Tube Holder Assembly" sequence="65" value="55"/>
+                <element label="Tubes" sequence="66" value="54"/>
+                <element label="Upper Door" sequence="67" value="61"/>
+                <element label="Upper Door Solenoid" sequence="68" value="62"/>
+                <element label="Upper Door Switch" sequence="69" value="63"/>
+                <element label="USB Hub (Future Models)" sequence="70" value="42"/>
+                <element label="Variance/Forced Correction" sequence="71" value="51"/>
+                <element label="Video Camera (CS3K Series)" sequence="72" value="41"/>
+                <element label="Wiring Harness Failure" sequence="73" value="24"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" choice_field="primary_flm" choice_table="x_brla_fm_safe" label="FLM dispatched to" max_length="40" name="flm_dispatched_to" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="FLM external number" max_length="40" name="flm_external_number" type="string"/>
+        <element label="Non-Billable to Branch" max_length="40" name="non_billable_to_branch" type="boolean"/>
+        <element label="Non-Billable to Customer" max_length="40" name="non_billable_to_customer" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Resolution Code" max_length="40" name="resolution_code" type="string">
+            <choice>
+                <element dependent_value="26" label="Activate Safe Provide Safe Serial number" value="26"/>
+                <element dependent_value="68" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="16" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="67" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="73" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="44" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="63" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="03" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="45" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="60" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="41" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="14" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="66" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="32" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="56" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="72" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="57" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="33" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="69" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="64" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="74" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="07" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="04" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="12" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="13" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="71" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="23" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="31" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="62" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="43" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="08" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="24" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="26" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="46" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="75" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="70" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="21" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="28" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="06" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="18" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="40" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="20" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="58" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="65" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="27" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="22" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="61" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="55" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="05" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="42" label="Adjust/Repair Component (Describe in Journal)" value="13"/>
+                <element dependent_value="01" label="Armored Previously Cleared" value="06"/>
+                <element dependent_value="09" label="Armored Previously Cleared" value="06"/>
+                <element dependent_value="11" label="Armored Previously Cleared" value="06"/>
+                <element dependent_value="02" label="Armored Previously Cleared" value="06"/>
+                <element dependent_value="29" label="Armored Previously Cleared" value="06"/>
+                <element dependent_value="10" label="Armored Previously Cleared" value="06"/>
+                <element dependent_value="20" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="52" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="30" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="34" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="53" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="51" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="26" label="Assist Customer (Describe in Journal)" value="27"/>
+                <element dependent_value="52" label="Change to RS485 Configuration" value="51"/>
+                <element dependent_value="02" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="06" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="26" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="12" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="01" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="05" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="50" label="Clear Jam by Hand" value="02"/>
+                <element dependent_value="23" label="Communications" value="56"/>
+                <element dependent_value="77" label="Communications" value="56"/>
+                <element dependent_value="51" label="Customer Audit CDU" value="52"/>
+                <element dependent_value="27" label="Delivery Adjustment" value="54"/>
+                <element dependent_value="31" label="Disconnect Provide Safe Serial number" value="38"/>
+                <element dependent_value="34" label="Disconnect Provide Safe Serial number" value="38"/>
+                <element dependent_value="32" label="Disconnect Provide Safe Serial number" value="38"/>
+                <element dependent_value="37" label="Disconnect Provide Safe Serial number" value="38"/>
+                <element dependent_value="65" label="Disconnect Safe (Provide Safe Serial #)" value="38"/>
+                <element dependent_value="61" label="Disconnect Safe (Provide Safe Serial #)" value="38"/>
+                <element dependent_value="51" label="Download Files" value="19"/>
+                <element dependent_value="33" label="Download Files" value="19"/>
+                <element dependent_value="31" label="Download Files" value="19"/>
+                <element dependent_value="17" label="Download Files" value="19"/>
+                <element dependent_value="52" label="Download Files" value="19"/>
+                <element dependent_value="23" label="Download Files" value="19"/>
+                <element dependent_value="32" label="Download Files" value="19"/>
+                <element dependent_value="18" label="Drill Safe" value="14"/>
+                <element dependent_value="17" label="Drill Safe" value="14"/>
+                <element dependent_value="24" label="Drill Safe" value="14"/>
+                <element dependent_value="31" label="Drill Safe" value="14"/>
+                <element dependent_value="67" label="Drill Safe" value="14"/>
+                <element dependent_value="68" label="Drill Safe" value="14"/>
+                <element dependent_value="27" label="Drill Safe" value="14"/>
+                <element dependent_value="22" label="Drill Safe" value="14"/>
+                <element dependent_value="66" label="Drill Safe" value="14"/>
+                <element dependent_value="61" label="Drill Safe" value="14"/>
+                <element dependent_value="19" label="Drill Safe" value="14"/>
+                <element dependent_value="63" label="Drill Safe" value="14"/>
+                <element dependent_value="21" label="Drill Safe" value="14"/>
+                <element dependent_value="65" label="Drill Safe" value="14"/>
+                <element dependent_value="16" label="Drill Safe" value="14"/>
+                <element dependent_value="62" label="Drill Safe" value="14"/>
+                <element dependent_value="20" label="Drill Safe" value="14"/>
+                <element dependent_value="28" label="Drill Safe" value="14"/>
+                <element dependent_value="64" label="Drill Safe" value="14"/>
+                <element dependent_value="71" label="Drill Safe" value="14"/>
+                <element dependent_value="72" label="Drill Safe" value="14"/>
+                <element dependent_value="68" label="Electrical" value="55"/>
+                <element dependent_value="72" label="Electrical" value="55"/>
+                <element dependent_value="15" label="Electrical" value="55"/>
+                <element dependent_value="19" label="Electrical" value="55"/>
+                <element dependent_value="20" label="Electrical" value="55"/>
+                <element dependent_value="76" label="Email Setup/Change Completed" value="76"/>
+                <element dependent_value="19" label="Externally Supplied Power" value="57"/>
+                <element dependent_value="20" label="Externally Supplied Power" value="57"/>
+                <element dependent_value="15" label="Externally Supplied Power" value="57"/>
+                <element dependent_value="72" label="Externally Supplied Power" value="57"/>
+                <element dependent_value="36" label="Fix Contractor Failure (Describe in Journal)" value="36"/>
+                <element dependent_value="31" label="Fix Manf. Failure Provide Safe Serial number" value="15"/>
+                <element dependent_value="32" label="Fix Manf. Failure Provide Safe Serial number" value="15"/>
+                <element dependent_value="33" label="Fix Manf. Failure Provide Safe Serial number" value="15"/>
+                <element dependent_value="37" label="Install Provide Safe Serial number" value="37"/>
+                <element dependent_value="31" label="Install Provide Safe Serial number" value="37"/>
+                <element dependent_value="34" label="Install Provide Safe Serial number" value="37"/>
+                <element dependent_value="32" label="Install Provide Safe Serial number" value="37"/>
+                <element dependent_value="32" label="No Customer Access" value="30"/>
+                <element dependent_value="26" label="No Customer Access" value="30"/>
+                <element dependent_value="33" label="No Customer Access" value="30"/>
+                <element dependent_value="31" label="No Customer Access" value="30"/>
+                <element dependent_value="34" label="No Customer Access" value="30"/>
+                <element dependent_value="23" label="No Problem Found" value="32"/>
+                <element dependent_value="34" label="No Problem Found" value="32"/>
+                <element dependent_value="27" label="No Problem Found" value="32"/>
+                <element dependent_value="33" label="No Problem Found" value="32"/>
+                <element dependent_value="26" label="No Problem Found" value="32"/>
+                <element dependent_value="28" label="No Problem Found" value="32"/>
+                <element dependent_value="32" label="No Problem Found" value="32"/>
+                <element dependent_value="31" label="No Problem Found" value="32"/>
+                <element dependent_value="30" label="No Problem Found" value="32"/>
+                <element dependent_value="26" label="Not a CompuSafe Call" value="31"/>
+                <element dependent_value="30" label="Not a CompuSafe Call" value="31"/>
+                <element dependent_value="65" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="66" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="44" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="34" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="61" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="51" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="42" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="12" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="64" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="52" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="55" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="68" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="07" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="19" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="75" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="04" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="53" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="05" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="24" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="67" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="31" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="28" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="70" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="58" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="74" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="72" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="62" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="23" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="59" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="27" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="20" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="73" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="17" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="45" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="46" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="32" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="03" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="43" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="40" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="69" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="50" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="33" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="56" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="26" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="16" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="60" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="54" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="41" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="57" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="08" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="30" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="63" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="18" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="21" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="06" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="13" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="37" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="22" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="29" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="25" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="71" label="Other (Describe in Journal)" value="33"/>
+                <element dependent_value="77" label="Phone Line Plugged In" value="77"/>
+                <element dependent_value="20" label="Power Down/Power Up" value="01"/>
+                <element dependent_value="26" label="Power Down/Power Up" value="01"/>
+                <element dependent_value="02" label="Power Down/Power Up" value="01"/>
+                <element dependent_value="23" label="Power Down/Power Up" value="01"/>
+                <element dependent_value="01" label="Power Down/Power Up" value="01"/>
+                <element dependent_value="63" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="66" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="60" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="67" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="45" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="43" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="55" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="56" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="03" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="62" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="35" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="46" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="64" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="61" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="57" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="58" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="65" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="73" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="44" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="04" label="Preventive Maintenance (Describe in Journal)" value="35"/>
+                <element dependent_value="29" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="34" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="31" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="51" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="27" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="32" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="33" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="26" label="Print Reports (Describe in Journal)" value="29"/>
+                <element dependent_value="34" label="Provide Printer Supplies" value="26"/>
+                <element dependent_value="32" label="Reboot Software" value="17"/>
+                <element dependent_value="17" label="Reboot Software" value="17"/>
+                <element dependent_value="33" label="Reboot Software" value="17"/>
+                <element dependent_value="23" label="Reboot Software" value="17"/>
+                <element dependent_value="31" label="Reboot Software" value="17"/>
+                <element dependent_value="27" label="Reboot Software" value="17"/>
+                <element dependent_value="31" label="Reload Software" value="18"/>
+                <element dependent_value="32" label="Reload Software" value="18"/>
+                <element dependent_value="17" label="Reload Software" value="18"/>
+                <element dependent_value="52" label="Reload Software" value="18"/>
+                <element dependent_value="23" label="Reload Software" value="18"/>
+                <element dependent_value="33" label="Reload Software" value="18"/>
+                <element dependent_value="51" label="Reload Software" value="18"/>
+                <element dependent_value="27" label="Remount Cassette" value="03"/>
+                <element dependent_value="01" label="Remount Cassette" value="03"/>
+                <element dependent_value="02" label="Remount Cassette" value="03"/>
+                <element dependent_value="29" label="Remount Cassette" value="03"/>
+                <element dependent_value="29" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="09" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="01" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="11" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="27" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="02" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="10" label="Replace Cassette (Not Damaged)" value="04"/>
+                <element dependent_value="43" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="65" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="57" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="12" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="72" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="15" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="46" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="24" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="26" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="62" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="06" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="55" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="07" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="13" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="73" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="44" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="23" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="33" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="22" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="63" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="70" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="41" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="27" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="71" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="42" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="20" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="66" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="31" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="14" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="68" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="60" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="04" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="18" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="05" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="69" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="40" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="19" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="08" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="64" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="28" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="21" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="45" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="58" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="59" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="32" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="03" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="67" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="54" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="61" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="74" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="75" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="56" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="16" label="Replace Component (Abused or Damaged)" value="11"/>
+                <element dependent_value="03" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="56" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="58" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="67" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="41" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="44" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="69" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="27" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="59" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="54" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="32" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="28" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="73" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="55" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="21" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="23" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="57" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="42" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="68" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="70" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="71" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="64" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="72" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="65" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="04" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="19" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="08" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="74" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="22" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="66" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="45" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="14" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="24" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="62" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="16" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="40" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="33" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="63" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="20" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="75" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="07" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="15" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="43" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="60" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="13" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="18" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="61" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="46" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="31" label="Replace Component (Failed)" value="10"/>
+                <element dependent_value="43" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="56" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="32" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="65" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="60" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="54" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="73" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="28" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="31" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="63" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="45" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="71" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="24" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="59" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="14" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="15" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="33" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="41" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="07" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="68" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="74" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="20" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="22" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="44" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="08" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="64" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="57" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="58" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="70" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="40" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="03" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="61" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="27" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="66" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="04" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="62" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="75" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="69" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="21" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="46" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="23" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="42" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="55" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="67" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="16" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="72" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="18" label="Replace Component (Unknown Failure)" value="12"/>
+                <element dependent_value="31" label="Replace Manf. Defect Provide Safe Serial number" value="16"/>
+                <element dependent_value="32" label="Replace Manf. Defect Provide Safe Serial number" value="16"/>
+                <element dependent_value="33" label="Replace Manf. Defect Provide Safe Serial number" value="16"/>
+                <element dependent_value="01" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="09" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="27" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="11" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="10" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="02" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="29" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="25" label="Reschedule Content Removal" value="07"/>
+                <element dependent_value="59" label="Reschedule Repair" value="08"/>
+                <element dependent_value="61" label="Reschedule Repair" value="08"/>
+                <element dependent_value="74" label="Reschedule Repair" value="08"/>
+                <element dependent_value="33" label="Reschedule Repair" value="08"/>
+                <element dependent_value="41" label="Reschedule Repair" value="08"/>
+                <element dependent_value="43" label="Reschedule Repair" value="08"/>
+                <element dependent_value="45" label="Reschedule Repair" value="08"/>
+                <element dependent_value="52" label="Reschedule Repair" value="08"/>
+                <element dependent_value="50" label="Reschedule Repair" value="08"/>
+                <element dependent_value="25" label="Reschedule Repair" value="08"/>
+                <element dependent_value="31" label="Reschedule Repair" value="08"/>
+                <element dependent_value="56" label="Reschedule Repair" value="08"/>
+                <element dependent_value="01" label="Reschedule Repair" value="08"/>
+                <element dependent_value="28" label="Reschedule Repair" value="08"/>
+                <element dependent_value="32" label="Reschedule Repair" value="08"/>
+                <element dependent_value="36" label="Reschedule Repair" value="08"/>
+                <element dependent_value="19" label="Reschedule Repair" value="08"/>
+                <element dependent_value="17" label="Reschedule Repair" value="08"/>
+                <element dependent_value="23" label="Reschedule Repair" value="08"/>
+                <element dependent_value="21" label="Reschedule Repair" value="08"/>
+                <element dependent_value="55" label="Reschedule Repair" value="08"/>
+                <element dependent_value="70" label="Reschedule Repair" value="08"/>
+                <element dependent_value="72" label="Reschedule Repair" value="08"/>
+                <element dependent_value="57" label="Reschedule Repair" value="08"/>
+                <element dependent_value="27" label="Reschedule Repair" value="08"/>
+                <element dependent_value="29" label="Reschedule Repair" value="08"/>
+                <element dependent_value="13" label="Reschedule Repair" value="08"/>
+                <element dependent_value="75" label="Reschedule Repair" value="08"/>
+                <element dependent_value="08" label="Reschedule Repair" value="08"/>
+                <element dependent_value="64" label="Reschedule Repair" value="08"/>
+                <element dependent_value="18" label="Reschedule Repair" value="08"/>
+                <element dependent_value="62" label="Reschedule Repair" value="08"/>
+                <element dependent_value="15" label="Reschedule Repair" value="08"/>
+                <element dependent_value="68" label="Reschedule Repair" value="08"/>
+                <element dependent_value="69" label="Reschedule Repair" value="08"/>
+                <element dependent_value="20" label="Reschedule Repair" value="08"/>
+                <element dependent_value="66" label="Reschedule Repair" value="08"/>
+                <element dependent_value="22" label="Reschedule Repair" value="08"/>
+                <element dependent_value="24" label="Reschedule Repair" value="08"/>
+                <element dependent_value="02" label="Reschedule Repair" value="08"/>
+                <element dependent_value="06" label="Reschedule Repair" value="08"/>
+                <element dependent_value="71" label="Reschedule Repair" value="08"/>
+                <element dependent_value="53" label="Reschedule Repair" value="08"/>
+                <element dependent_value="04" label="Reschedule Repair" value="08"/>
+                <element dependent_value="58" label="Reschedule Repair" value="08"/>
+                <element dependent_value="14" label="Reschedule Repair" value="08"/>
+                <element dependent_value="40" label="Reschedule Repair" value="08"/>
+                <element dependent_value="60" label="Reschedule Repair" value="08"/>
+                <element dependent_value="73" label="Reschedule Repair" value="08"/>
+                <element dependent_value="07" label="Reschedule Repair" value="08"/>
+                <element dependent_value="12" label="Reschedule Repair" value="08"/>
+                <element dependent_value="42" label="Reschedule Repair" value="08"/>
+                <element dependent_value="65" label="Reschedule Repair" value="08"/>
+                <element dependent_value="16" label="Reschedule Repair" value="08"/>
+                <element dependent_value="44" label="Reschedule Repair" value="08"/>
+                <element dependent_value="63" label="Reschedule Repair" value="08"/>
+                <element dependent_value="46" label="Reschedule Repair" value="08"/>
+                <element dependent_value="67" label="Reschedule Repair" value="08"/>
+                <element dependent_value="51" label="Reschedule Repair" value="08"/>
+                <element dependent_value="03" label="Reschedule Repair" value="08"/>
+                <element dependent_value="05" label="Reschedule Repair" value="08"/>
+                <element dependent_value="16" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="14" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="33" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="58" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="67" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="69" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="60" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="71" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="72" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="74" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="12" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="55" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="65" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="66" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="15" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="18" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="68" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="10" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="70" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="08" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="23" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="11" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="13" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="27" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="52" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="29" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="31" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="54" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="56" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="21" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="07" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="04" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="06" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="42" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="24" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="44" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="09" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="61" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="28" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="63" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="46" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="03" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="32" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="75" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="20" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="57" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="05" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="41" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="40" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="19" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="59" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="22" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="43" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="45" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="62" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="64" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="73" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="51" label="Reschedule Replacement" value="09"/>
+                <element dependent_value="52" label="Reset CDU Configuration" value="53"/>
+                <element dependent_value="10" label="Scheduled For Content Removal" value="05"/>
+                <element dependent_value="02" label="Scheduled For Content Removal" value="05"/>
+                <element dependent_value="09" label="Scheduled For Content Removal" value="05"/>
+                <element dependent_value="11" label="Scheduled For Content Removal" value="05"/>
+                <element dependent_value="01" label="Scheduled For Content Removal" value="05"/>
+                <element dependent_value="29" label="Scheduled For Content Removal" value="05"/>
+                <element dependent_value="28" label="Security Check" value="34"/>
+                <element dependent_value="78" label="Site Survey Completed" value="78"/>
+                <element dependent_value="27" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="28" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="51" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="34" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="26" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="52" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="29" label="Train/Retrain (Describe in Journal)" value="28"/>
+                <element dependent_value="03" label="Upgrade Acceptor" value="21"/>
+                <element dependent_value="33" label="Upgrade Acceptor" value="21"/>
+                <element dependent_value="04" label="Upgrade Acceptor" value="21"/>
+                <element dependent_value="32" label="Upgrade Acceptor" value="21"/>
+                <element dependent_value="31" label="Upgrade Acceptor" value="21"/>
+                <element dependent_value="31" label="Upgrade Acceptor Chip" value="22"/>
+                <element dependent_value="33" label="Upgrade Acceptor Chip" value="22"/>
+                <element dependent_value="03" label="Upgrade Acceptor Chip" value="22"/>
+                <element dependent_value="32" label="Upgrade Acceptor Chip" value="22"/>
+                <element dependent_value="04" label="Upgrade Acceptor Chip" value="22"/>
+                <element dependent_value="08" label="Upgrade Cassette" value="23"/>
+                <element dependent_value="31" label="Upgrade Cassette" value="23"/>
+                <element dependent_value="33" label="Upgrade Cassette" value="23"/>
+                <element dependent_value="07" label="Upgrade Cassette" value="23"/>
+                <element dependent_value="32" label="Upgrade Cassette" value="23"/>
+                <element dependent_value="33" label="Upgrade Modem/Communications" value="25"/>
+                <element dependent_value="32" label="Upgrade Modem/Communications" value="25"/>
+                <element dependent_value="31" label="Upgrade Modem/Communications" value="25"/>
+                <element dependent_value="23" label="Upgrade Modem/Communications" value="25"/>
+                <element dependent_value="52" label="Upgrade Software" value="24"/>
+                <element dependent_value="33" label="Upgrade Software" value="24"/>
+                <element dependent_value="51" label="Upgrade Software" value="24"/>
+                <element dependent_value="31" label="Upgrade Software" value="24"/>
+                <element dependent_value="71" label="Upgrade Software" value="24"/>
+                <element dependent_value="17" label="Upgrade Software" value="24"/>
+                <element dependent_value="32" label="Upgrade Software" value="24"/>
+                <element dependent_value="23" label="Upgrade Software" value="24"/>
+                <element dependent_value="18" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="14" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="64" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="56" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="41" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="15" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="20" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="66" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="04" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="54" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="58" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="63" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="55" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="13" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="72" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="40" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="68" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="69" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="57" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="03" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="45" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="46" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="65" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="75" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="42" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="62" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="67" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="23" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="33" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="60" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="31" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="61" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="21" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="43" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="22" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="59" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="44" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="24" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="19" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="73" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="74" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="70" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="16" label="Upgrade/Modify Equipment" value="20"/>
+                <element dependent_value="32" label="Upgrade/Modify Equipment" value="20"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Substate" max_length="40" name="substate" type="string">
+            <choice>
+                <element label="Dispatched" sequence="0" value="Dispatched"/>
+                <element label="Acknowledged" sequence="1" value="Acknowledged"/>
+                <element label="Reported Onsite" sequence="2" value="Reported Onsite"/>
+                <element label="Reported Resolved" sequence="3" value="Reported Resolved"/>
+                <element label="Cancelled" sequence="4" value="Cancelled"/>
+                <element label="Rejected" sequence="5" value="Rejected"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Symptom Code" max_length="40" name="symptom_code" type="string">
+            <choice>
+                <element label="Bill Jam Branch Dispatch" sequence="0" value="39"/>
+                <element label="Bill Jam Diebold Dispatch" sequence="1" value="49"/>
+                <element label="Bill Test" sequence="2" value="33"/>
+                <element label="Both Sides Full" sequence="3" value="30"/>
+                <element label="Can't Open Safe Door" sequence="4" value="14"/>
+                <element label="CDU - Cannot Close Door" sequence="5" value="23"/>
+                <element label="CDU - Cannot Close Tube Blocker" sequence="6" value="25"/>
+                <element label="CDU - Cannot Open Door" sequence="7" value="22"/>
+                <element label="CDU - Dispenses More Tubes Than Requested" sequence="8" value="18"/>
+                <element label="CDU - Getting Error Messages" sequence="9" value="21"/>
+                <element label="CDU - Incorrect Reporting of Tube Levels" sequence="10" value="20"/>
+                <element label="CDU - Not Responding" sequence="11" value="26"/>
+                <element label="CDU - Tube Blocker Will Not Open" sequence="12" value="24"/>
+                <element label="CDU - Will Not Dispense Tubes" sequence="13" value="17"/>
+                <element label="CDU - Wrong Tube Ejected" sequence="14" value="19"/>
+                <element label="Cellular Issue" sequence="15" value="46"/>
+                <element label="Change Order Issue" sequence="16" value="34"/>
+                <element label="CompuSafe Check Imaging" sequence="17" value="47"/>
+                <element label="CompuSafe CSC Resolved" sequence="18" value="38"/>
+                <element label="Console beeping (intermittent beeps)" sequence="19" value="07"/>
+                <element label="Console Blank" sequence="20" value="09"/>
+                <element label="Console Not Working" sequence="21" value="06"/>
+                <element label="Console Screaming (constant tone)" sequence="22" value="08"/>
+                <element label="Door Locked Open" sequence="23" value="12"/>
+                <element label="Email Configuration" sequence="24" value="29"/>
+                <element label="Envelope Drop Not Working" sequence="25" value="04"/>
+                <element label="left side down branch dispatch" sequence="26" value="36"/>
+                <element label="Messenger Needs Assistance" sequence="27" value="13"/>
+                <element label="Messenger's Electronic Key Is Bad" sequence="28" value="15"/>
+                <element label="Modem / Communication Problem" sequence="29" value="16"/>
+                <element label="Non-Com Pending Update" sequence="30" value="55"/>
+                <element label="Printer Not Working" sequence="31" value="05"/>
+                <element label="Right side down branch dispatch" sequence="32" value="37"/>
+                <element label="Safe Activation" sequence="33" value="32"/>
+                <element label="Safe Activation Internal" sequence="34" value="35"/>
+                <element label="Site Survey Required" sequence="35" value="31"/>
+                <element label="Store Question/Problem" sequence="36" value="10"/>
+                <element label="Store Unknown" sequence="37" value="11"/>
+                <element label="Unknown / Other" sequence="38" value="27"/>
+                <element label="Vandalized Safe" sequence="39" value="50"/>
+                <element label="Won't Accept Bills Both Sides" sequence="40" value="03"/>
+                <element label="Won't Accept Bills Left Side" sequence="41" value="01"/>
+                <element label="Won't Accept Bills Right Side" sequence="42" value="02"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="branch_dispatched_to"/>
+        </index>
+        <index name="index2">
+            <element name="device"/>
+        </index>
+        <index name="index3">
+            <element name="branch_accepted_by"/>
+        </index>
+    </element>
+</database>

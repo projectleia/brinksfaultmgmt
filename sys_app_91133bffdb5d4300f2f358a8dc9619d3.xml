@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_app">
+    <sys_app action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <enforce_license>log</enforce_license>
+        <js_level>helsinki_es5</js_level>
+        <licensable>true</licensable>
+        <license_model>none</license_model>
+        <logo/>
+        <menu display_value="Fault Management">c9643bfbdb5d4300f2f358a8dc96193d</menu>
+        <name>Fault Management</name>
+        <private>false</private>
+        <restrict_table_access>false</restrict_table_access>
+        <runtime_access_tracking>permissive</runtime_access_tracking>
+        <scope>x_brla_fm</scope>
+        <scoped_administration>false</scoped_administration>
+        <short_description>Fault Management</short_description>
+        <source>x_brla_fm</source>
+        <store_correlation_id/>
+        <store_url/>
+        <sys_class_name>sys_app</sys_class_name>
+        <sys_code/>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-09-26 14:51:35</sys_created_on>
+        <sys_id>91133bffdb5d4300f2f358a8dc9619d3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>manish.admin</sys_updated_by>
+        <sys_updated_on>2018-02-22 16:37:17</sys_updated_on>
+        <template/>
+        <trackable>true</trackable>
+        <user_role display_value="x_brla_fm.user" name="x_brla_fm.user">8964bbbfdb9d4300f2f358a8dc961962</user_role>
+        <vendor/>
+        <vendor_prefix/>
+        <version>1.0.1</version>
+    </sys_app>
+</record_update>

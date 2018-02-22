@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <css/>
+        <draft>false</draft>
+        <id>safe_reported_issues</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 12:53:27</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1ec71ad6dbb5c300ac79540adc9619a5</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>safe_reported_issues</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_page_1ec71ad6dbb5c300ac79540adc9619a5</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-11-03 18:31:00</sys_updated_on>
+        <title>Reported Issues</title>
+    </sp_page>
+</record_update>

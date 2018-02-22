@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Fault Code" max_length="40" name="x_brla_fm_fault_code" type="collection">
+        <element label="Clear code" max_length="32" name="clear_code" reference="x_brla_fm_fault_code" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="100" name="description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Dispatch to" max_length="40" name="dispatch_to" type="string">
+            <choice>
+                <element label="Remote support" sequence="0" value="Remote support"/>
+                <element label="Branch" sequence="1" value="Branch"/>
+                <element label="FLM" sequence="2" value="FLM"/>
+                <element label="Auto close" sequence="3" value="Auto close"/>
+                <element label="N/A" sequence="4" value="N/A"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Fault code" max_length="40" name="fault_code" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Logic" max_length="100" name="logic" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Notes" max_length="1000" name="notes" type="string"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" hint="This code will be ignored if there is an open Fault Case for one of these related codes" label="Related codes" max_length="1024" name="related_codes" reference="x_brla_fm_fault_code" type="glide_list"/>
+        <element hint="Ignore the fault if the safe is being scheduled the next day" label="Servicing ignore" max_length="40" name="servicing_ignore" type="boolean"/>
+        <element label="Threshold" max_length="40" name="threshold" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Type" max_length="40" name="type" type="string">
+            <choice>
+                <element label="Cassette Faults by Number" sequence="0" value="Cassette Faults by Number"/>
+                <element label="Coin Acceptors" sequence="0" value="Coin Acceptors"/>
+                <element label="Coin Dispensers by Denomination" sequence="0" value="Coin Dispensers by Denomination"/>
+                <element label="Device Communication" sequence="0" value="Device Communication"/>
+                <element label="Dispenser" sequence="0" value="Dispenser"/>
+                <element label="Doors" sequence="0" value="Doors"/>
+                <element label="Note Acceptor" sequence="0" value="Note Acceptor"/>
+                <element label="Safe Content" sequence="0" value="Safe Content"/>
+                <element label="Service Record" sequence="0" value="Service Record"/>
+                <element label="Tidel Computer Status" sequence="0" value="Tidel Computer Status"/>
+                <element label="Validators" sequence="0" value="Validators"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="clear_code"/>
+        </index>
+    </element>
+</database>

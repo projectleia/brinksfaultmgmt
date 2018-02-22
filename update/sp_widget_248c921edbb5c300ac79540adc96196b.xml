@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+	var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hero-block {&#13;
+  display: block;&#13;
+  color: white;&#13;
+  text-decoration: none;&#13;
+  border: 1px solid #fff;&#13;
+  text-align: center;&#13;
+  padding: 30px 15px;&#13;
+  background-color: rgba(0, 95, 168, .9);&#13;
+  margin-bottom: 15px;&#13;
+&#13;
+  .count-circle {&#13;
+    border: 5px solid #fff;&#13;
+    border-radius: 50%;&#13;
+    height: 100px;&#13;
+    width: 100px;&#13;
+    margin-left: auto;&#13;
+    margin-right: auto;&#13;
+    font-size: 60px;&#13;
+    line-height: 90px;&#13;
+    margin-bottom: 15px;&#13;
+  }&#13;
+&#13;
+  .block-title {&#13;
+    font-size: 30px;&#13;
+  }&#13;
+&#13;
+  .block-description {&#13;
+    font-size: 20px; &#13;
+  }&#13;
+}&#13;
+&#13;
+.hero-block:hover, &#13;
+.hero-block:focus, &#13;
+.hero-block:active {&#13;
+  .block-title {&#13;
+    text-decoration: underline; &#13;
+  }&#13;
+}&#13;
+&#13;
+.block-orange {&#13;
+  background-color: #ec9422;&#13;
+}&#13;
+&#13;
+.block-green {&#13;
+  background-color: #29b88f;&#13;
+}&#13;
+&#13;
+.block-blue {&#13;
+  background-color: #0039a6;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Home main blocks</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	var userGR = new GlideRecord('sys_user');
+	userGR.get(gs.getUserID());
+	data.user_company = userGR.company + '';
+
+	data.reported_issues_count = getReportedIssuesCount();
+	data.issue_safe_count = getIssueSafeCount();
+
+	function getIssueSafeCount() {
+		var count = 0;
+		//aggregate alerts by device
+		var count_ga = new GlideAggregate('x_brla_fm_fault_alert');
+		count_ga.addQuery('device.account', data.user_company);
+		count_ga.addEncodedQuery('active_case=true');
+		count_ga.groupBy('device');
+		count_ga.query();
+		while (count_ga.next()) {
+			//counting unique safes with an active alert
+			count++;
+		}
+		return count;
+	}
+
+	function getActiveAlertCount() {
+		var count = 0;
+		var count_ga = new GlideAggregate('x_brla_fm_fault_alert');
+		count_ga.addQuery('device.account', data.user_company);
+		count_ga.addEncodedQuery('active_case=true');
+		count_ga.addAggregate('COUNT');
+		count_ga.query();
+		if (count_ga.next()) {
+			count = parseInt(count_ga.getAggregate('COUNT'));
+		}
+		return count;
+	}
+
+	function getReportedIssuesCount() {
+		var count = 0;
+		var count_gr = new GlideAggregate('x_brla_fm_fault_case');
+		count_gr.addQuery('account', data.user_company);
+		count_gr.addAggregate('COUNT');
+		count_gr.query();
+		if (count_gr.next()) {
+			count = parseInt(count_gr.getAggregate('COUNT'));
+		}
+		return count;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:14:04</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>248c921edbb5c300ac79540adc96196b</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Safe - Home main blocks</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_248c921edbb5c300ac79540adc96196b</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-20 14:44:07</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="row">
+    <div class="col-md-4">
+      <a href="?id=safe_manage_safes&safe_state=issue_reported" class="hero-block block-orange">
+        <div class="count-circle">
+          <span class="count">{{c.data.issue_safe_count}}</span>
+        </div>
+        <span class="block-title">Pending Issue Safes</span>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="?id=safe_reported_issues" class="hero-block block-green">
+        <div class="count-circle">
+          <span class="count">{{c.data.reported_issues_count}}</span>
+        </div>
+        <span class="block-title">Reported Issues</span>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="?id=safe_report_issue" class="hero-block block-blue">
+        <div class="count-circle">
+          <span class="fa fa-flag"></span>
+        </div>
+        <span class="block-title">Report an Issue</span>
+      </a>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

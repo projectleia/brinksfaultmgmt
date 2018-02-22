@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>AssignCaseToMe</action_name>
+        <active>true</active>
+        <client>false</client>
+        <comments/>
+        <condition>gs.hasRole("sn_esm_agent") &amp;&amp; current.assigned_to != gs.getUserID() &amp;&amp; !current.isNewRecord() &amp;&amp; current.state != 3 &amp;&amp; current.state != 7 &amp;&amp; current.state != 6</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_style/>
+        <hint/>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Assign to me</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[current.assigned_to = gs.getUserID();
+var gr = new GlideRecord('sys_user_grmember');
+gr.addQuery('user', gs.getUserID());
+gr.query();
+if(gr.getRowCount() == 1) {
+	while(gr.next()) {
+		current.assignment_group = gr.getValue('group');
+	}
+}
+current.update();
+action.setRedirectURL(current);]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2018-01-19 14:09:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b267bff8db3b4b00ac79540adc96194c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Assign to me</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_ui_action_b267bff8db3b4b00ac79540adc96194c</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2018-01-19 14:09:08</sys_updated_on>
+        <table>x_brla_fm_fault_case</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>true</ui16_compatible>
+    </sys_ui_action>
+</record_update>

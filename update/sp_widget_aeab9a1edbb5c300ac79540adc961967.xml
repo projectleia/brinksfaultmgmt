@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function loginCtrl($scope, $http, $window, $location, glideUserSession, glideSystemProperties, spUtil) {
+
+	var c = this;
+	c.remember_me = c.data.forgetMeDefault;
+	c.show_password = false;
+	if (typeof c.options.show_panel == 'undefined') {
+		c.options.show_panel = true;
+	}
+
+	//
+	if (!c.data.is_logged_in && c.data.multisso_enabled &&c.data.default_idp) {
+		c.server.get({
+			action: "set_sso_destination",
+			pageURI: c.data.pageURI
+		}).then(function() {
+			$window.location = "/login_with_sso.do?glide_sso_id=" + c.data.default_idp;
+		});
+	}
+
+	c.login = function(username, password) {
+
+		var url = spUtil.getURL({sysparm_type: 'view_form.login'});
+
+		// If the page isn't public then the id in the
+		// url won't match the rendered page id.
+		var pageId = $location.search().id || $scope.page.id;
+		var isLoginPage = $scope.portal.login_page_dv == pageId;
+
+		return $http({
+			method: 'post',
+			url: url,
+			data: $.param({
+				'sysparm_type': 'login',
+				'ni.nolog.user_password': true,
+				'remember_me': !!c.remember_me ? true : false,
+				'user_name': username,
+				'user_password': password,
+				'get_redirect_url': true,
+				'sysparm_goto_url': isLoginPage ? null : $location.url()
+			}),
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		}).then(function(response) {
+			if (!response.data) {
+				c.message = $scope.data.errorMsg;
+				return;
+			}
+
+			if (response.data.status == 'success') {
+				c.success = response.data.message;
+				$window.location = response.data.redirect_url;
+			} else {
+				// wrong username or password
+				c.message = response.data.message;
+				c.password = "";
+				c.username = "";
+				angular.element("#username").focus();
+			}
+
+		}, function errorCallback(response) {
+			// error
+			c.message = $scope.data.errorMsg;
+		});
+	};
+
+	c.externalLogin = function() {
+		c.server.get({
+			action: "set_sso_destination",
+			pageURI: c.data.pageURI
+		}).then(function() {
+			glideSystemProperties.set("glide.authenticate.multisso.enabled", true);
+
+			glideUserSession.getSsoRedirectUrlForUsername(c.username)
+				.then(function(url) {
+				$window.location = url;
+			}, function(err) {
+				spUtil.addErrorMessage($scope.data.errorMsg2);
+			});
+		});
+	}
+
+	c.setExternalLogin = function(newVal) {
+		c.externalLoginMode = newVal;
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.login-container {&#13;
+&#13;
+}&#13;
+&#13;
+.row &gt; div {&#13;
+  padding: 0px;&#13;
+}&#13;
+&#13;
+.left-section {&#13;
+  padding: 75px 15px 15px 15px;&#13;
+  border-right: 3px solid #fcb539;&#13;
+  height: 100vh;&#13;
+&#13;
+  .inner {&#13;
+    max-width: 480px;&#13;
+    margin: 0 auto;&#13;
+  }&#13;
+&#13;
+  .img-logo {&#13;
+    margin-bottom: 30px;     &#13;
+&#13;
+    img {&#13;
+      height: 150px;&#13;
+      margin: 0 auto;&#13;
+    }&#13;
+  }&#13;
+&#13;
+  h2 {&#13;
+    text-align: center;&#13;
+    margin-top: 0px;&#13;
+    margin-bottom: 30px;&#13;
+    font-size: 30px;&#13;
+    color: $gray;&#13;
+    font-weight: bold;&#13;
+  }&#13;
+&#13;
+  form {&#13;
+    margin-bottom: 50px; &#13;
+  }&#13;
+}&#13;
+&#13;
+.btn-submit {&#13;
+  margin-bottom: 30px; &#13;
+}&#13;
+&#13;
+.bottom-info {&#13;
+  text-align: center; &#13;
+  font-size: 12px;&#13;
+  color: $text-muted;&#13;
+}&#13;
+&#13;
+.right-section {&#13;
+  background-image: url('brinks_truck.jpg');&#13;
+  background-position: center left;&#13;
+  background-size: cover;&#13;
+  background-repeat: no-repeat;&#13;
+  height: 100vh;&#13;
+}&#13;
+&#13;
+.password-toggle {&#13;
+  float: right;&#13;
+}&#13;
+&#13;
+.remember-me {&#13;
+  text-align: center; &#13;
+}&#13;
+&#13;
+.set-login-type-link {&#13;
+  margin-top: 10px;&#13;
+  display: block;&#13;
+}&#13;
+&#13;
+.form-control,&#13;
+label[for="username"],&#13;
+label[for="password"] {&#13;
+  color: #000;&#13;
+}&#13;
+&#13;
+@media (max-width: 767px) {&#13;
+  .left-section {&#13;
+    border-right: none;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Login</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	//We don't want to set a starting page until we've begun the login process.
+	data.errorMsg = gs.getMessage("There was an error processing your request");
+	data.errorMsg2 = gs.getMessage("An error has occurred - please contact your system administrator");
+	data.passwordMsg = gs.getMessage("Password");
+	data.usernameMsg = gs.getMessage("User name");
+
+	var util = new GlideSPUtil();
+
+	if (input && input.action === "set_sso_destination") {
+		var gs_nav_to = gs.getSession().getProperty("nav_to");
+		gs.getSession().putProperty("nav_to", null);
+
+		if (!gs.getSession().getProperty("starting_page"))
+			gs.getSession().putProperty("starting_page", gs_nav_to);
+
+		return;
+	}
+
+	data.forgetMe = GlideProperties.getBoolean("glide.ui.forgetme");
+	data.forgetMeDefault = GlideProperties.getBoolean('glide.ui.remember.me.default', true);
+	data.is_logged_in = gs.getSession().isLoggedIn();
+	data.multisso_enabled = GlideProperties.getBoolean("glide.authenticate.multisso.enabled");
+	data.default_idp = GlideProperties.get("glide.authenticate.sso.redirect.idp");
+	data.pageURI = util.getPageUri();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:10:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>aeab9a1edbb5c300ac79540adc961967</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Safe - Login</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_aeab9a1edbb5c300ac79540adc961967</sys_update_name>
+        <sys_updated_by>manish.admin</sys_updated_by>
+        <sys_updated_on>2017-10-16 14:03:44</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.is_logged_in">
+  You are already logged in
+</div>
+
+<div ng-if="!data.is_logged_in" class="login-container">
+  <div class="row">
+    <div class="col-sm-6 col-lg-4">
+      <div class="left-section">
+        <div class="inner">
+          <div class="img-container img-logo">
+            <img src="brinks_shield.png" class="img-responsive" />
+          </div>
+          <form class="form-signin" ng-submit="c.login(c.username, c.password)" method="post">
+            <h2>CompuSafe Service Portal</h2>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input id="username" name="username" autocapitalize="off" ng-keypress="c.message = ''" 
+                     ng-click="c.message = ''" class="form-control input-lg" type="text" 
+                     autofocus="true" ng-model="c.username" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <a ng-click="c.show_password = !c.show_password" href="javascript:void(0)" class="password-toggle">
+                <span class="fa fa-fw icon" ng-class="c.show_password ? 'fa-eye-slash' : 'fa-eye'" />
+                <span ng-bind="c.show_password ? 'Hide' : 'Show'" class="text" />
+              </a>
+              <input id="password" name="password" ng-keypress="c.message = ''" ng-click="c.message = ''" 
+                     class="form-control input-lg" type="{{c.show_password ? 'text' : 'password'}}" ng-model="c.password" />
+            </div>
+
+            <div ng-if="c.message" class="alert alert-danger" role="alert">{{c.message}}</div>
+            <div ng-if="c.success" class="alert alert-success" role="alert">{{c.success}}</div>
+
+            <button name="login" type="submit" class="btn btn-lg btn-info btn-block btn-submit">
+              ${Log In}
+            </button>
+
+            <div ng-if="!c.data.forgetMe" class="remember-me">
+              <div class="checkbox">
+                <label>
+                  <input name="c.remember_me" ng-model="c.remember_me" checked="checked" id="remember_me" 
+                         type="checkbox" class="checkbox" value="true"/> ${Remember me}
+                </label>
+              </div>
+            </div>
+          </form>
+
+          <div class="bottom-info">
+            Copyright © 2017, <a href="https://www.brinks.com/" target="_blank">Brink's</a> | All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden-xs col-sm-6 col-lg-8">
+      <div class="right-section">
+
+      </div>
+    </div>
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

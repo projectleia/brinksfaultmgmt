@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>false</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description/>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>Update Fault Case - New</name>
+        <order>100</order>
+        <reply_email/>
+        <required_roles/>
+        <script>(function runAction(/*GlideRecord*/ current, /*GlideRecord*/ event, /*EmailWrapper*/ email, /*ScopedEmailLogger*/ logger, /*EmailClassifier*/ classifier) {&#13;
+ &#13;
+	var phone = email.origemail;&#13;
+	var msg = email.body_text;&#13;
+&#13;
+	if(!msg) { //check for attachments if body is empty&#13;
+		var email_gr = new GlideRecord('sys_email');&#13;
+		email_gr.addQuery('uid', email.uid);&#13;
+		email_gr.query();&#13;
+		if(email_gr.next()) {&#13;
+			var attachment = new GlideSysAttachment();&#13;
+        	var bytes = attachment.getBytes('sys_email', email_gr.sys_id);&#13;
+        	msg = String(Packages.java.lang.String(bytes));&#13;
+		}&#13;
+	}&#13;
+&#13;
+	var regex = new RegExp(/\d{4}/g);&#13;
+	var code = '';&#13;
+	if(msg) code = regex.exec(msg);&#13;
+gs.info('MSG: ' + msg);&#13;
+gs.info('CODE: ' + code);&#13;
+gs.info('PHONE: ' + email.origemail+'');&#13;
+	if(code != '') { //only need to do something if there is a code in their response&#13;
+&#13;
+		var msg_action = new GlideRecord('x_brla_fm_notification_case_action');&#13;
+		msg_action.addQuery('phone', 'LIKE', phone.substring(0,10)+'');&#13;
+		msg_action.addQuery('number', code);&#13;
+		msg_action.query();&#13;
+		if(msg_action.next()) {&#13;
+			//find case record&#13;
+			var case_rec = new GlideRecord('x_brla_fm_fault_case');&#13;
+			if(case_rec.get(msg_action.case_ref+'')) {&#13;
+				//validate and perform action&#13;
+				switch(msg_action.action+'') {&#13;
+					case 'Acknowledge':&#13;
+						if(case_rec.substate == 'Dispatched' &amp;&amp; case_rec.branch_accepted_by == '') {&#13;
+							//find member based on phone and case branch&#13;
+							var member = new GlideRecord('x_brla_fm_branch_team_member');&#13;
+							member.addQuery('mobile_number', phone.substring(0,10));&#13;
+							member.addQuery('branch', case_rec.branch_dispatched_to+'');&#13;
+							member.query();&#13;
+							if(member.next()) {&#13;
+								case_rec.substate = 'Acknowledged';&#13;
+								case_rec.branch_accepted_by = member.member+'';&#13;
+							}&#13;
+						} else {&#13;
+							gs.eventQueue('x_brla_fm.fault.case.branch.error', case_rec, phone, '');&#13;
+						}&#13;
+						break;&#13;
+					case 'Report Onsite':&#13;
+						if(case_rec.substate == 'Acknowledged')&#13;
+							case_rec.substate = 'Reported Onsite';&#13;
+						break;&#13;
+					case 'Report Resolved':&#13;
+						if(case_rec.substate == 'Reported Onsite')&#13;
+							case_rec.substate = 'Reported Resolved';&#13;
+						break;&#13;
+					default:&#13;
+						break;&#13;
+				}&#13;
+				case_rec.update();&#13;
+			}&#13;
+			//clear out values so code can be reused&#13;
+			msg_action.case_ref = '';&#13;
+			msg_action.phone = '';&#13;
+			msg_action.action = '';&#13;
+			msg_action.update();&#13;
+		}&#13;
+&#13;
+	}&#13;
+&#13;
+})(current, event, email, logger, classifier);</script>
+        <stop_processing>true</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2017-10-04 15:53:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>56eb09eadb658700ac79540adc9619d8</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Update Fault Case - New</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sysevent_in_email_action_56eb09eadb658700ac79540adc9619d8</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2017-10-04 17:43:04</sys_updated_on>
+        <table>x_brla_fm_fault_case</table>
+        <template/>
+        <type>new</type>
+    </sysevent_in_email_action>
+</record_update>

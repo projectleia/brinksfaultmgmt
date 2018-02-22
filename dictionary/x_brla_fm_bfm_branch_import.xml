@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="BFM Branch Import" max_length="40" name="x_brla_fm_bfm_branch_import" type="collection">
+        <element attributes="import_attribute_name=Address,edge_encryption_enabled=true" label="Address" max_length="40" name="u_address" type="string"/>
+        <element attributes="import_attribute_name=Branch ID,edge_encryption_enabled=true" label="Branch ID" max_length="40" name="u_branch_id" type="string"/>
+        <element attributes="import_attribute_name=Branch MP ID,edge_encryption_enabled=true" label="Branch MP ID" max_length="40" name="u_branch_mp_id" type="string"/>
+        <element attributes="import_attribute_name=Branch Name,edge_encryption_enabled=true" label="Branch Name" max_length="40" name="u_branch_name" type="string"/>
+        <element attributes="import_attribute_name=City,edge_encryption_enabled=true" label="City" max_length="40" name="u_city" type="string"/>
+        <element attributes="import_attribute_name=Region,edge_encryption_enabled=true" label="Region" max_length="40" name="u_region" type="string"/>
+        <element attributes="import_attribute_name=State,edge_encryption_enabled=true" label="State" max_length="40" name="u_state" type="string"/>
+        <element attributes="import_attribute_name=ZIP" label="ZIP" max_length="40" name="u_zip" type="integer"/>
+    </element>
+</database>

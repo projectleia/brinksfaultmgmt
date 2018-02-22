@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="primary_flm" table="x_brla_fm_safe" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Armor</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 20:08:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4f158e1cdbe1c700f2f358a8dc961996</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-27 20:08:04</sys_updated_on>
+            <value>Armor</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>BancSource</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>1</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 18:38:32</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e3907d9cdb61c700f2f358a8dc9619fa</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>BancSource</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Burroughs</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>2</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 18:53:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2df3f990dba1c700f2f358a8dc961965</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>Burroughs</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSS</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>3</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 20:35:23</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5b5b8254db25c700f2f358a8dc9619a6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>CSS</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Glory</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>4</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 18:49:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5433f550dba1c700f2f358a8dc96190c</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>Glory</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Hitachi</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>5</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 19:35:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>71ad7990dbe1c700f2f358a8dc9619f5</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>Hitachi</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tidel</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>6</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 18:38:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4c907d9cdb61c700f2f358a8dc961945</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>Tidel</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>primary_flm</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No Coverage</label>
+            <language>en</language>
+            <name>x_brla_fm_safe</name>
+            <sequence>7</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 19:04:32</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5096f954dba1c700f2f358a8dc9619b6</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 03:24:46</sys_updated_on>
+            <value>No Coverage</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>primary_flm</element>
+            <name>x_brla_fm_safe</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-27 18:38:18</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>c8ad384b13828348873c70146144b04b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>primary_flm</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_safe_primary_flm</sys_update_name>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-27 18:38:18</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

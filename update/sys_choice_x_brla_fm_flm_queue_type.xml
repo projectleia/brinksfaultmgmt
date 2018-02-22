@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_brla_fm_flm_queue" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Inbound</label>
+            <language>en</language>
+            <name>x_brla_fm_flm_queue</name>
+            <sequence>10</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-06 13:31:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bfa08f0fdbe50300ac79540adc9619be</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-06 13:32:15</sys_updated_on>
+            <value>inbound</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Outbound</label>
+            <language>en</language>
+            <name>x_brla_fm_flm_queue</name>
+            <sequence>20</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-06 13:32:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>87b0cf0fdbe50300ac79540adc96193b</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-06 13:32:17</sys_updated_on>
+            <value>outbound</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_brla_fm_flm_queue</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-06 13:31:49</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>766e780f13828348873c70146144b016</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_flm_queue_type</sys_update_name>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-06 13:31:49</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

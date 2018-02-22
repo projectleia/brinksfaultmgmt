@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="processing_status" table="x_brla_fm_fault_alert" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>processing_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Case Created</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_alert</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-29 11:00:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f5ea963cdbed4300ac79540adc96196d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-29 11:00:15</sys_updated_on>
+            <value>Case Created</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>processing_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Case Updated</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_alert</name>
+            <sequence>1</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-29 11:53:24</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>20176ef0db218300ac79540adc9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-29 11:53:24</sys_updated_on>
+            <value>Case Updated</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>processing_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Case Cleared</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_alert</name>
+            <sequence>2</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-29 11:00:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b9ea963cdbed4300ac79540adc96196e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-29 11:53:25</sys_updated_on>
+            <value>Case Cleared</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>processing_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Case Deleted</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_alert</name>
+            <sequence>3</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-02-06 19:15:33</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e4faa536db889f40f2f358a8dc961943</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-06 19:15:33</sys_updated_on>
+            <value>Case Deleted</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>processing_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Ignored</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_alert</name>
+            <sequence>4</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-29 11:00:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>79ea963cdbed4300ac79540adc96196f</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-06 19:15:33</sys_updated_on>
+            <value>Ignored</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>processing_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Error</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_alert</name>
+            <sequence>5</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-29 11:00:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>39ea963cdbed4300ac79540adc961970</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-06 19:15:33</sys_updated_on>
+            <value>Error</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>processing_status</element>
+            <name>x_brla_fm_fault_alert</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-29 11:00:15</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>07d713a44f14d3400f2042fd0210c71e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>processing_status</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_fault_alert_processing_status</sys_update_name>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-29 11:00:15</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

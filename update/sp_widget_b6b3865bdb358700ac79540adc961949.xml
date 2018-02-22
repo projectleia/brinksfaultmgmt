@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+	var c = this;
+	c.case_details = c.data.case_details;
+	c.safe_details = c.data.safe_details;
+	console.log(c);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.detail-container {&#13;
+  margin-left: -15px;&#13;
+  margin-right: -15px; &#13;
+}&#13;
+&#13;
+.topper {&#13;
+  padding: 15px 0px;&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+.top {&#13;
+  background-color: #0038a5;&#13;
+  color: rgba(255, 255, 255, 0.75);&#13;
+  padding: 40px 0px;&#13;
+&#13;
+  .main {&#13;
+    font-size: 36px;&#13;
+    display: flex;&#13;
+    display: -ms-flexbox;&#13;
+    -ms-flex-direction: column;&#13;
+    -ms-flex-wrap: nowrap;&#13;
+    flex-flow: column nowrap;&#13;
+    justify-content: center;&#13;
+    flex-direction: column;&#13;
+  }&#13;
+&#13;
+  .my-label {&#13;
+    font-size: 12px;&#13;
+    margin-bottom: 5px;&#13;
+  }&#13;
+}&#13;
+&#13;
+.important {&#13;
+  color: rgba(255, 255, 255, 1);&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+.case-details {&#13;
+  background-color: #fff;&#13;
+  padding: 40px 20px 40px 0px;&#13;
+&#13;
+  .title {&#13;
+    margin-bottom: 15px;&#13;
+    font-size: 20px;&#13;
+    font-weight: bold;&#13;
+  }&#13;
+&#13;
+  .form-group {&#13;
+&#13;
+    label {&#13;
+      color: #777;&#13;
+      font-size: 14px;&#13;
+    }&#13;
+&#13;
+    div {&#13;
+      color: #000;&#13;
+      font-size: 16px;&#13;
+    }&#13;
+  }&#13;
+}&#13;
+&#13;
+.safe-details {&#13;
+  background-color: #e9e9e9;&#13;
+  padding: 40px 40px;&#13;
+&#13;
+  .title {&#13;
+    margin-bottom: 20px;&#13;
+    font-size: 20px;&#13;
+    font-weight: bold;&#13;
+  }&#13;
+&#13;
+  .form-group {&#13;
+    display: flex;&#13;
+    display: -ms-flexbox;&#13;
+    -ms-flex-direction: row;&#13;
+    -ms-flex-wrap: nowrap;&#13;
+    flex-flow: row nowrap;&#13;
+&#13;
+    label {&#13;
+      color: #777;&#13;
+      font-size: 14px;&#13;
+      flex: 1 1 50%;&#13;
+      -ms-flex: 1 1 50%;&#13;
+    }&#13;
+&#13;
+    div {&#13;
+      color: #000;&#13;
+      font-size: 16px;&#13;
+      flex: 1 1 50%;&#13;
+      -ms-flex: 1 1 50%;&#13;
+    }&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>Safe - Case detail 2</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>snc_internal,snc_external</roles>
+        <script><![CDATA[(function() {
+	data.show = false;
+	data.table = $sp.getParameter('table'); //'x_brla_fm_safe';
+	data.sys_id = $sp.getParameter('sys_id') || input.sys_id || '';
+
+	if (!data.sys_id) {
+		return;
+	}
+
+	var gr = new GlideRecord(data.table);
+	if (!gr.get(data.sys_id)) {
+		//not found
+		return;
+	}
+
+	if (!gr.canRead()) {
+		//cannot read record
+		return;
+	}
+
+	var case_details = {};
+	$sp.getRecordDisplayValues(case_details, gr, 'sys_id,short_description,description,category,state,priority,device,account,channel,number,opened_at');
+	case_details.device_value = gr.device + '';
+	case_details.opened_at_value = gr.opened_at + '';
+
+	if (case_details.short_description == '') {
+		case_details.short_description = 'None';
+	}
+
+	if (case_details.description == '') {
+		case_details.description = 'None';
+	}
+
+	data.case_details = case_details;
+
+	data.has_safe = false;
+
+	data.location1 = '';
+	data.location2 = '';
+	data.location3 = '';
+	var safe_details = {};
+	if (case_details.device_value == '') {
+		//no safe specified
+
+	} else {
+		var safe_gr = new GlideRecord('x_brla_fm_safe');
+		if (safe_gr.get(case_details.device_value)) {
+			data.has_safe = true;
+			$sp.getRecordDisplayValues(safe_details, safe_gr, 'sys_id,model_number,servicing_branch,location_id,address,city,state,zip,time_zone,site_phone');
+			data.location1 = safe_details.location_id;
+			if (safe_details.address != '') {
+				data.location2 += safe_details.address;
+			}
+			if (safe_details.city != '') {
+				data.location2 += ', ' + safe_details.city;
+			}
+			if (safe_details.state != '') {
+				data.location2 += ', ' + safe_details.state;
+			}
+			if (safe_details.zip != '') {
+				data.location2 += ' ' + safe_details.zip;
+			}
+			data.location3 = safe_details.time_zone;
+		}
+	}
+
+	data.has_location = true;
+	if (data.location1 == '' && data.location2 == '' && data.location3 == '') {
+		data.has_location = false;
+	}
+
+	data.safe_details = safe_details;
+
+	data.show = true;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-19 14:18:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b6b3865bdb358700ac79540adc961949</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Safe - Case detail 2</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_widget_b6b3865bdb358700ac79540adc961949</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-12-13 16:15:46</sys_updated_on>
+        <template><![CDATA[<div class="detail-container">
+  <div class="topper">
+    <div class="container">
+      <a href="?id=safe_reported_issues"><span class="fa fa-fw fa-long-arrow-left m-r-sm" /> List of issues</a>
+    </div>
+  </div>
+  <div class="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="main">
+            <div>Your issue <span class="important">{{c.case_details.number}}</span> was <span class="important">opened.</span></div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div>
+            <div class="my-label">LOCATION</div>
+            <div ng-if="c.data.location1" class="important m-b-xs">{{c.data.location1}}</div>
+            <div ng-if="c.data.location2">{{c.data.location2}}</div>
+            <div ng-if="c.data.location3">{{c.data.location3}}</div>
+
+            <div ng-if="!c.data.has_location">None</div>
+          </div>
+        </div>
+      </div><!-- END row -->
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="case-details">
+            <div class="title">Issue details</div>
+
+            <div class="form-group">
+              <label>SHORT DESCRIPTION</label>
+              <div>{{c.case_details.short_description}}</div>
+            </div>
+
+            <div class="form-group">
+              <label>DESCRIPTION</label>
+              <div>{{c.case_details.description}}</div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="safe-details">
+            <div class="title">Safe details</div>
+            <div ng-if="!c.data.has_safe">
+              No safe associated to this issue.
+            </div>
+            <div ng-if="c.data.has_safe">
+              <div class="form-group">
+                <label>MODEL #</label>
+                <div>{{c.safe_details.model_number}}</div>
+              </div>
+
+              <div class="form-group">
+                <label>SERVICING BRANCH</label>
+                <div>{{c.safe_details.servicing_branch}}</div>
+              </div>
+
+              <div class="form-group">
+                <label>PHONE</label>
+                <div>{{c.safe_details.site_phone}}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

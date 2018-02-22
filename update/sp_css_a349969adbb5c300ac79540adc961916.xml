@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>body.touch_scroll {&#13;
+  overflow: auto; &#13;
+}&#13;
+&#13;
+.panel-title {&#13;
+  line-height: 1.14286;&#13;
+}&#13;
+&#13;
+body .padding-top {&#13;
+  padding-top: 0px;&#13;
+}&#13;
+&#13;
+/* Home lists */&#13;
+.home-list {&#13;
+&#13;
+}&#13;
+&#13;
+.home-list .title {&#13;
+  color: #333;&#13;
+  font-size: 24px;&#13;
+  margin-top: 10px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+/* END Home lists */&#13;
+&#13;
+/* Page hero  */&#13;
+.hero {&#13;
+  background-image: url('brinks_truck.jpg');&#13;
+  margin-left: -15px;&#13;
+  margin-right: -15px;&#13;
+  padding: 50px 0px;&#13;
+  background-size: cover;&#13;
+  background-position: center;&#13;
+}&#13;
+&#13;
+.hero .main-title {&#13;
+  background-color: rgba(0, 95, 168, 0.9);&#13;
+  color: #fff;&#13;
+  padding: 30px 30px;&#13;
+  border: 4px solid #fff;&#13;
+  display: inline-block;&#13;
+}&#13;
+&#13;
+.hero .main-text {&#13;
+  font-size: 42px; &#13;
+  margin: 0px;&#13;
+}&#13;
+/* END Page hero  */</css>
+        <name>safe.css</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-10-16 13:00:32</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a349969adbb5c300ac79540adc961916</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>safe.css</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sp_css_a349969adbb5c300ac79540adc961916</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-24 13:29:23</sys_updated_on>
+    </sp_css>
+</record_update>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_brla_fm.newContactAJAX</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>newContactAJAX</name>
+        <script><![CDATA[var newContactAJAX = Class.create();
+
+newContactAJAX.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	addContact: function() {
+		var userJSON = this.getParameter('sysparm_user');
+		var userObj = JSON.parse(userJSON);
+				
+		var teamGR = new GlideRecord('customer_contact');
+		teamGR.addQuery('location', userObj.site);
+		teamGR.addQuery('u_contact_role', 'Site Primary');
+		teamGR.query();
+		if(teamGR.next())
+			return 'Error: Site Primary already exists for this site. (' + teamGR.first_name.getDisplayValue() + ' ' + teamGR.last_name.getDisplayValue() + ')';
+		
+		var cRec = new GlideRecord('customer_contact');
+		cRec.initialize();
+		cRec.account = userObj.account;
+		cRec.first_name = userObj.first_name;
+		cRec.last_name = userObj.last_name;
+		cRec.title = userObj.title;
+		cRec.email = userObj.email;
+		cRec.user_name = userObj.email ? userObj.email : userObj.first_name + '.' + userObj.last_name;
+		cRec.phone = userObj.phone_number;
+		cRec.mobile_phone = userObj.mobile_phone;
+		var u_id = cRec.insert();
+		
+		return u_id;
+	},
+	
+	checkContactAccount: function() {
+		var answer = 'false';
+		var contact_id = this.getParameter('contact_id');
+		var account_id = this.getParameter('account_id');
+		
+		var contactGR = new GlideRecord('customer_contact');
+		if(contactGR.get(contact_id))
+			if(contactGR.account.toString() == account_id)
+				answer = 'true';
+		
+		return answer;
+	},
+
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>steven.admin</sys_created_by>
+        <sys_created_on>2017-10-25 16:14:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>33cbd199db4a4f00f2f358a8dc9619bd</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>newContactAJAX</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_include_33cbd199db4a4f00f2f358a8dc9619bd</sys_update_name>
+        <sys_updated_by>steven.admin</sys_updated_by>
+        <sys_updated_on>2017-10-25 18:03:04</sys_updated_on>
+    </sys_script_include>
+</record_update>

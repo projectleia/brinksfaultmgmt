@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="FM: Onetime fault codes" max_length="40" name="x_brla_fm_import_fault_codes" type="collection">
+        <element attributes="import_attribute_name=Clear Code,edge_encryption_enabled=true" label="Clear Code" max_length="40" name="u_clear_code" type="string"/>
+        <element attributes="import_attribute_name=Description,edge_encryption_enabled=true" label="Description" max_length="71" name="u_description" type="string"/>
+        <element attributes="import_attribute_name=Fault ID" label="Fault ID" max_length="40" name="u_fault_id" type="integer"/>
+        <element attributes="import_attribute_name=Logic,edge_encryption_enabled=true" label="Logic" max_length="138" name="u_logic" type="string"/>
+        <element attributes="import_attribute_name=Notes,edge_encryption_enabled=true" label="Notes" max_length="199" name="u_notes" type="string"/>
+        <element attributes="import_attribute_name=Threshold,edge_encryption_enabled=true" label="Threshold" max_length="40" name="u_threshold" type="string"/>
+        <element attributes="import_attribute_name=To Branch,edge_encryption_enabled=true" label="To Branch" max_length="40" name="u_to_branch" type="string"/>
+        <element attributes="import_attribute_name=To FLM,edge_encryption_enabled=true" label="To FLM" max_length="40" name="u_to_flm" type="string"/>
+        <element attributes="import_attribute_name=To Operations,edge_encryption_enabled=true" label="To Operations" max_length="40" name="u_to_operations" type="string"/>
+        <element attributes="import_attribute_name=Type,edge_encryption_enabled=true" label="Type" max_length="40" name="u_type" type="string"/>
+    </element>
+</database>

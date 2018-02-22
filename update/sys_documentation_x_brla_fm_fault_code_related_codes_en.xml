@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="related_codes" label="Related codes" language="en" table="x_brla_fm_fault_code">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>related_codes</element>
+            <help>This code will be ignored if there is an open Fault Case for one of these related codes</help>
+            <hint>This code will be ignored if there is an open Fault Case for one of these related codes</hint>
+            <label>Related codes</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <plural>Related codes</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2018-02-02 14:58:02</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>ada940a9db4c1f40ac79540adc961996</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>Related codes</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_documentation_x_brla_fm_fault_code_related_codes_en</sys_update_name>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2018-02-02 14:58:47</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

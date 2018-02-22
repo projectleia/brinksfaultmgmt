@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="customer_contact" version="2" view="case">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>active</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>26252e32132507c0873c70146144b09e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>user_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>ae252e32132507c0873c70146144b09e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>22252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>email</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>a2252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_sn_license_charge</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>26252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_time_user</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>a6252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_time_submitter</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>2a252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_resource_manager</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>aa252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_resource_manager.user_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>2e252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_financial_location</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>ae252e32132507c0873c70146144b09f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>cost_center</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>22252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_billing_rate</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>a2252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_billing_rate_exception</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>12</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>26252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_contractor_company</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>13</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>a6252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_labor_rate_card</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>14</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>2a252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>first_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>15</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>aa252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>last_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>16</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>2e252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>manager</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>17</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>ae252e32132507c0873c70146144b0a0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>manager.user_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>18</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>22252e32132507c0873c70146144b0a1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>location</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>19</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>a2252e32132507c0873c70146144b0a1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>location.country</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>20</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>ea252e32132507c0873c70146144b0ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>company</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>21</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>6e252e32132507c0873c70146144b0ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>department</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>22</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>ee252e32132507c0873c70146144b0ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>employee_number</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>23</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>62252e32132507c0873c70146144b0ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>last_login_time</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>24</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>e2252e32132507c0873c70146144b0ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_peoplesoft_id</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>25</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>66252e32132507c0873c70146144b0ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_domain</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>26</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>e6252e32132507c0873c70146144b0ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>ldap_server</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>27</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>6a252e32132507c0873c70146144b0ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>source</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">e6252e32132507c0873c70146144b09d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>28</position>
+            <sum>false</sum>
+            <sys_created_by>daniel</sys_created_by>
+            <sys_created_on>2017-10-05 16:52:56</sys_created_on>
+            <sys_id>ea252e32132507c0873c70146144b0ae</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>daniel</sys_updated_by>
+            <sys_updated_on>2017-10-05 16:52:56</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>customer_contact</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2018-01-11 21:52:40</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2c95d0a2db2fcb0c56ab73e1ba961968</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name/>
+            <sys_package/>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name/>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2018-01-11 21:52:40</sys_updated_on>
+            <sys_user display_value="Manish (admin)">4dbaf22b13d54b00873c70146144b08d</sys_user>
+            <view display_value="Case" name="case">624b62e7135d0b00873c70146144b0b1</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

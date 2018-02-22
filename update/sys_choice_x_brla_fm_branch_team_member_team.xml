@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="team" table="x_brla_fm_branch_team_member" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ALL</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>0</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>46dcafaedb2d8700ac79540adc9619e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:27:37</sys_updated_on>
+            <value>ALL</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>COMPSAFE AND CSafe</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>1</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3bdc23eedb2d8700ac79540adc9619b7</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>COMPSAFE AND CSafe</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>COMPSAFE AND FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>2</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4adcefaedb2d8700ac79540adc961910</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>COMPSAFE AND FLM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CompuSafe</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>3</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dadcefaedb2d8700ac79540adc961932</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>CompuSafe</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>COMPUSAFE and ECash</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>4</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5fdc23eedb2d8700ac79540adc961911</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>COMPUSAFE and ECash</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>COMPUSAFE,CSAFE and ECASH</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>5</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>72dcefaedb2d8700ac79540adc961998</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>COMPUSAFE,CSAFE and ECASH</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>COMPUSAFE,CSAFE and FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>6</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>94ec63eedb2d8700ac79540adc961928</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>COMPUSAFE,CSAFE and FLM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>COMPUSAFE,ECASH and ECASH</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>7</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fadcefaedb2d8700ac79540adc96198d</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>COMPUSAFE,ECASH and ECASH</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSafe</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>8</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f5dcafaedb2d8700ac79540adc9619ca</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>CSafe</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Csafe and Ecash</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>9</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7adcefaedb2d8700ac79540adc9619a5</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>Csafe and Ecash</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSAFE and FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>10</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3deca3eedb2d8700ac79540adc9619a4</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>CSAFE and FLM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSAFE,ECASH and FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>11</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>16dcefaedb2d8700ac79540adc961919</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>CSAFE,ECASH and FLM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ECash</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>12</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2ddc6faedb2d8700ac79540adc961956</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>ECash</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ECASH &amp; FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>13</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7ddcafaedb2d8700ac79540adc9619d0</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>ECASH &amp; FLM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>team</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>FLM</label>
+            <language>en</language>
+            <name>x_brla_fm_branch_team_member</name>
+            <sequence>14</sequence>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f5dcafaedb2d8700ac79540adc9619e1</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:47:03</sys_updated_on>
+            <value>FLM</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>team</element>
+            <name>x_brla_fm_branch_team_member</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>lexi.admin</sys_created_by>
+            <sys_created_on>2017-10-05 03:27:36</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>e66e380f13828348873c70146144b0b6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>team</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_branch_team_member_team</sys_update_name>
+            <sys_updated_by>lexi.admin</sys_updated_by>
+            <sys_updated_on>2017-10-05 03:27:36</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

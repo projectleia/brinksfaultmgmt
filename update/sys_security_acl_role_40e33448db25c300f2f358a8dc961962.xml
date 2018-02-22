@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>blake.duckworth@techport13.com</sys_created_by>
+        <sys_created_on>2017-09-26 19:34:40</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>40e33448db25c300f2f358a8dc961962</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_brla_fm_aws_sqs_event.admin</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_security_acl display_value="x_brla_fm_aws_sqs_event">c8e33448db25c300f2f358a8dc96195d</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_40e33448db25c300f2f358a8dc961962</sys_update_name>
+        <sys_updated_by>blake.duckworth@techport13.com</sys_updated_by>
+        <sys_updated_on>2017-09-26 19:34:40</sys_updated_on>
+        <sys_user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

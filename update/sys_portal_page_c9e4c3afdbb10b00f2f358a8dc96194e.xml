@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update node_type="sys_portal_page" unload_date="2018-02-22 16:44:30">
+    <sys_portal_page action="INSERT_OR_UPDATE">
+        <columns>2</columns>
+        <layout display_value="layout_overview_pps">e95954510f74120020b18fbce1050eef</layout>
+        <order/>
+        <read_roles>snc_internal</read_roles>
+        <roles/>
+        <selectable>true</selectable>
+        <sys_class_name>sys_portal_page</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2017-10-20 13:23:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c9e4c3afdbb10b00f2f358a8dc96194e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Fault Management</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_portal_page_c9e4c3afdbb10b00f2f358a8dc96194e</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2017-10-20 16:11:47</sys_updated_on>
+        <title>Fault Management</title>
+        <u_url>home.do?sysparm_userpref_homepage=c9e4c3afdbb10b00f2f358a8dc96194e</u_url>
+        <user/>
+        <view>fm_management</view>
+        <related_items_node>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>0</offset>
+                <page display_value="Fault Management">c9e4c3afdbb10b00f2f358a8dc96194e</page>
+                <summary/>
+                <sys_created_by>manish.admin</sys_created_by>
+                <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                <sys_id>220bcddb13068748873c70146144b0ab</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>manish.admin</sys_updated_by>
+                <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">220bcddb13068748873c70146144b0ab</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>2a0bcddb13068748873c70146144b0ab</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderDashboard</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">220bcddb13068748873c70146144b0ab</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>2e0bcddb13068748873c70146144b0ab</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>Fault Case Count</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">220bcddb13068748873c70146144b0ab</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>a20bcddb13068748873c70146144b0ab</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>e7cbcfe7dbf10b00f2f358a8dc96190e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">220bcddb13068748873c70146144b0ab</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>a20bcddb13068748873c70146144b0ac</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>c9e4c3afdbb10b00f2f358a8dc96194e</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone4</dropzone>
+                <offset>0</offset>
+                <page display_value="Fault Management">c9e4c3afdbb10b00f2f358a8dc96194e</page>
+                <summary/>
+                <sys_created_by>manish.admin</sys_created_by>
+                <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                <sys_id>2e0bcddb13068748873c70146144b0bd</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>manish.admin</sys_updated_by>
+                <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>220bcddb13068748873c70146144b0bf</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>list</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>260bcddb13068748873c70146144b0be</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>260bcddb13068748873c70146144b0bf</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>My Cases</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>2a0bcddb13068748873c70146144b0be</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>2e0bcddb13068748873c70146144b0be</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>aa0bcddb13068748873c70146144b0bf</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>c9e4c3afdbb10b00f2f358a8dc96194e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">2e0bcddb13068748873c70146144b0bd</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ae0bcddb13068748873c70146144b0bd</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>64ca43a7dbf10b00f2f358a8dc9619a6</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone3</dropzone>
+                <offset>0</offset>
+                <page display_value="Fault Management">c9e4c3afdbb10b00f2f358a8dc96194e</page>
+                <summary/>
+                <sys_created_by>manish.admin</sys_created_by>
+                <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                <sys_id>6a0bcddb13068748873c70146144b0bb</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>manish.admin</sys_updated_by>
+                <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>620bcddb13068748873c70146144b0bc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>620bcddb13068748873c70146144b0bd</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>Cases by Resource</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>660bcddb13068748873c70146144b0bc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>6a0bcddb13068748873c70146144b0bc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>6e0bcddb13068748873c70146144b0bc</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>bar</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e60bcddb13068748873c70146144b0bd</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>c9e4c3afdbb10b00f2f358a8dc96194e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">6a0bcddb13068748873c70146144b0bb</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ea0bcddb13068748873c70146144b0bb</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>cb6903e3dbf10b00f2f358a8dc961929</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone6</dropzone>
+                <offset>0</offset>
+                <page display_value="Fault Management">c9e4c3afdbb10b00f2f358a8dc96194e</page>
+                <summary/>
+                <sys_created_by>manish.admin</sys_created_by>
+                <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                <sys_id>a20bcddb13068748873c70146144b0c2</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>manish.admin</sys_updated_by>
+                <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>260bcddb13068748873c70146144b0c2</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>195a67abdb750b00f2f358a8dc9619a5</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>260bcddb13068748873c70146144b0c4</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>c9e4c3afdbb10b00f2f358a8dc96194e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_publish</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>a20bcddb13068748873c70146144b0c3</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>a60bcddb13068748873c70146144b0c3</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>aa0bcddb13068748873c70146144b0c2</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>aa0bcddb13068748873c70146144b0c3</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>map</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ae0bcddb13068748873c70146144b0c2</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">a20bcddb13068748873c70146144b0c2</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ae0bcddb13068748873c70146144b0c3</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>Active Dispatches</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone2</dropzone>
+                <offset>0</offset>
+                <page display_value="Fault Management">c9e4c3afdbb10b00f2f358a8dc96194e</page>
+                <summary/>
+                <sys_created_by>manish.admin</sys_created_by>
+                <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                <sys_id>e60bcddb13068748873c70146144b0ac</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>manish.admin</sys_updated_by>
+                <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>260bcddb13068748873c70146144b0bb</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>c9e4c3afdbb10b00f2f358a8dc96194e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>6a0bcddb13068748873c70146144b0ac</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>35670b23dbf10b00f2f358a8dc961953</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e20bcddb13068748873c70146144b0ad</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>media</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e20bcddb13068748873c70146144b0ae</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>preview</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_publish</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e60bcddb13068748873c70146144b0ad</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e60bcddb13068748873c70146144b0ae</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>Cases by State</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ea0bcddb13068748873c70146144b0ad</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ee0bcddb13068748873c70146144b0ac</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">e60bcddb13068748873c70146144b0ac</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ee0bcddb13068748873c70146144b0ad</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>donut</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone5</dropzone>
+                <offset>0</offset>
+                <page display_value="Fault Management">c9e4c3afdbb10b00f2f358a8dc96194e</page>
+                <summary/>
+                <sys_created_by>manish.admin</sys_created_by>
+                <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                <sys_id>ee0bcddb13068748873c70146144b0bf</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>manish.admin</sys_updated_by>
+                <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>620bcddb13068748873c70146144b0c0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>886ac7e3dbf10b00f2f358a8dc9619e1</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>6e0bcddb13068748873c70146144b0c1</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>c9e4c3afdbb10b00f2f358a8dc96194e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>report_type</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e20bcddb13068748873c70146144b0c1</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>list</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e60bcddb13068748873c70146144b0c0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>com.glide.ui.portal.RenderReport</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>e60bcddb13068748873c70146144b0c1</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>Unassigned Cases</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>help_text_window</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ea0bcddb13068748873c70146144b0c0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>report_widget_description</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>can_subscribe</name>
+                        <portal_section display_value="Created 2017-10-31 15:07:32">ee0bcddb13068748873c70146144b0bf</portal_section>
+                        <sys_created_by>manish.admin</sys_created_by>
+                        <sys_created_on>2017-10-31 20:07:32</sys_created_on>
+                        <sys_id>ee0bcddb13068748873c70146144b0c0</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>manish.admin</sys_updated_by>
+                        <sys_updated_on>2017-10-31 20:07:32</sys_updated_on>
+                        <value>true</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+        </related_items_node>
+    </sys_portal_page>
+</record_update>

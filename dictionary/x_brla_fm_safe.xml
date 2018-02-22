@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="x_brla_fm_vault" label="Safe" max_length="40" name="x_brla_fm_safe" sizeclass="16977" type="collection">
+        <element label="Account" max_length="32" name="account" reference="customer_account" type="reference"/>
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Address" max_length="100" name="address" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Add-on module 1" max_length="40" name="add_on_module_1" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Add-on module 2" max_length="40" name="add_on_module_2" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Add-on module 3" max_length="40" name="add_on_module_3" type="string"/>
+        <element label="Armored branch" max_length="32" name="armored_branch" reference="x_brla_fm_branch" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="City" max_length="40" name="city" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="CompuSafe zone" max_length="40" name="compusafe_zone" type="string">
+            <choice>
+                <element label="OTR" sequence="0" value="OTR"/>
+                <element label="RUR" sequence="1" value="RUR"/>
+                <element label="URB" sequence="2" value="URB"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Connectivity" max_length="40" name="connectivity" type="string">
+            <choice>
+                <element label="Analog (Verizon)" sequence="0" value="Analog (Verizon)"/>
+                <element label="Cellular" sequence="1" value="Cellular ()"/>
+                <element label="Cellular (Sprint)" sequence="2" value="Cellular (Sprint)"/>
+                <element label="Cellular (Verizon)" sequence="3" value="Cellular (Verizon)"/>
+                <element label="Ethernet" sequence="4" value="Ethernet"/>
+                <element label="DOES NOT COMMUNICATE" sequence="5" value="DOES NOT COMMUNICATE"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Coordinates" max_length="255" name="coordinates" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:current.sys_id;" label="Correlation id" max_length="512" name="correlation_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="County" max_length="100" name="county" type="string"/>
+        <element label="Daily credit" max_length="40" name="daily_credit" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Daily credit bank" max_length="40" name="daily_credit_bank" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Installation location" max_length="40" name="installation_location" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Latitude" max_length="40" name="latitude" type="float"/>
+        <element attributes="edge_encryption_enabled=true" label="Location ID" max_length="100" name="location_id" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Longitude" max_length="40" name="longitude" type="float"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Primary FLM" max_length="40" name="primary_flm" type="string">
+            <choice>
+                <element label="Armor" sequence="0" value="Armor"/>
+                <element label="BancSource" sequence="1" value="BancSource"/>
+                <element label="Burroughs" sequence="2" value="Burroughs"/>
+                <element label="CSS" sequence="3" value="CSS"/>
+                <element label="Glory" sequence="4" value="Glory"/>
+                <element label="Hitachi" sequence="5" value="Hitachi"/>
+                <element label="Tidel" sequence="6" value="Tidel"/>
+                <element label="No Coverage" sequence="7" value="No Coverage"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Secondary FLM" max_length="40" name="secondary_flm" type="string">
+            <choice>
+                <element label="Armor" sequence="0" value="Armor"/>
+                <element label="BancSource" sequence="1" value="BancSource"/>
+                <element label="Burroughs" sequence="2" value="Burroughs"/>
+                <element label="CSS" sequence="3" value="CSS"/>
+                <element label="Glory" sequence="4" value="Glory"/>
+                <element label="Hitachi" sequence="5" value="Hitachi"/>
+                <element label="Tidel" sequence="6" value="Tidel"/>
+                <element label="No Coverage" sequence="7" value="No Coverage"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Service cycle" max_length="40" name="service_cycle" type="string">
+            <choice>
+                <element label="0" sequence="0" value="0"/>
+                <element label="1" sequence="1" value="1"/>
+                <element label="2" sequence="2" value="2"/>
+                <element label="3" sequence="3" value="3"/>
+                <element label="4" sequence="4" value="4"/>
+                <element label="5" sequence="5" value="5"/>
+                <element label="6" sequence="6" value="6"/>
+                <element label="7" sequence="7" value="7"/>
+                <element label="Bi-Weekly" sequence="8" value="Bi-Weekly"/>
+            </choice>
+        </element>
+        <element label="Friday" max_length="40" name="service_day_friday" type="boolean"/>
+        <element label="Monday" max_length="40" name="service_day_monday" type="boolean"/>
+        <element label="Saturday" max_length="40" name="service_day_saturday" type="boolean"/>
+        <element label="Sunday" max_length="40" name="service_day_sunday" type="boolean"/>
+        <element label="Thursday" max_length="40" name="service_day_thursday" type="boolean"/>
+        <element label="Tuesday" max_length="40" name="service_day_tuesday" type="boolean"/>
+        <element label="Wednesday" max_length="40" name="service_day_wednesday" type="boolean"/>
+        <element label="Servicing branch" max_length="32" name="servicing_branch" reference="x_brla_fm_branch" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Site phone" max_length="40" name="site_phone" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="State" max_length="40" name="state" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Time Zone" max_length="40" name="time_zone" type="string">
+            <choice>
+                <element label="US/Arizona" sequence="0" value="US/Arizona"/>
+                <element label="US/Central" sequence="1" value="US/Central"/>
+                <element label="US/Eastern" sequence="2" value="US/Eastern"/>
+                <element label="US/Mountain" sequence="3" value="US/Mountain"/>
+                <element label="US/Pacific" sequence="4" value="US/Pacific"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Unit phone" max_length="40" name="unit_phone" type="string"/>
+        <element label="BDNA normalized" max_length="40" name="u_bdna_normalized" type="boolean"/>
+        <element label="Normalized manufacturer" max_length="40" name="u_normalized_manufacturer" reference="core_company" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Normalized model number" max_length="40" name="u_normalized_model_number" type="string"/>
+        <element label="Normalize set" max_length="32" name="u_normalize_set" reference="sys_import_set" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Zip" max_length="40" name="zip" type="string"/>
+        <index name="index">
+            <element name="u_normalize_set"/>
+        </index>
+        <index name="index2">
+            <element name="correlation_id"/>
+        </index>
+        <index name="index3">
+            <element name="u_normalized_manufacturer"/>
+        </index>
+    </element>
+</database>

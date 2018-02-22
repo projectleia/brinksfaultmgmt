@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_brla_fm_fault_code" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Cassette Faults by Number</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ed99aa24db294300ac79540adc9619aa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:55</sys_updated_on>
+            <value>Cassette Faults by Number</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Coin Acceptors</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7d99aa24db294300ac79540adc9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:56</sys_updated_on>
+            <value>Coin Acceptors</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Coin Dispensers by Denomination</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6199aa24db294300ac79540adc9619c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:55</sys_updated_on>
+            <value>Coin Dispensers by Denomination</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Device Communication</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4a99ea24db294300ac79540adc96190c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:57</sys_updated_on>
+            <value>Device Communication</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Dispenser</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5d99aa24db294300ac79540adc96199c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:54</sys_updated_on>
+            <value>Dispenser</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Doors</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3599aa24db294300ac79540adc9619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:56</sys_updated_on>
+            <value>Doors</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Note Acceptor</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c699aa24db294300ac79540adc9619ff</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:57</sys_updated_on>
+            <value>Note Acceptor</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Safe Content</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c299ea24db294300ac79540adc961916</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:58</sys_updated_on>
+            <value>Safe Content</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Service Record</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4699ea24db294300ac79540adc961911</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:57</sys_updated_on>
+            <value>Service Record</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Tidel Computer Status</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fd99aa24db294300ac79540adc9619f1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:56</sys_updated_on>
+            <value>Tidel Computer Status</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Validators</label>
+            <language>en</language>
+            <name>x_brla_fm_fault_code</name>
+            <sequence>0</sequence>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5e99ea24db294300ac79540adc96191b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:58</sys_updated_on>
+            <value>Validators</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_brla_fm_fault_code</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>manish.admin</sys_created_by>
+            <sys_created_on>2017-09-28 17:25:54</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>c0ad384b13828348873c70146144b021</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+            <sys_update_name>sys_choice_x_brla_fm_fault_code_type</sys_update_name>
+            <sys_updated_by>manish.admin</sys_updated_by>
+            <sys_updated_on>2017-09-28 17:25:54</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_entry">
+    <sys_transform_entry action="INSERT_OR_UPDATE">
+        <choice_action>create</choice_action>
+        <coalesce>false</coalesce>
+        <coalesce_case_sensitive>false</coalesce_case_sensitive>
+        <coalesce_empty_fields>false</coalesce_empty_fields>
+        <date_format>yyyy-MM-dd hh:mm:ss</date_format>
+        <map display_value="BFM Safe Profile Transform">a4887c18dbed8700f2f358a8dc9619de</map>
+        <reference_value_field/>
+        <source_field>[Script]</source_field>
+        <source_script>answer = (function transformEntry(source) {&#13;
+&#13;
+	var date_str = source.u_install_date;&#13;
+	&#13;
+	var regex = /[A-Za-z]{3}\s[0-9]{1,2}\s[0-9]{4}/g;&#13;
+	if(regex.test(date_str)) {&#13;
+		//Oct 25 2016&#13;
+		var components = date_str.split(' ');&#13;
+		if(components.length == 3) {&#13;
+			var month = components[0];&#13;
+			var date = components[1];&#13;
+			var year = components[2];&#13;
+			&#13;
+			var month_text = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];&#13;
+			var month_value = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];&#13;
+			&#13;
+			var found = false;&#13;
+			for(var i = 0; i &lt; month_text.length &amp;&amp; !found; i++) {&#13;
+				if(month == month_text[i]) {&#13;
+					month = month_value[i];&#13;
+					found = true;&#13;
+				}&#13;
+			}&#13;
+			&#13;
+			if(date.length == 1)&#13;
+				date = '0' + date;&#13;
+			&#13;
+			date_str = year + '-' + month + '-' + date + ' 00:00:00';&#13;
+			&#13;
+		}&#13;
+	}&#13;
+	&#13;
+	return date_str;&#13;
+&#13;
+})(source);</source_script>
+        <source_table>x_brla_fm_bfm_safe_profile_import</source_table>
+        <sys_class_name>sys_transform_entry</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-09-27 18:44:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>43d1b9dcdb61c700f2f358a8dc961983</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>[Script]</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_transform_entry_43d1b9dcdb61c700f2f358a8dc961983</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2017-09-28 03:55:16</sys_updated_on>
+        <target_field>install_date</target_field>
+        <target_table>x_brla_fm_safe</target_table>
+        <use_source_script>true</use_source_script>
+    </sys_transform_entry>
+</record_update>

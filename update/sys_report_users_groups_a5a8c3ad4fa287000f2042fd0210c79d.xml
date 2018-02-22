@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_report_users_groups">
+    <sys_report_users_groups action="INSERT_OR_UPDATE">
+        <group_id/>
+        <report_id display_value="Unassigned Cases">886ac7e3dbf10b00f2f358a8dc9619e1</report_id>
+        <sys_class_name>sys_report_users_groups</sys_class_name>
+        <sys_created_by>manish.admin</sys_created_by>
+        <sys_created_on>2017-11-20 15:18:21</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a5a8c3ad4fa287000f2042fd0210c79d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>886ac7e3dbf10b00f2f358a8dc9619e1</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_report_users_groups_a5a8c3ad4fa287000f2042fd0210c79d</sys_update_name>
+        <sys_updated_by>manish.admin</sys_updated_by>
+        <sys_updated_on>2017-11-20 15:18:21</sys_updated_on>
+        <user_id display_value="Manish (admin)">4dbaf22b13d54b00873c70146144b08d</user_id>
+    </sys_report_users_groups>
+</record_update>

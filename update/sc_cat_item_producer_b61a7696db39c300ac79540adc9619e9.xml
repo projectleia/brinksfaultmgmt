@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sc_cat_item_producer">
+    <sc_cat_item_producer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <availability>on_both</availability>
+        <billable>false</billable>
+        <can_cancel>false</can_cancel>
+        <category/>
+        <cost>0</cost>
+        <custom_cart/>
+        <delivery_plan/>
+        <delivery_plan_script/>
+        <delivery_time/>
+        <description><![CDATA[<p>Please provide the safe ID, the fault code, and any additional information regarding the problem.</p>]]></description>
+        <entitlement_script/>
+        <group/>
+        <icon/>
+        <ignore_price>true</ignore_price>
+        <image/>
+        <list_price>0</list_price>
+        <location/>
+        <meta/>
+        <mobile_hide_price>false</mobile_hide_price>
+        <mobile_picture/>
+        <mobile_picture_type>use_desktop_picture</mobile_picture_type>
+        <model/>
+        <name>Report an Issue</name>
+        <no_cart>true</no_cart>
+        <no_order>false</no_order>
+        <no_order_now>false</no_order_now>
+        <no_proceed_checkout>false</no_proceed_checkout>
+        <no_quantity>true</no_quantity>
+        <no_search>false</no_search>
+        <omit_price>true</omit_price>
+        <order>0</order>
+        <ordered_item_link/>
+        <picture/>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=b61a7696db39c300ac79540adc9619e9&amp;sysparm_preview=true", "summary");</preview>
+        <price>0</price>
+        <recurring_frequency/>
+        <recurring_price>0</recurring_price>
+        <redirect_url>generated_record</redirect_url>
+        <roles>snc_internal,snc_external</roles>
+        <sc_catalogs/>
+        <sc_ic_item_staging/>
+        <sc_ic_version/>
+        <script><![CDATA[var userGR = new GlideRecord('sys_user');
+userGR.get(gs.getUserID());
+var user_company = userGR.company + '';
+current.account = user_company;
+current.device = producer.device;
+current.short_description = producer.short_description;
+var description = producer.description;
+description += '\r\n' + producer.contact_info;
+current.description = description;]]></script>
+        <short_description>Use this form to report a fault or issue with a safe.</short_description>
+        <show_variable_help_on_load>false</show_variable_help_on_load>
+        <start_closed>false</start_closed>
+        <sys_class_name>sc_cat_item_producer</sys_class_name>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-16 15:24:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b61a7696db39c300ac79540adc9619e9</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Report an Issue</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sc_cat_item_producer_b61a7696db39c300ac79540adc9619e9</sys_update_name>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-11-03 18:40:38</sys_updated_on>
+        <table_name>x_brla_fm_fault_case</table_name>
+        <template/>
+        <type>item</type>
+        <u_business_service/>
+        <u_company/>
+        <u_service_desk>NA</u_service_desk>
+        <u_service_offering/>
+        <u_sla_to_use/>
+        <use_sc_layout>true</use_sc_layout>
+        <vendor/>
+        <view/>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <workflow/>
+    </sc_cat_item_producer>
+    <sys_translated_text action="delete_multiple" query="documentkey=b61a7696db39c300ac79540adc9619e9"/>
+    <fx_price action="delete_multiple" query="id=b61a7696db39c300ac79540adc9619e9"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price</field>
+        <id>b61a7696db39c300ac79540adc9619e9</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-16 15:24:15</sys_created_on>
+        <sys_id>625afe56db39c300ac79540adc961931</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-16 15:24:15</sys_updated_on>
+        <table>sc_cat_item_producer</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>recurring_price</field>
+        <id>b61a7696db39c300ac79540adc9619e9</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>stephen.admin</sys_created_by>
+        <sys_created_on>2017-10-16 15:24:15</sys_created_on>
+        <sys_id>ae5a76d6db39c300ac79540adc9619a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>stephen.admin</sys_updated_by>
+        <sys_updated_on>2017-10-16 15:24:15</sys_updated_on>
+        <table>sc_cat_item_producer</table>
+        <type>calculated</type>
+    </fx_price>
+</record_update>

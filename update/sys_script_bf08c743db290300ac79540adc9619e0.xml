@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_brla_fm_flm_queue</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_brla_fm_flm_queue">type=inbound^statusCHANGESTOreceived^EQ<item endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="inbound"/>
+            <item endquery="false" field="status" goto="false" newquery="false" operator="CHANGESTO" or="false" value="received"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>New inbound event</name>
+        <onclick/>
+        <order>300</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	/**
+	load_values[0] = Ticket number
+	load_values[1] = Transaction type (03, 98, 99)
+	load_values[2] = Safe ID
+	load_values[4] = Customer ID (FLM)
+	load_values[5] = Vendor Ticket ID
+	load_values[6] = Date acknowledged
+	load_values[10] = Date reported onsite
+	load_values[12] = Date reported resolved
+	load_values[13] = Time reported resolved
+	load_values[14] = Brinks solution code
+	load_values[15] = Vendors solution code
+	load_values[16] = Closing solution description
+	load_values[17] = CompuSafe failure code
+	load_values[18] = CompuSafe resolution code
+	load_values[19] = CompuSafe bill jam code
+	load_values[20] = Billable (Y/N)
+	*/
+
+	var load_fields_length = 21;
+	var payload = current.payload+'';
+	var load_values = payload.split("|");
+	var error_message = '', status_message = '';
+
+	if(load_values[1] && load_values[1] == '12') {
+
+		current.case_number = load_values[0];
+
+		//find case by ticket number
+		var case_rec = new GlideRecord('x_brla_fm_fault_case');
+		case_rec.addQuery('number', load_values[0]);
+		case_rec.query();
+		if(case_rec.next()) {
+
+			current.case_ref = case_rec.sys_id+'';
+
+			if(current.flm) case_rec.flm_dispatched_to = current.flm;
+			if(load_values[5]) case_rec.flm_external_number = load_values[5];
+
+			if(load_values[6]) case_rec.work_notes = 'WORK NOTES UPDATE\n' + load_values[6];
+
+			case_rec.update();
+			current.status = 'processed';
+		} else {
+			error_message = 'Associated record not found: ' + current.case_number;
+		}
+	}
+	else if(load_values[1] && load_values[1] == '13') {
+		current.case_number = load_values[0];
+
+		//find case by ticket number
+		var case_rec = new GlideRecord('x_brla_fm_fault_case');
+		case_rec.addQuery('number', load_values[0]);
+		case_rec.query();
+		if(case_rec.next()) {
+
+			current.case_ref = case_rec.sys_id+'';
+
+			if(current.flm) case_rec.flm_dispatched_to = current.flm;
+			if(load_values[5]) case_rec.flm_external_number = load_values[5];
+
+			var notes = '';
+			if(load_values[6]) notes = 'Part sequence number: ' + load_values[6];
+			if(load_values[7]) notes += '\nPart number: ' + load_values[7];
+			if(load_values[8]) notes += '\nPart description: ' + load_values[8];
+			if(load_values[9]) notes += '\nPart quantity used: ' + load_values[9];
+			if(notes != '') {
+				notes = 'VENDOR PARTS UPDATE\n' + notes;
+				case_rec.work_notes = notes;
+			}
+
+			case_rec.update();
+			current.status = 'processed';
+		} else {
+			error_message = 'Associated record not found: ' + current.case_number;
+		}
+	}
+	else if(load_values.length >= load_fields_length) {
+
+		/*var customer_id = '';
+		switch(load_values[4]+'') {
+			case 'TIDS':
+				customer_id = 'Tidel';
+				break;
+			case 'BURS':
+				customer_id = 'Burroughs';
+				break;
+			case 'ARMS':
+				customer_id = 'Armor';
+				break;
+			case '907S':
+				customer_id = 'BancSource';
+				break;
+			case 'CSS':
+				break;
+			case 'Glory':
+				break;
+			case 'Hitachi':
+				break;
+			default:
+				break;
+		}
+
+		current.flm = customer_id;*/
+
+		if(load_values[0] != '') {
+
+			current.case_number = load_values[0];
+
+			//find case by ticket number
+			var case_rec = new GlideRecord('x_brla_fm_fault_case');
+			case_rec.addQuery('number', load_values[0]);
+			case_rec.query();
+			if(case_rec.next()) {
+
+				current.case_ref = case_rec.sys_id+'';
+				var wn = '';
+
+				if(current.flm) case_rec.flm_dispatched_to = current.flm;
+				if(load_values[5]) case_rec.flm_external_number = load_values[5];
+
+				var journal = case_rec.comments.getJournalEntry(-1);
+				var date = '', time = '';
+				var date_okay = true;
+
+				//Vendor's Acknowledgement
+				if(load_values[6] && load_values[7] && case_rec.substate != 'Reported Onsite' && case_rec.substate != 'Reported Resolved') {
+					date = load_values[6];
+					time = load_values[7];
+					date_okay = true;
+
+					if(date.length == 6) date = date.substring(0,2) + '-' + date.substring(2,4) + '-20' + date.substring(4);
+					else date_okay = false;
+					if(time.length == 4) time = time.substring(0,2) + ':' + time.substring(2) + ':00';
+					else date_okay = false;
+					if(date_okay && journal.indexOf('Vendor acknowledged at ' + date + ' ' + time) == -1)
+						wn = 'Vendor acknowledged at ' + date + ' ' + time;
+					case_rec.substate = 'Acknowledged';
+				}
+
+				//Vendor's ETA
+				if(load_values[8] && load_values[9] && case_rec.substate != 'Reported Resolved') {
+					date = load_values[8];
+					time = load_values[9];
+					date_okay = true;
+					gs.info('FLM: ' + date + ' ' + time);
+					if(date.length == 6) date = date.substring(0,2) + '-' + date.substring(2,4) + '-20' + date.substring(4);
+					else date_okay = false;
+					if(time.length == 4) time = time.substring(0,2) + ':' + time.substring(2) + ':00';
+					else date_okay = false;
+					if(date_okay && journal.indexOf('Vendor ETA: ' + date + ' ' + time) == -1)
+						wn = 'Vendor ETA: ' + date + ' ' + time;
+				}
+
+				//Vendor's Arrival
+				if(load_values[10] && load_values[11] && case_rec.substate != 'Reported Resolved') {
+					date = load_values[10];
+					time = load_values[11];
+					date_okay = true;
+
+					if(date.length == 6) date = date.substring(0,2) + '-' + date.substring(2,4) + '-20' + date.substring(4);
+					else date_okay = false;
+					if(time.length == 4) time = time.substring(0,2) + ':' + time.substring(2) + ':00';
+					else date_okay = false;
+
+					if(date_okay && journal.indexOf('Vendor arrived onsite at ' + date + ' ' + time) == -1)
+						wn = 'Vendor arrived onsite at ' + date + ' ' + time;
+					case_rec.substate = 'Reported Onsite';
+				}
+
+				//Vendor's closure
+				if(load_values[12] && load_values[13]) {
+					date = load_values[12];
+					time = load_values[13];
+					date_okay = true;
+
+					if(date.length == 6) date = date.substring(0,2) + '-' + date.substring(2,4) + '-20' + date.substring(4);
+					else date_okay = false;
+					if(time.length == 4) time = time.substring(0,2) + ':' + time.substring(2) + ':00';
+					else date_okay = false;
+					if(date_okay && journal.indexOf('Vendor reported case resolved at ' + date + ' ' + time) == -1)
+						wn = 'Vendor reported case resolved at ' + date + ' ' + time;
+					case_rec.substate = 'Reported Resolved';
+					//case_rec.state = 7;
+				}
+
+				if(wn != '') case_rec.comments = wn;
+
+				if(load_values[14]) case_rec.close_code = load_values[14];
+
+				var closeNotes = case_rec.close_notes+'';
+				if(closeNotes != '') closeNotes += '\n';
+				if(load_values[15] && closeNotes.indexOf('Vendor solution code: ' + load_values[15]) == -1) closeNotes += 'Vendor solution code: ' + load_values[15];
+				case_rec.close_notes = closeNotes;
+
+				if(load_values[16] && case_rec.work_notes.getJournalEntry(-1).indexOf(load_values[16]) == -1) 
+					case_rec.work_notes = load_values[16];
+
+				if(load_values[17]) case_rec.failure_code = load_values[17];
+				if(load_values[18]) case_rec.resolution_code = load_values[18];
+				if(load_values[19]) case_rec.bill_jam_code = load_values[19];
+
+				if(load_values[20] == 'N') case_rec.non_billable_to_customer = true;
+
+				if(load_values[1] == '98' || load_values[1] == '99') case_rec.state = 7; //Cancelled or Rejected
+				else if(case_rec.active && case_rec.state !=6 && case_rec.state !=3 && case_rec.state !=7) case_rec.state = 17;
+
+				case_rec.update();
+				current.status = 'processed';
+
+			} else {
+				error_message = 'Associated record not found: ' + current.case_number;
+			}
+		} else {
+			error_message = 'No ticket number given; could not complete transaction.';
+		}
+	} else {
+		error_message = 'Unexpected payload parameters: ' + load_values.length + ' found, but ' + load_fields_length + ' expected.';
+	}
+
+	if(error_message) current.status = 'error';
+	current.error_status = status_message || error_message;
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>lexi.admin</sys_created_by>
+        <sys_created_on>2017-10-06 14:23:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bf08c743db290300ac79540adc9619e0</sys_id>
+        <sys_mod_count>54</sys_mod_count>
+        <sys_name>New inbound event</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_script_bf08c743db290300ac79540adc9619e0</sys_update_name>
+        <sys_updated_by>lexi.admin</sys_updated_by>
+        <sys_updated_on>2018-02-07 03:45:53</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+</record_update>

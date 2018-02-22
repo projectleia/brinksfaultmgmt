@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_index">
+    <sys_index action="INSERT_OR_UPDATE">
+        <col_name_string>name</col_name_string>
+        <index_col_name element="name" name="x_brla_fm_carrier">d25e4b3ddb610700ac79540adc9619b4</index_col_name>
+        <logical_table_name>x_brla_fm_carrier</logical_table_name>
+        <sys_class_name>sys_index</sys_class_name>
+        <sys_created_by>fenil.admin</sys_created_by>
+        <sys_created_on>2017-12-27 15:40:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1f90f169db138f00ac79540adc961985</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_brla_fm_carrier</sys_name>
+        <sys_package display_value="Fault Management" source="x_brla_fm">91133bffdb5d4300f2f358a8dc9619d3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Fault Management">91133bffdb5d4300f2f358a8dc9619d3</sys_scope>
+        <sys_update_name>sys_index_x_brla_fm_carrier_name</sys_update_name>
+        <sys_updated_by>fenil.admin</sys_updated_by>
+        <sys_updated_on>2017-12-27 15:40:49</sys_updated_on>
+        <table display_value="Carrier" name="x_brla_fm_carrier">c17c8bf5db610700ac79540adc961956</table>
+        <unique_index>false</unique_index>
+    </sys_index>
+</record_update>
